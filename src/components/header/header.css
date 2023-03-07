@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+header {
+    width: 100vw;
+    height: 70px;
+    background-color: #292929;
+    position: fixed;
+    color: white;
+    display: flex;
+    align-items: center;
+    top: 0;
+    z-index: 1;
+}
+.title {
+    margin-left: 5%;
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+.menu {
+    position: absolute;
+    right: 10%;
+    font-size: 25px;
+}
+.menu span {
+    margin-right: 15px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+}
+.menu a.active, .title a.active {
+    color: rgb(71, 71, 255);
+}

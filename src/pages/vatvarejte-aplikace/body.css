@@ -1,0 +1,76 @@
+.bodyv {
+    width: auto;
+    margin-top: 70px;
+}
+.bodyv a {
+    color: blue;
+}
+.bodyv .intro {
+    height: calc(100vh - 70px);
+    width: 100%;
+}
+.bodyv .intro .image {
+    background-image: url("/images/code-background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+}
+.bodyv .intro .content {
+    position: absolute;
+    top: 70px;
+    height: calc(100vh - 70px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.bodyv .intro .content h1 {
+    text-align: center;
+    font-size: 60px;
+    color: black;
+}
+.bodyv .intro .content p {
+    text-align: center;
+    font-size: 30px;
+}
+
+.bodyv .jakvytvorim {
+    height: auto;
+    width: 100%;
+    padding: 40px;
+}
+.bodyv .jakvytvorim h1 {
+    margin-left: 20%;
+    font-size: 40px;
+    font-family: 'Open Sans', sans-serif;
+}
+.bodyv .jakvytvorim p {
+    margin-left: 20%;
+    margin-top: 20px;
+    font-size: 20px;
+    width: 60%;
+    line-height: 1.4;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bodyv .kde {
+    height: auto;
+    width: 100%;
+    padding: 40px;
+}
+.bodyv .kde h1 {
+    margin-left: 20%;
+    font-size: 40px;
+    font-family: 'Open Sans', sans-serif;
+}
+.bodyv .kde p {
+    margin-left: 20%;
+    margin-top: 20px;
+    font-size: 20px;
+    width: 60%;
+    line-height: 1.4;
+    font-family: 'Montserrat', sans-serif;
+}

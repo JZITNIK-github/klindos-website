@@ -1,0 +1,150 @@
+code {
+    padding: 20px!important;
+    display: block;
+}
+.bodyd {
+    width: 100%;
+    height: auto;
+    margin-top: 70px;
+}
+.bodyd .intro {
+    width: 100%;
+    height: 500px;
+}
+.bodyd .intro .image {
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/intro-background.png");
+    background-position: 50% 50%;
+    background-size: cover;
+    background-color:rgba(0, 0, 0, 0.5);
+    background-repeat: no-repeat;
+    opacity: 0.5;
+}
+.bodyd .intro .content {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    flex-direction: column;
+}
+.bodyd .intro .content h1 {
+    font-size: 50px;
+    font-family: 'Open Sans', sans-serif;
+}
+.bodyd .intro .content p {
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 20px;
+}
+.bodyd .client {
+    width: 100%;
+    height: auto;
+    padding: 35px;
+    text-align: center;
+}
+.bodyd .client h1 {
+    font-size: 50px;
+}
+.bodyd .client p {
+    font-size: 30px;
+    margin-top: 10px;
+}
+.bodyd .client .span {
+    font-size: 20px;
+    margin-top: 10px;
+    display: block;
+}
+.bodyd .client .buttons {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+.bodyd .client .buttons .button {
+    height: 55px;
+    width: 120px;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #40b0bf;
+    border-color: #40b0bf;
+    color: #ffffff;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+    border-radius: 4px;
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+}
+.bodyd .server {
+    width: 100%;
+    height: auto;
+    padding: 35px;
+}
+.bodyd .server h1 {
+    font-size: 50px;
+    text-align: center;
+}
+.bodyd .server > p {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+.bodyd .server .box {
+    width: 60%;
+    height: auto;
+    margin-left: 20%;
+    margin-top: 20px;
+}
+.bodyd .server .box h2{
+    font-size: 40px;
+    font-family: 'Jost', sans-serif;
+}
+.bodyd .server .box p{
+    font-size: 25px;
+    margin-top: 10px;
+    font-family: 'Jost', sans-serif;
+}
+.bodyd .server .box h3 {
+    font-size: 30px;
+    margin-top: 35px;
+    font-family: 'Jost', sans-serif;
+}
+.bodyd .server .box .popisad {
+    margin-top: 30px;
+    font-size: 20px;
+}
+.bodyd .server .box code.dva {
+    margin-top: 10px;
+    padding: 5px!important;
+    padding-left: 15px!important;
+}
+.bodyd .server .box .popisad a {
+    color: blue;
+}
+.bodyd .server .buttons {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+.bodyd .server .buttons .button {
+    height: 55px;
+    padding: 10px;
+    min-width: 120px;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #40b0bf;
+    border-color: #40b0bf;
+    color: #ffffff;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+    border-radius: 4px;
+    font-family: 'Jost', sans-serif;
+    font-size: 20px;
+}
