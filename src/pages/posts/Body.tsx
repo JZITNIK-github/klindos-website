@@ -31,7 +31,7 @@ function Body() {
                 return (
                     <div className="post" { ...variableAttribute}>
                         <h1>{element[1]}</h1>
-                        <p>{element[2]?.toString().replace(/<[^>]+>/g, '')}</p>
+                        <p>{element[2]?.toString().replace(/<[^>]+>/g,'').split(" ", 100).join(" ")+"..."}</p>
                     </div>
                 )
             })
