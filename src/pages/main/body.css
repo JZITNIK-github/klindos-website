@@ -199,7 +199,9 @@
     line-height: 1.5;
     width: 50%;
 }
-
+.nejakachyba a {
+    color: blue;
+}
 .body .vytvarejte {
     height: auto;
     width: 100%;

@@ -24,7 +24,7 @@ function Body() {
             <section className="nejakachyba">
                 <h1>Nějaká chybka?</h1>
                 <p>
-                    Chyby opravujeme rychle! Nahlašte chybu na <a href="http://report.klind-os.ml">report.klind-os.ml</a>
+                    Chyby opravujeme rychle! Nahlašte chybu na <a href="http://report.klind-os.ml">report.klind-os.ml</a>.
                 </p>
             </section>
             <section className="opensource">
