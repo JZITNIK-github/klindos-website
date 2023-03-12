@@ -11,6 +11,11 @@ function Body() {
                     <p>Pouze pár kroků, a dostanete se do KLIND OS!</p>
                 </div>
             </div>
+            <div className="verejnyserver">
+                <h1>Veřejný server</h1>
+                <p>Na KLIND OS se můžete jednoduše připojit na této adrese: <a href="https://klind-os-demo-server.onrender.com/">klind-os-demo-server.onrender.com</a></p>
+                
+            </div>
             <div className="client">
                 <h1>Client</h1>
                 <p>Stáhněte si program aby jste mohli otevřít KLIND OS v aplikaci.<br />Samozřejmě to jde i v prohlížeči</p>
