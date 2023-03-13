@@ -36,7 +36,7 @@ function Body() {
                     <p className="popisad">Aktualizovat Raspberry Pi</p>
                     <code className="language-sh">sudo apt update && sudo apt upgrade -y</code>
                     <p className="popisad">Nainstalovat KLIND OS</p>
-                    <code className="language-sh">sudo wget http://jzitnik-cloud.ml/klindos/klindos-install.sh && sudo bash klindos-install.sh && sudo rm klindos-install.sh</code>
+                    <code className="language-sh">sudo wget https://klindos.jzitnik.is-a.dev/rpi-install/scripts/klindos-install.sh && sudo bash klindos-install.sh && sudo rm klindos-install.sh</code>
                     <p className="popisad">Vyberte že chcete nainstalovat KLIND OS</p>
                     <code className="language-text">Chcete opravdu nainstalovat KLIND OS server (verze) na toto zařízení? y/N</code>
                     <code className="language-text dva">y</code>
@@ -45,7 +45,7 @@ function Body() {
                     <h3>Ostatní zařízení</h3>
                     <p>Toto je složitější instalace. Stáhne se Vám .zip soubor ve kterém jsou všechny soubory z KLIND OS. Jednoduše si soubory nahrajte na jakýkoliv http server. PHP není potřeba!</p>
                     <div className="buttons">
-                        <a href="http://jzitnik-cloud.ml/klindos/last.zip"><div className="button">Stáhnout nejnovější</div></a>
+                        <a href="https://github.com/JZITNIK-github/KLIND-OS-Demo-Server"><div className="button">Stáhnout nejnovější</div></a>
                         <a href="https://e1.pcloud.link/publink/show?code=kZjF4pZiu3upXqC6zmb5xT0Mn5qiFY9NAqy" target={"_blank"}><div className="button">Ostatní verze</div></a>
                     </div>
                 </div>
