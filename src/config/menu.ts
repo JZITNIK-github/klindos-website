@@ -1,4 +1,4 @@
-const MenuItems: Array<any> = [
+const MenuItems: Array<Array<string>> = [
     ["Stáhnout", "/download"],
     ["Vytváření aplikací", "/vytvarejte-aplikace" ],
     ["Blog", "/posts"]
