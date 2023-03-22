@@ -21,8 +21,8 @@ function Body() {
                 <p>Stáhněte si program aby jste mohli otevřít KLIND OS v aplikaci.<br />Samozřejmě to jde i v prohlížeči</p>
                 <span className="span">(toto stažení používá speciální cloud který nemusí vždy fungovat)</span>
                 <div className="buttons">
-                    <a href="http://download.serverklindos.ml/client/windows.zip"><div className="button">Windows</div></a>
-                    <a href="http://download.serverklindos.ml/client/linux.zip"><div className="button">Linux</div></a>
+                    <a href="https://github.com/JZITNIK-github/KLIND-OS/raw/main/Client/windows.zip" download="KLINDOS-client.zip"><div className="button">Windows</div></a>
+                    <a href="https://github.com/JZITNIK-github/KLIND-OS/raw/main/Client/linux.zip" download="KLINDOS-client.zip"><div className="button">Linux</div></a>
                 </div>
             </div>
             <div className="server">
