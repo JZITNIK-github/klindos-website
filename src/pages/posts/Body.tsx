@@ -24,6 +24,7 @@ function Body() {
         }
         else {
             var json = JSON.parse(xmlHttp.responseText)
+            json.reverse();
             var full = json.map((element: (string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined)[]) => {
                 var variableAttribute: {} = {onClick: () => {
                     go(element[0])
