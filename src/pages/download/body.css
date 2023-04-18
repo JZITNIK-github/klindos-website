@@ -54,11 +54,6 @@ code {
     font-size: 30px;
     margin-top: 10px;
 }
-.bodyd .client .span {
-    font-size: 20px;
-    margin-top: 10px;
-    display: block;
-}
 .bodyd .client .buttons {
     display: flex;
     margin-top: 20px;

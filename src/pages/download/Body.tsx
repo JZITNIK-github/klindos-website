@@ -14,12 +14,11 @@ function Body() {
             <div className="verejnyserver">
                 <h1>Veřejný server</h1>
                 <p>Na KLIND OS se můžete jednoduše připojit na této adrese: <a href="https://klind-os-demo-server.onrender.com/">klind-os-demo-server.onrender.com</a></p>
-                
+                <p style={{"color":"red"}}>Omlouváme se ale server je dočasně pozastaven.</p>
             </div>
             <div className="client">
                 <h1>Client</h1>
                 <p>Stáhněte si program aby jste mohli otevřít KLIND OS v aplikaci.<br />Samozřejmě to jde i v prohlížeči</p>
-                <span className="span">(toto stažení používá speciální cloud který nemusí vždy fungovat)</span>
                 <div className="buttons">
                     <a href="https://github.com/JZITNIK-github/KLIND-OS/raw/main/Client/windows.zip" download="KLINDOS-client.zip"><div className="button">Windows</div></a>
                     <a href="https://github.com/JZITNIK-github/KLIND-OS/raw/main/Client/linux.zip" download="KLINDOS-client.zip"><div className="button">Linux</div></a>
