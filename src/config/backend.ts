@@ -1,2 +1,2 @@
-const url = "https://klindos-blog-backend.onrender.com/"
+const url = "https://cloudklind.000webhostapp.com/klindos/backend/index.php"
 export default url;
