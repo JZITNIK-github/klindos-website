@@ -18,10 +18,10 @@ function Body() {
             </div>
             <div className="client">
                 <h1>Client</h1>
-                <p>Stáhněte si program aby jste mohli otevřít KLIND OS v aplikaci.<br />Samozřejmě to jde i v prohlížeči</p>
+                <p>Stáhněte si program aby jste mohli otevřít KLIND OS v aplikaci.<br/>Samozřejmě to jde i v prohlížeči</p>
+                <p>Tento odkaz Vás přesměruje na dokumentaci KLIND OS Client</p>
                 <div className="buttons">
-                    <a href="https://github.com/JZITNIK-github/KLIND-OS/raw/main/Client/windows.zip" download="KLINDOS-client.zip"><div className="button">Windows</div></a>
-                    <a href="https://github.com/JZITNIK-github/KLIND-OS/raw/main/Client/linux.zip" download="KLINDOS-client.zip"><div className="button">Linux</div></a>
+                    <a href="https://github.com/JZITNIK-github/KLIND-OS-Client" download="KLINDOS-client.zip"><div className="button">Zobrazit</div></a>
                 </div>
             </div>
             <div className="server">
