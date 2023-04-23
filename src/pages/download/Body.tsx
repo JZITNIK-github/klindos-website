@@ -14,7 +14,6 @@ function Body() {
             <div className="verejnyserver">
                 <h1>Veřejný server</h1>
                 <p>Na KLIND OS se můžete jednoduše připojit na této adrese: <a href="https://klind-os-demo-server.onrender.com/">klind-os-demo-server.onrender.com</a></p>
-                <p style={{"color":"red"}}>Omlouváme se ale server je dočasně pozastaven.</p>
             </div>
             <div className="client">
                 <h1>Client</h1>
