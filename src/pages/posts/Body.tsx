@@ -1,6 +1,8 @@
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
 import "./body.css"
 import url from "../../config/backend"
+import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
 function Body() {
     var prop: any;
     try {
@@ -16,46 +18,43 @@ function Body() {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", url, false ); // false for synchronous request
         xmlHttp.send( null );
-        if (xmlHttp.responseText==="none") {
-            full = <h1>Žádný příspěvek nebyl vložen.</h1>
-        }
-        else if (xmlHttp.responseText.indexOf("Fatal error")>-1) {
-            full = <h1>Aj, nastala chyba. Zkus to znovu za 5 minut.</h1>
-        }
-        else {
-            var json = JSON.parse(xmlHttp.responseText)
-            json.reverse();
-            var full = json.map((element: (string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined)[]) => {
-                var variableAttribute: {} = {onClick: () => {
-                    go(element[0])
-                }}
+        fetch(url)
+        .then(res => res.json())
+        .then(response => {
+            response.reverse();
+            var full = response.map((element: (string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined)[]) => {
                 return (
-                    <div className="post" { ...variableAttribute}>
-                        <h1>{element[1]}</h1>
-                        <p>{element[2]?.toString().replace(/<[^>]+>/g,'').split(" ", 100).join(" ")+"..."}</p>
-                    </div>
+                    <a href={"?"+element[0]?.toString()} style={{"color": "black"}}>
+                        <div className="post">
+                            <h1>{element[1]}</h1>
+                            <p>{element[2]?.toString().replace(/<[^>]+>/g,'').split(" ", 100).join(" ")+"..."}</p>
+                        </div>
+                    </a>
                 )
             })
-        }
+            ReactDOM.render(full,document.querySelector(".content"));
+        })
+        .catch(() =>{
+            ReactDOM.render((<h1>Nastala chyba při kontaktování serveru.</h1>),document.querySelector(".content"))
+        })
     }
     else {
+        var full: JSX.Element;
         var pup = false;
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", url, false ); // false for synchronous request
         xmlHttp.send( null );
-        if (xmlHttp.responseText.indexOf("Fatal error")>-1) {
-            full = <h1>Aj, nastala chyba. Zkus to znovu za 5 minut.</h1>
-        }
-        else {
-            var json = JSON.parse(xmlHttp.responseText)
+        fetch(url)
+        .then(res=>res.json())
+        .then(response=>{
             var id = prop[0]
-            for (var i = 0; i < json.length; i++) {
-                if (json[i][0] === id) {
+            for (var i = 0; i < response.length; i++) {
+                if (response[i][0] === id) {
                     pup = true
                     full = (
                         <div className="pst">
-                            <h1 className="tit">{json[i][1]}</h1>
-                            <div className="conts" dangerouslySetInnerHTML={{__html:json[i][2]}}></div>
+                            <h1 className="tit">{response[i][1]}</h1>
+                            <div className="conts" dangerouslySetInnerHTML={{__html:response[i][2]}}></div>
                         </div>
                     )
                     break
@@ -64,14 +63,20 @@ function Body() {
             if (!pup) {
                 full = <h1>Tento příspěvek neexistuje</h1>
             }
-        }
+            ReactDOM.render(full,document.querySelector(".content"));
+        })
+        .catch(() =>{
+            ReactDOM.render((<h1>Nastala chyba při kontaktování serveru.</h1>),document.querySelector(".content"))
+        })
     }
     return (
         <div className="bodyp">
             <div className="prispevky">
                 <h1>Blog</h1>
             </div>
-            {full}
+            <div className="content">
+                Načítání
+            </div>
         </div>
     )
 }
