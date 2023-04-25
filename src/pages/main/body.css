@@ -62,67 +62,44 @@
     font-family: 'Jost', sans-serif;
     font-size: 20px;
 }
-.body .onas {
+.body section {
     height: auto;
-    width: 100%;
-    padding: 40px;
+    width: 65%;
+    padding: 30px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .body .onas h1 {
-    margin-left: 20%;
     font-size: 40px;
     font-family: 'Open Sans', sans-serif;
 }
 .body .onas p {
-    margin-left: 20%;
     margin-top: 20px;
     font-size: 25px;
-    width: 60%;
     line-height: 1.4;
     font-family: 'Montserrat', sans-serif;
 }
-
-.body .nejakachyba {
-    height: auto;
-    width: 100%;
-    padding: 40px;
-}
 .body .nejakachyba h1 {
-    margin-left: 20%;
     font-size: 40px;
     font-family: 'Open Sans', sans-serif;
 }
 .body .nejakachyba p {
-    margin-left: 20%;
     margin-top: 20px;
     font-size: 25px;
-    width: 60%;
     line-height: 1.4;
     font-family: 'Montserrat', sans-serif;
 }
-
-.body .opensource {
-    height: auto;
-    width: 100%;
-    padding: 40px;
-}
 .body .opensource h1 {
-    margin-left: 20%;
+    
     font-size: 40px;
     font-family: 'Open Sans', sans-serif;
 }
 .body .opensource p {
-    margin-left: 20%;
     margin-top: 20px;
     font-size: 25px;
-    width: 60%;
     line-height: 1.4;
     font-family: 'Montserrat', sans-serif;
-}
-
-.body .vyhody {
-    height: auto;
-    width: 100%;
-    padding: 40px;
 }
 .body .vyhody h1 {
     font-family: 'Open Sans', sans-serif;
@@ -159,22 +136,13 @@
     color: #6592e6;
     margin: 20px;
 }
-
-.body .procklindos {
-    height: auto;
-    width: 100%;
-    padding: 40px;
-}
 .body .procklindos h1 {
-    margin-left: 20%;
     font-size: 40px;
     font-family: 'Open Sans', sans-serif;
 }
 .body .procklindos p {
-    margin-left: 20%;
     margin-top: 20px;
     font-size: 25px;
-    width: 60%;
     line-height: 1.4;
     font-family: 'Montserrat', sans-serif;
 }
@@ -202,21 +170,13 @@
 .nejakachyba a {
     color: blue;
 }
-.body .vytvarejte {
-    height: auto;
-    width: 100%;
-    padding: 40px;
-}
 .body .vytvarejte h1 {
-    margin-left: 20%;
     font-size: 40px;
     font-family: 'Open Sans', sans-serif;
 }
 .body .vytvarejte p {
-    margin-left: 20%;
     margin-top: 20px;
     font-size: 25px;
-    width: 60%;
     line-height: 1.4;
     font-family: 'Montserrat', sans-serif;
 }

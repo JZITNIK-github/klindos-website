@@ -74,3 +74,24 @@
     line-height: 1.4;
     font-family: 'Montserrat', sans-serif;
 }
+.bodyv .learn {
+    height: auto;
+    width: 70%;
+    padding: 40px;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+}
+.bodyv .learn h1 {
+    margin-left: 20%;
+    font-size: 40px;
+    font-family: 'Open Sans', sans-serif;
+}
+.bodyv .learn p {
+    margin-left: 20%;
+    margin-top: 20px;
+    font-size: 20px;
+    width: 60%;
+    line-height: 1.4;
+    font-family: 'Montserrat', sans-serif;
+}

@@ -1,5 +1,10 @@
 import "./body.css"
+import { useEffect } from "react";
+import Prism from 'prismjs';
 function Body() {
+    useEffect(() => {
+        Prism.highlightAll()
+    },[])
     return (
         <div className="bodyv">
             <div className="intro">
