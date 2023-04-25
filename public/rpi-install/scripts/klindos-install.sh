@@ -28,7 +28,7 @@ else
         exit
     else
         trap '' INT TSTP
-        version=`https://klindos.jzitnik.is-a.dev/rpi-install/information/version.txt`
+        version=`curl https://klindos.jzitnik.is-a.dev/rpi-install/information/version.txt`
         echo "Chcete opravdu nainstalovat KLIND OS server $version na toto zařízení? y/N"
         read installvalue
         if [[ $installvalue == "y" ]];
