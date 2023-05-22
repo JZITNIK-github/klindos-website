@@ -1,2 +1,2 @@
-const url = "https://jzitnik-backend.onrender.com/klindos/blog"
+const url = "https://anxious-tick-onesies.cyclic.app/klindos/blog"
 export default url;
