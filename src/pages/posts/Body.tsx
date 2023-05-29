@@ -12,6 +12,7 @@ function Body() {
         prop = false;
     }
     if (!prop || prop.length === 0) {
+        
         function go(id:any) {
             window.location.href = "?"+id;
         }
@@ -21,6 +22,7 @@ function Body() {
         fetch(url)
         .then(res => res.json())
         .then(response => {
+            var response = JSON.parse(response)
             response.reverse();
             var full = response.map((element: (string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined)[]) => {
                 return (
