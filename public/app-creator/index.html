@@ -12106,28 +12106,28 @@
 
           <h3>Název aplikace: </h3>
           <p>(název aplikace musí být stejný jako nazev aplikace který jste dávali do scriptu)</p>
-          <input id="nameappsixdottwo" type="text" placeholder="Název aplikace"><br><br>
+          <input id="nameappsixdotthree" type="text" placeholder="Název aplikace"><br><br>
 
           <h3>Obrázek:</h3>
           <p>(obrázek musí být ve formátu png)</p>
-          <input id="iconappsixdottwo" type="file" accept="image/png"><br><br>
+          <input id="iconappsixdotthree" type="file" accept="image/png"><br><br>
 
           <h3>Instalační script:</h3>
           <p>Script který se spustí při instalaci. (scriptu musí být ve formátu js)</p>
-          <input id="installscriptappsixdottwo" type="file" accept="text/javascript"><br><br>
+          <input id="installscriptappsixdotthree" type="file" accept="text/javascript"><br><br>
 
           <h3>Program:</h3>
           <p>(scriptu musí být ve formátu js)</p>
-          <input id="scriptappsixdottwo" type="file" accept="text/javascript"><br><br>
-          <button onclick="createïnstalbalsixdottwo()">Vytvořit instalační balíček</button>
+          <input id="scriptappsixdotthree" type="file" accept="text/javascript"><br><br>
+          <button onclick="createïnstalbalsixdotthree()">Vytvořit instalační balíček</button>
         </div>
         <script>
-          function createïnstalbalsixdottwo() {
+          function createïnstalbalsixdotthree() {
             var zip = new JSZip()
-            zip.file("name.txt", document.querySelector("#nameappsixdottwo").value)
-            zip.file("image.png", document.querySelector("#iconappsixdottwo").files[0])
-            zip.file("script.js", document.querySelector("#scriptappsixdottwo").files[0])
-            zip.file("install.js", document.querySelector("#installscriptappsixdottwo").files[0])
+            zip.file("name.txt", document.querySelector("#nameappsixdotthree").value)
+            zip.file("image.png", document.querySelector("#iconappsixdotthree").files[0])
+            zip.file("script.js", document.querySelector("#scriptappsixdotthree").files[0])
+            zip.file("install.js", document.querySelector("#installscriptappsixdotthree").files[0])
             zip.file("version.txt", "6.3")
             console.log(zip)
 
