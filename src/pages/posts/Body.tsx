@@ -14,10 +14,6 @@ function Body() {
             prop = false;
         }
         if (!prop || prop.length === 0) {
-
-            function go(id: any) {
-                window.location.href = "?" + id;
-            }
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open("GET", url, false); // false for synchronous request
             xmlHttp.send(null);
