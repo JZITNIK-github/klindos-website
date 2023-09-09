@@ -75,87 +75,19 @@ code {
     font-family: 'Jost', sans-serif;
     font-size: 20px;
 }
-.bodyd .verejnyserver {
+.bodyd .iso {
     width: 100%;
     height: auto;
     padding: 35px;
     text-align: center;
 }
-.bodyd .verejnyserver h1 {
+.bodyd .iso h1 {
     font-size: 50px;
 }
-.bodyd .verejnyserver p {
+.bodyd .iso p {
     font-size: 30px;
     margin-top: 10px;
 }
-.bodyd .verejnyserver a {
+.bodyd .iso a {
     color: blue;
-}
-.bodyd .server {
-    width: 100%;
-    height: auto;
-    padding: 35px;
-}
-.bodyd .server h1 {
-    font-size: 50px;
-    text-align: center;
-}
-.bodyd .server > p {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 10px;
-}
-.bodyd .server .box {
-    width: 60%;
-    height: auto;
-    margin-left: 20%;
-    margin-top: 20px;
-}
-.bodyd .server .box h2{
-    font-size: 40px;
-    font-family: 'Jost', sans-serif;
-}
-.bodyd .server .box p{
-    font-size: 25px;
-    margin-top: 10px;
-    font-family: 'Jost', sans-serif;
-}
-.bodyd .server .box h3 {
-    font-size: 30px;
-    margin-top: 35px;
-    font-family: 'Jost', sans-serif;
-}
-.bodyd .server .box .popisad {
-    margin-top: 30px;
-    font-size: 20px;
-}
-.bodyd .server .box code.dva {
-    margin-top: 10px;
-    padding: 5px!important;
-    padding-left: 15px!important;
-}
-.bodyd .server .box .popisad a {
-    color: blue;
-}
-.bodyd .server .buttons {
-    display: flex;
-    margin-top: 20px;
-    justify-content: center;
-}
-.bodyd .server .buttons .button {
-    height: 55px;
-    padding: 10px;
-    min-width: 120px;
-    margin: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #40b0bf;
-    border-color: #40b0bf;
-    color: #ffffff;
-    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
-    border-radius: 4px;
-    font-family: 'Jost', sans-serif;
-    font-size: 20px;
 }

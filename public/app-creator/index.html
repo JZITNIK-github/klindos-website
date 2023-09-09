@@ -12119,10 +12119,10 @@
           <h3>Program:</h3>
           <p>(scriptu musí být ve formátu js)</p>
           <input id="scriptappsixdotthree" type="file" accept="text/javascript"><br><br>
-          <button onclick="createïnstalbalsixdotthree()">Vytvořit instalační balíček</button>
+          <button onclick="createinstalbalsixdotthree()">Vytvořit instalační balíček</button>
         </div>
         <script>
-          function createïnstalbalsixdotthree() {
+          function createinstalbalsixdotthree() {
             var zip = new JSZip()
             zip.file("name.txt", document.querySelector("#nameappsixdotthree").value)
             zip.file("image.png", document.querySelector("#iconappsixdotthree").files[0])

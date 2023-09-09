@@ -8,7 +8,7 @@ function Body() {
                 <div className="background"></div>
                 <div className="content">
                     <h1>KLIND OS</h1>
-                    <p>Operační systém v prohlížeči.</p>
+                    <p>Operační systém pro Vás.</p>
                     <div className="buttons">
                         <Link to="/download"><div className="button">Stáhnout</div></Link>
                         <a href="#about"><div className="button">Více info</div></a>
@@ -16,9 +16,9 @@ function Body() {
                 </div>
             </div>
             <section className="onas" id="about">
-                <h1>O nás</h1>
+                <h1>O KLIND OS</h1>
                 <p>
-                    KLIND OS je operační systém postavený na JavaScriptu, HTML, CSS a PHP. Je nenáročný a můžete si ho spustit na jakémkoli počítači. KLIND OS funguje už 3 roky. Za tu dobu jsme udělali hodně pokroků jak v optimalizaci, tak i ve funkčnosti. Máme super podporu která Vám ráda pomůže s jakýmkoli problémem.
+                    KLIND OS je Arch Linux distribuce. Grafické rozhraní je napsané v JavaScriptu, HTML a CSS.
                 </p>
             </section>
             <section className="nejakachyba">
@@ -30,7 +30,7 @@ function Body() {
             <section className="opensource">
                 <h1>Kompletně OpenSource</h1>
                 <p>
-                    Víte co znamená OpenSource? OpenSource znamená že máte přístup ke kódu programu. (velice zjednodušeně) A to u nás můžete. Náš kód je plně OpenSource.
+                    KLIND OS je plně opensource. Můžete se podívat na kód a přispívat do kódu na <a href="https://github.com/JZITNIK-github/KLIND-OS">Githubu</a>.
                 </p>
             </section>
             <section className="vyhody">
@@ -56,17 +56,19 @@ function Body() {
             <section className="procklindos">
                 <h1>Proč zrovna KLIND OS?</h1>
                 <p>
-                    KLIND OS je opensource operační systém, který si můžete nainstalovat na svůj server a poté otevřít v prohlížeči Google Chrome nebo Brave. KLIND OS má často nové aktualizace a už 3 roky vycházejí pravidelně aktualizace. KLIND OS je velikostně malý operační systém. Je zároveň nenáročný na prohlížeč.
+                    No, moc výhod oproti Windowsu nebo Linuxu tu nejsou. Ale je to zajímavý koncept vytvořit gui v JavaScriptu. KLIND OS je rychlý protože je vytvořený v... ehm... electronu. 
                 </p>
             </section>
             <section className="funkce">
                 <h1>Hlavní funkce KLIND OS</h1>
                 <p>
-                    1. Vlastní úprava pomocí .css souboru<br />
-                    2. Vkládání scriptu pomocí .js souboru<br />
-                    3. Vytvoření kopie vašeho počítače a potom nahrání na jiný<br />
-                    4. Přihlášení pomocí rozpoznání obličeje<br />
-                    5. Základní aplikace: poznámky, kalkulačka, prohlížeč, stopky, terminál, přehrávač hudby, budík, rekordér, prohlížeč obrázků a spoustu další.<br />
+                    1. Správce souborů<br/>
+                    2. Plně funkční prohlížeč<br />
+                    3. Vlastní úprava pomocí .css souboru<br />
+                    4. Vkládání scriptu pomocí .js souboru<br />
+                    5. Vytvoření kopie vašeho počítače a potom nahrání na jiný počítač<br />
+                    6. Přihlášení pomocí rozpoznání obličeje<br />
+                    7. Základní aplikace: poznámky, kalkulačka, prohlížeč, stopky, terminál, přehrávač hudby, budík, rekordér, prohlížeč obrázků a spoustu další.<br />
                 </p>
             </section>
             <section className="vytvarejte">
