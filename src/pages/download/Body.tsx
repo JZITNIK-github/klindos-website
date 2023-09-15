@@ -12,7 +12,10 @@ function Body() {
             </div>
             <div className="iso">
                 <h1>ISO</h1>
-                <p>Na iso souboru právě pracujeme. Zde bude iso soubor ke stažení až bude dostupný.</p>
+                <p>ISO soubor je konečně tu! Nyní si můžete nainstalovat KLIND OS na Váš počítač nebo na VM.</p>
+                <div className="buttons">
+                    <a href="https://www.mediafire.com/file/inkq9kos9q2bs2p/KLINDOS.iso/file" className="button">Stáhnout ISO</a>
+                </div>
             </div>
             
         </div>
