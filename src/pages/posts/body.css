@@ -31,6 +31,9 @@
     margin-top: 30px;
     font-size: 20px;
 }
+.pst .conts a {
+    color: blue;
+}
 .prispevky {
     padding: 30px;
     font-size: 25px;
