@@ -8,7 +8,7 @@ function Body() {
                 <div className="background"></div>
                 <div className="content">
                     <h1>KLIND OS</h1>
-                    <p>Operační systém pro Vás.</p>
+                    <p>Operační systém</p>
                     <div className="buttons">
                         <Link to="/download"><div className="button">Stáhnout</div></Link>
                         <a href="#about"><div className="button">Více info</div></a>
