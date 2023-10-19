@@ -2,7 +2,7 @@ import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, useSta
 import "./body.css"
 import url from "../../config/backend"
 function Body() {
-    var [content, setContent] = useState(<h1>Načítání</h1>)
+    var [content, setContent] = useState(<h1>Načítání...</h1>)
 
 
     useEffect(() => {
@@ -14,9 +14,6 @@ function Body() {
             prop = false;
         }
         if (!prop || prop.length === 0) {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("GET", url, false); // false for synchronous request
-            xmlHttp.send(null);
             fetch(url)
                 .then(res => res.json())
                 .then(response => {
@@ -27,7 +24,7 @@ function Body() {
                             <a href={"?" + element[0]?.toString()} style={{ "color": "black" }}>
                                 <div className="post">
                                     <h1>{element[1]}</h1>
-                                    <p>{element[2]?.toString().replace(/<[^>]+>/g, '').split(" ", 100).join(" ") + "..."}</p>
+                                    <p>{element[2]?.toString().replace(/<[^>]+>/g, ' ').split(" ", 100).join(" ") + "..."}</p>
                                 </div>
                             </a>
                         )
@@ -41,9 +38,6 @@ function Body() {
         else {
             var full: JSX.Element;
             var pup = false;
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("GET", url, false); // false for synchronous request
-            xmlHttp.send(null);
             fetch(url)
                 .then(res => res.json())
                 .then(response => {

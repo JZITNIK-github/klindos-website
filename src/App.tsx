@@ -6,7 +6,6 @@ import Footer from "./components/footer/Footer"
 import MainBody from "./pages/main/Body"
 import DownloadBody from "./pages/download/Body"
 import VytvarejteAplikaceBody from "./pages/vatvarejte-aplikace/Body"
-import ManualBody from "./pages/manual-rpi/Body"
 import PostsBody from "./pages/posts/Body"
 import NotExist from "./pages/notexist/Body"
 import ScrollToTop from "./ScrollToTop";
@@ -19,7 +18,6 @@ function App() {
                 <Route path='/' element={<MainBody/>} />
                 <Route path='/download' element={<DownloadBody/>} />
                 <Route path='/vytvarejte-aplikace' element={<VytvarejteAplikaceBody/>} />
-                <Route path='/manual-rpi' element={<ManualBody/>} />
                 <Route path='/posts' element={<PostsBody/>} />
                 <Route path='*' element={<NotExist/>} />
             </Routes>

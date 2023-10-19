@@ -21,12 +21,12 @@ function Header() {
     })
     return (
         <header>
-            <span className="title"><NavLink to="/">KLIND - OS</NavLink></span>
+            <span className="title"><NavLink to="/">KLIND OS</NavLink></span>
             <div className="menu">{menu}</div>
             <div className="menu-btn" onClick={toggleMenu}></div>
             <div className="menu-mobile" style={{'display': display}}>
                 <div className="menu-btn-mobile" onClick={toggleMenu}></div>
-                <Link onClick={toggleMenu} to={"/"}><span>KLIND - OS</span></Link>
+                <Link onClick={toggleMenu} to={"/"}><span>KLIND OS</span></Link>
                 {menuMobile}
             </div>
         </header>

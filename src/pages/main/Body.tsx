@@ -8,7 +8,7 @@ function Body() {
                 <div className="background"></div>
                 <div className="content">
                     <h1>KLIND OS</h1>
-                    <p>Operační systém</p>
+                    <p>Operační systém napsaný převážně v JavaScriptu</p>
                     <div className="buttons">
                         <Link to="/download"><div className="button">Stáhnout</div></Link>
                         <a href="#about"><div className="button">Více info</div></a>
@@ -22,7 +22,7 @@ function Body() {
                 </p>
             </section>
             <section className="nejakachyba">
-                <h1>Nějaká chybka?</h1>
+                <h1>Nějaká chyb?</h1>
                 <p>
                     Chyby opravujeme rychle! Nahlašte chybu na <a href="/report">klindos.jzitnik.is-a.dev/report</a>.
                 </p>
@@ -39,12 +39,12 @@ function Body() {
                     <div className="vyhoda">
                         <i className='bx bx-code-alt'></i>
                         <span className="title">Žádné programování</span>
-                        <span className="popis">Všechno je naprogramované za vás. Jednoduše si stáhnete a jedete.</span>
+                        <span className="popis">Všechno je připravené na jednoduchou instalaci.</span>
                     </div>
                     <div className="vyhoda">
                         <i className='bx bx-cart'></i>
                         <span className="title">Vše zdarma.</span>
-                        <span className="popis">Za KLIND OS nezaplatíte ani korunu!</span>
+                        <span className="popis">Za KLIND OS nezaplatíte ani korunu! Celý operační systém je opensource a můžete si stáhnou kód přímo z Githubu.</span>
                     </div>
                     <div className="vyhoda">
                         <i className='bx bx-cog'></i>
@@ -56,30 +56,35 @@ function Body() {
             <section className="procklindos">
                 <h1>Proč zrovna KLIND OS?</h1>
                 <p>
-                    No, moc výhod oproti Windowsu nebo Linuxu tu nejsou. Ale je to zajímavý koncept vytvořit gui v JavaScriptu. KLIND OS je rychlý protože je vytvořený v... ehm... electronu. 
+                    No, moc výhod oproti Windowsu nebo Linuxu tu nejsou. Ale je to zajímavý koncept vytvořit gui v JavaScriptu. KLIND OS je pomalý. Proč? Electron
                 </p>
             </section>
             <section className="funkce">
                 <h1>Hlavní funkce KLIND OS</h1>
                 <p>
                     1. Správce souborů<br/>
-                    2. Plně funkční prohlížeč<br />
-                    3. Vlastní úprava pomocí .css souboru<br />
-                    4. Vkládání scriptu pomocí .js souboru<br />
-                    5. Vytvoření kopie vašeho počítače a potom nahrání na jiný počítač<br />
-                    6. Přihlášení pomocí rozpoznání obličeje<br />
-                    7. Základní aplikace: poznámky, kalkulačka, prohlížeč, stopky, terminál, přehrávač hudby, budík, rekordér, prohlížeč obrázků a spoustu další.<br />
+                    2. Podpora externích disků (experimentální)<br/>
+                    3. Podpora tiskáren (experimentální)<br/>
+                    4. Plně funkční prohlížeč<br />
+                    5. Vlastní úprava pomocí .css souboru<br />
+                    6. Instalace vlastních aplikací pomocí .kapk souborů<br />
+                    7. Vytvoření kopie vašeho počítače a potom nahrání na jiný počítač<br />
+                    8. Přihlášení pomocí rozpoznání obličeje<br />
+                    9. Základní aplikace: poznámky, kalkulačka, prohlížeč, stopky, terminál, přehrávač hudby, budík, rekordér, prohlížeč obrázků a spoustu další.<br />
+                    10. Celý kód je opensource. Žádné trackery a žádný bloatware od velkých korporátů.<br />
+                    11. Kompletně bez reklam<br />
+                    12. Bezpečné Linuxové jádro<br />
                 </p>
             </section>
             <section className="vytvarejte">
                 <h1>Vytvářejte vlastní aplikace pro KLIND OS</h1>
-                <p>Jednoduše vytvářejte aplikace pro KLIND OS díky KLIND OS api. Nikdy to nebylo jednodužší!</p>
+                <p>Vytvořte si vlastní aplikaci pro KLIND OS a vykompilujte ji do .kapk souboru.</p>
                 <div className="buttons">
                     <Link to="/vytvarejte-aplikace"><div className="button">Zobrazit</div></Link>
                 </div>
             </section>
             <section className="pripojseknam">
-                <h1>Připoj se k nám!</h1>
+                <h1>Stáhněte si KLIND OS!</h1>
                 <Link to="/download"><div className="button">Stáhnout</div></Link>
             </section>
         </div>
