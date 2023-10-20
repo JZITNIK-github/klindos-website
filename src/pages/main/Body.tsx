@@ -60,7 +60,7 @@ function Body() {
                 </p>
             </section>
             <section className="funkce">
-                <h1>Hlavní funkce KLIND OS</h1>
+                <h1>Výhody a funkce KLIND OS</h1>
                 <p>
                     1. Správce souborů<br/>
                     2. Podpora externích disků (experimentální)<br/>

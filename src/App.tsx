@@ -9,6 +9,7 @@ import VytvarejteAplikaceBody from "./pages/vatvarejte-aplikace/Body"
 import PostsBody from "./pages/posts/Body"
 import NotExist from "./pages/notexist/Body"
 import ScrollToTop from "./ScrollToTop";
+import OpenSource from "./pages/opensource/Body"
 function App() {
     return (
         <Router>
@@ -19,6 +20,7 @@ function App() {
                 <Route path='/download' element={<DownloadBody/>} />
                 <Route path='/vytvarejte-aplikace' element={<VytvarejteAplikaceBody/>} />
                 <Route path='/posts' element={<PostsBody/>} />
+                <Route path='/opensource' element={<OpenSource/>} />
                 <Route path='*' element={<NotExist/>} />
             </Routes>
             <Footer />
