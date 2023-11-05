@@ -17,7 +17,7 @@ function Body() {
             <div className="jakvytvorim">
                 <h1>Jak si vytvořím vlastní aplikace?</h1>
                 <p>
-                    Pokud si chcete vytvořit vlastní aplikaci, musíte mít znalosti s Javascipt. Poté si na <a href="/app-creator/" target={"_blank"}>této stránce</a> můžete stáhnout nějaké příklady a podle toho se to naučit, je to tam popsané.
+                  Vše je dokumentované v <a href="https://klind-os-docs.onrender.com/vyvoj-aplikaci/">dokumentaci</a>.
                 </p>
             </div>
             <div className="kde">

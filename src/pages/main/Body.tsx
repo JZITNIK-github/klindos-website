@@ -11,7 +11,7 @@ function Body() {
                     <p>Operační systém napsaný převážně v JavaScriptu</p>
                     <div className="buttons">
                         <Link to="/download"><div className="button">Stáhnout</div></Link>
-                        <a href="#about"><div className="button">Více info</div></a>
+                        <a href="https://klind-os-docs.onrender.com/"><div className="button">Dokumentace</div></a>
                     </div>
                 </div>
             </div>
