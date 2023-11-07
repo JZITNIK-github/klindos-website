@@ -63,12 +63,15 @@ header {
 }
 .menu-mobile a {
     color: black;
-    padding: 50px;
     font-size: 50px;
     width: 100%;
     text-align: center;
     background-color: transparent;
     transition: ease 0.2s background-color;
+    height: calc(100% / 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .menu-mobile a:hover {
     background-color: gray;
