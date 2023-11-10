@@ -1,432 +1,694 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <script src="/app-creator/script.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vytváření aplikací | KLIND OS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <script>
+    function helpChange(element) {
+      var all = document.querySelectorAll(".examplesdiv .helps .verze");
+      for (var i = 0; i < all.length; i++) {
+        all[i].style.display = "none";
+      }
+      document
+        .querySelector(".examplesdiv .helps")
+        .querySelector(".verze." + element.value).style.display = "block";
+    }
+    function compChange(element) {
+      var all = document.querySelectorAll(".allsdjasdjasd .verze");
+      for (var i = 0; i < all.length; i++) {
+        all[i].style.display = "none";
+      }
+      document
+        .querySelector(".allsdjasdjasd")
+        .querySelector(".verze." + element.value).style.display = "block";
+    }
+  </script>
 
-<head>
-  <script src="/app-creator/script.js"></script>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vytváření aplikací | KLIND OS</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      width: 100vw;
-      height: 50px;
-      background-color: #292929;
-      color: white;
-      display: flex;
-      align-items: center;
-      font-size: 30px;
-    }
-
-    header p {
-      margin-left: 15px;
-    }
-
-    .examplesdiv {
-      position: absolute;
-      height: calc(100vh - 50px);
-      right: 0;
-      background-color: #555555;
-      width: 500px;
-      color: white;
-    }
-
-    .examplesdiv h1 {
-      text-align: center;
-    }
-
-    .down {
-      position: absolute;
-      bottom: 0;
-      height: 270px;
-      width: calc(100vw - 530px);
-      background-color: #afafaf;
-      padding: 15px;
-    }
-
-    .down .downscroll {
-      overflow-x: auto;
-      overflow-y: hidden;
-      height: 234px;
-      white-space: nowrap;
-    }
-
-    .downscroll .elmnt {
-      height: 193px;
-      position: relative;
-      width: 212px;
-      display: inline-block;
-      padding: 10px;
-      border: 1px solid black;
-      overflow: auto;
-    }
-
-    .downscroll .elmnt h1 {
-      margin-bottom: 10px;
-    }
-
-    .maincontent {
-      width: calc(100vw - 500px);
-      height: calc(100vh - 350px);
-      overflow: auto;
-    }
-  </style>
-</head>
-<script>
-  function helpChange(element) {
-    var all = document.querySelectorAll(".examplesdiv .helps .verze")
-    for (var i = 0; i < all.length; i++) {
-      all[i].style.display = "none"
-    }
-    document.querySelector(".examplesdiv .helps").querySelector(".verze." + element.value).style.display = "block";
-  }
-  function compChange(element) {
-    var all = document.querySelectorAll(".allsdjasdjasd .verze")
-    for (var i = 0; i < all.length; i++) {
-      all[i].style.display = "none"
-    }
-    document.querySelector(".allsdjasdjasd").querySelector(".verze." + element.value).style.display = "block";
-  }
-</script>
-
-<body>
-  <header>
-    <p>Vytváření aplikací pro KLIND OS</p>
-  </header>
-  <div class="examplesdiv">
-    <h1>Pomoc</h1>
-    <h2>Jak se vytváří aplikace?</h2>
-    <p>Záleží pro jakou verzi script chcete. Nejstarší verze která podporuje instalaci vlastních aplikací je verze 6.
-    </p>
-    <span>Pro jakou verzi KLIND OS chete mít vlastní aplikaci: </span>
-    <select onchange="helpChange(this)">
-      <option disabled selected>Vyberte</option>
-      <option value="six">6</option>
-      <option value="sixdotone">6.1</option>
-      <option value="sixdottwo">6.2</option>
-      <option value="sixdotthree">6.3</option>
-    </select>
-    <div class="helps">
-      <div class="verze" style="margin-left: 15px;"><br>Vyberte verzi.</div>
-      <div class="verze six" style="display: none; margin-left: 15px;"><br>
-        <p>Zde v tomto soubou je ukázáno jak by měl .js soubor vypadat. Pro verzi 6 stačí pouze nahrát .js soubor a
-          program bude spuštěn. Není potřeba vytvářet žádné instalační balíčky.</p><br>
-        <span>Ukázka 1: </span><a download="example1.js"
-          href="data:text/plain;charset=utf-8,%2F%2F%20Toto%20je%20p%C5%99%C3%ADklad%20jak%20si%20m%C5%AF%C5%BEete%20vytvo%C5%99it%20vlastn%C3%AD%20JavaScriptovou%20aplikaci%20do%20KLIND%20OS.%0D%0A%0D%0A%2F%2F%20Krok%201.%20Vytvo%C5%99en%C3%AD%20aplikace%3A%0D%0Avar%20aplikace%20%3D%20apps.createApp(%0D%0A%20%20%20%20%2F%2F%20N%C3%A1zev%20aplikace%0D%0A%20%20%20%20%22Dobr%C3%A1%20aplikace%22%2C%0D%0A%20%20%20%20%2F%2F%20Funkce%20pro%20to%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20rozkliknut%C3%AD%20programu%0D%0A%20%20%20%20(daneokno)%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20aplikace%20spust%C3%AD%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BEe%20se%20m%C3%A1%20okno%20otev%C5%99%C3%ADt%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20aplikaci%20spust%C3%AD%0D%0A%20%20%20%20%20%20%20%20var%20zprava%20%3D%20document.createElement(%22p%22)%0D%0A%20%20%20%20%20%20%20%20minutes%20%3D%20new%20Date().getMinutes()%0D%0A%20%20%20%20%20%20%20%20if(minutes%20%3C%2010)%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20minutes%20%3D%20%220%22%20%2B%20minutes%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Nastav%C3%AD%20text%20s%20aktu%C3%A1ln%C3%ADm%20%C4%8Desem%20do%20elementu%0D%0A%20%20%20%20%20%20%20%20zprava.textContent%20%3D%20%22Aplikace%20byla%20spu%C5%A1t%C4%9Bna%20v%3A%20%22%2Bnew%20Date().getHours()%2B%22%3A%22%2Bminutes%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Vlo%C5%BE%C3%AD%20vlo%C5%BE%C3%AD%20element%20do%20dan%C3%A9ho%20okna%0D%0A%20%20%20%20%20%20%20%20daneokno.appendChild(zprava)%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%20%20%2F%2F%20Zde%20vlo%C5%BEte%20jestli%20m%C3%A1%20b%C3%BDt%20aplikace%20v%20listu%20aplikac%C3%AD%20ve%20startu%0D%0A%20%20%20%20%2F%2F%20true%20%3D%20ano%0D%0A%20%20%20%20%2F%2F%20false%20%3D%20ne%0D%0A%20%20%20%20true%0D%0A)%0D%0A%0D%0A%2F%2F%20Krok%202.%20Vytvo%C5%99en%C3%AD%20okna%0D%0Avar%20okno%20%3D%20apps.createWindow(%7B%0D%0A%20%20%20%20%2F%2F%20Odkazuje%20na%20variable%20aplikace%0D%0A%20%20%20%20app%3A%20aplikace%2C%0D%0A%20%20%20%20%2F%2F%20Tla%C4%8D%C3%ADtka%20kter%C3%A9%20budou%20na%20okn%C4%9B%0D%0A%20%20%20%20buttons%3A%20%7B%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Typ%20tla%C4%8D%C3%ADtka%20a%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20stisku%0D%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20tla%C4%8D%C3%ADtko%20spust%C3%AD%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BAe%20se%20m%C3%A1%20okno%20zav%C5%99%C3%ADt%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20zav%C5%99e%20nebo%20minimalizuje%20okno%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20zav%C5%99eno.%22)%0D%0A%20%20%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20minimalizov%C3%A1no%22)%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Podporovan%C3%A9%20tla%C4%8D%C3%ADtka%3A%20close%2C%20mini%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%20%20%2F%2F%20Jesli%20m%C5%AF%C5%BEe%20okno%20m%C4%9Bnit%20velikost%3A%0D%0A%20%20%20%20%2F%2F%20Jestli%20okno%20m%C5%AF%C5%BEe%20m%C4%9Bnit%20velikost%0D%0A%20%20%20%20%2F%2F%20Mo%C5%BEnosti%3A%0D%0A%0D%0A%20%20%20%20%2F%2F%20true%0D%0A%20%20%20%20%2F%2F%20ano%20m%C5%AF%C5%BEe%0D%0A%0D%0A%20%20%20%20%2F%2F%20nebo%0D%0A%20%20%20%20%2F%2F%20%7B%0D%0A%20%20%20%20%2F%2F%20%20%20width%3A%20%22100%22%2C%20height%3A%20%22100%22%0D%0A%20%20%20%20%2F%2F%20%7D%0D%0A%20%20%20%20%2F%2F%20ne%20nem%C5%AF%C5%BEe%0D%0A%0D%0A%20%20%20%20%2F%2F%20Pokud%20chcete%20aby%20nemohlo%20okno%20m%C4%9Bnit%20velikost%2C%20m%C5%AFs%C3%ADte%20zadat%20pevnou%20%C5%A1%C3%AD%C5%99ku%20a%20v%C3%BD%C5%A1ku%20okna.%0D%0A%20%20%20%20resizeable%3A%20%7B%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20%C5%A0%C3%AD%C5%99ka%20a%20b%C3%BD%C5%A1ka%20je%20v%20pixelech%0D%0A%20%20%20%20%20%20%20%20height%3A%20200%2C%0D%0A%20%20%20%20%20%20%20%20width%3A%20200%2C%0D%0A%20%20%20%20%7D%2C%0D%0A%0D%0A%20%20%20%20%2F%2F%20Ikona%20aplikace%0D%0A%20%20%20%20icon%3A%20%22https%3A%2F%2Ficons8.com%2Ficon%2FH7bD848fFLgE%2Fapp%22%2C%0D%0A%0D%0A%20%20%20%20%2F%2F%20Obsah%20aplikace.%20Zde%20vkl%C3%A1d%C3%A1te%20HTML%20strukturu%20dan%C3%A9%20aplikace.%0D%0A%20%20%20%20content%3A%20%22%3Ch1%3EMoje%20nov%C3%A1%20aplikace!%3C%2Fh1%3E%22%0D%0A%7D)%0D%0A%0D%0A%0D%0A%2F%2F%20Krok%203.%20Vytvo%C5%99en%C3%AD%20scriptu%20pro%20minimalizaci%0D%0A%2F%2F%20Pokud%20nechcete%20m%C3%ADt%20u%20sv%C3%A9ho%20okna%20jste%20si%20nastavil%20%C5%BEe%20nem%C3%A1%20m%C3%ADt%20minimalizaci%2C%20tento%20krok%20p%C5%99esko%C4%8Dte%0D%0Avar%20appIcon%20%3D%20apps.createMini(%7B%0D%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20o%20jakou%20aplikaci%20se%20jedn%C3%A1.%0D%0A%20%20%20%20app%3A%20aplikace%2C%0D%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20jak%C3%A9%20okno%20m%C3%A1%20aplikace.%0D%0A%20%20%20%20window%3A%20okno%2C%0D%0A%7D)%0D%0A%0D%0A%2F%2F%20A%20je%20to.%20Nyn%C3%AD%20si%20m%C5%AF%C5%BEete%20upravovat%20svoji%20aplikaci%20dle%20libosti.%0D%0A%2F%2F%20Do%20aplikace%20m%C5%AF%C5%BEete%20za%20b%C4%9Bhu%20tak%C3%A9%20p%C5%99id%C3%A1vat%20elementy%20pomoc%C3%AD%20funkce%20appendchild.%20N%C4%9Bjak%20takto%3A%0D%0A%0D%0A%2F%2F%20Vytvo%C5%99%C3%AD%20element%20h1%0D%0Avar%20dalsiH1%20%3D%20document.createElement(%22h1%22)%0D%0A%2F%2F%20Vlo%C5%BE%C3%AD%20text%20do%20h1%0D%0AdalsiH1.textContent%20%3D%20%22Dal%C5%A1%C3%AD%20h1%22%0D%0A%2F%2F%20Vlo%C5%BE%C3%AD%20h1%20do%20okna.%0D%0Aokno.appendChild(dalsiH1)%0D%0A%0D%0A%2F%2F%20Pokud%20by%20jste%20pot%C5%99ebovali%20pomoct%2C%20napi%C5%A1te%20n%C3%A1m%20na%20podpora%40klindos-main.ml">Stáhnout
-          soubor</a><br>
-        <span>Hotová aplikace 1: </span><a download="finalapp1.js"
-          href="data:text/plain;charset=utf-8,appdetectorapp%3D%20apps.createApp(%0A%20%20%20%20%22AppDetector%22%2C%0A%20%20%20%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%7D%2C%0A%20%20%20%20true%0A)%0Aappdetectorwindow%3D%20apps.createWindow(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20resizeable%3A%20%7B%0A%20%20%20%20%20%20%20%20height%3A%20500%2C%0A%20%20%20%20%20%20%20%20width%3A%20500%0A%20%20%20%20%7D%2C%0A%20%20%20%20icon%3A%20'https%3A%2F%2Fimg.icons8.com%2Fexternal-anggara-basic-outline-anggara-putra%2F512%2Fexternal-app-ecommerce-interface-anggara-basic-outline-anggara-putra.png'%2C%0A%20%20%20%20content%3A%20'%3Cinput%20placeholder%3D%22AppName%22%3E%3C%2Finput%3E%3Cbutton%20onclick%3D%22appdetectorsubmit(this.parentElement)%22%3ESubmit%3C%2Fbutton%3E%3Cbr%3E%3Cbutton%20onclick%3D%22appnotminidetect()%22%3EDetekovat%20aplikace%20bez%20minimalizace%3C%2Fbutton%3E'%0A%7D)%0Afunction%20appnotminidetect()%20%7B%0A%20%20%20%20var%20list%20%3D%20%5B%5D%0A%20%20%20%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20windows.list.ikonadown.length%3B%20i%2B%2B)%20%7B%0A%20%20%20%20%20%20%20%20if%20(windows.list.ikonadown%5Bi%5D%3D%3Dfalse)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20list.push(windows.list.names%5Bi%5D)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20alert(%22Aplikace%20bez%20minimalizace%3A%5Cn%5Cn%22%2Blist.join(%22%2C%22))%0A%7D%0Afunction%20appdetectorsubmit(element)%20%7B%0A%20%20%20%20var%20value%20%3D%20element.querySelector(%22input%22).value%0A%20%20%20%20var%20position%20%3D%20windows.list.names.indexOf(value)%0A%20%20%20%20var%20classe%20%3D%20windows.list.classes%5Bposition%5D%0A%20%20%20%20var%20sd%20%3D%20windows.list.ikonadown%5Bposition%5D%0A%20%20%20%20alert(%22AppDetector%20output%3A%20%5CnName%3A%20%22%2Bvalue%2B%22%5CnClass%3A%20%22%2Bclasse%2B%22%5CnDownIcon%3A%20%22%2Bsd)%0A%7D%0AdownIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20window%3A%20appdetectorwindow%0A%7D)">Stáhnout
-          soubor</a>
-      </div>
-      <div class="verze sixdotone" style="display: none; margin-left: 15px;"><br>
-        <p>Ve verzi 6.1 je potřeba využít compiler instalačního balíčku, který vydíte po levé straně. Budete potřebovat
-          2 věci.<br>1. Ikonu aplikace<br>2. .js soubor (nebo-li script)</p>
-        <p>Ikona aplikace musí být ve formátu .png.</p>
-        <p>Zde jsou vysvětlení jak by měl script vypadat:</p><br>
-        <span>Ukázka 1: </span><a download="example1.js"
-          href="data:text/plain;charset=utf-8,%2F%2F%20Toto%20je%20p%C5%99%C3%ADklad%20jak%20si%20m%C5%AF%C5%BEete%20vytvo%C5%99it%20vlastn%C3%AD%20JavaScriptovou%20aplikaci%20do%20KLIND%20OS.%0A%0A%2F%2F%20Krok%201.%20Vytvo%C5%99en%C3%AD%20aplikace%3A%0Avar%20aplikace%20%3D%20apps.createApp(%0A%20%20%20%20%2F%2F%20N%C3%A1zev%20aplikace%20(mus%C3%AD%20b%C3%BDt%20stejn%C3%A9%20jak%C3%A9%20budete%20zad%C3%A1vat%20do%20compileru)%0A%20%20%20%20%22Dobr%C3%A1%20aplikace%22%2C%0A%20%20%20%20%2F%2F%20Funkce%20pro%20to%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20rozkliknut%C3%AD%20programu%0A%20%20%20%20(daneokno)%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20aplikace%20spust%C3%AD%0A%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BEe%20se%20m%C3%A1%20okno%20otev%C5%99%C3%ADt%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20aplikaci%20spust%C3%AD%0A%20%20%20%20%20%20%20%20var%20zprava%20%3D%20document.createElement(%22p%22)%0A%20%20%20%20%20%20%20%20minutes%20%3D%20new%20Date().getMinutes()%0A%20%20%20%20%20%20%20%20if(minutes%20%3C%2010)%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20minutes%20%3D%20%220%22%20%2B%20minutes%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%2F%2F%20Nastav%C3%AD%20text%20s%20aktu%C3%A1ln%C3%ADm%20%C4%8Desem%20do%20elementu%0A%20%20%20%20%20%20%20%20zprava.textContent%20%3D%20%22Aplikace%20byla%20spu%C5%A1t%C4%9Bna%20v%3A%20%22%2Bnew%20Date().getHours()%2B%22%3A%22%2Bminutes%0A%20%20%20%20%20%20%20%20%2F%2F%20Vlo%C5%BE%C3%AD%20vlo%C5%BE%C3%AD%20element%20do%20dan%C3%A9ho%20okna%0A%20%20%20%20%20%20%20%20daneokno.appendChild(zprava)%0A%20%20%20%20%7D%2C%0A%20%20%20%20%2F%2F%20Zde%20vlo%C5%BEte%20jestli%20m%C3%A1%20b%C3%BDt%20aplikace%20v%20listu%20aplikac%C3%AD%20ve%20startu%0A%20%20%20%20%2F%2F%20true%20%3D%20ano%0A%20%20%20%20%2F%2F%20false%20%3D%20ne%0A%20%20%20%20true%0A)%0A%0A%2F%2F%20Krok%202.%20Vytvo%C5%99en%C3%AD%20okna%0Avar%20okno%20%3D%20apps.createWindow(%7B%0A%20%20%20%20%2F%2F%20Odkazuje%20na%20variable%20aplikace%0A%20%20%20%20app%3A%20aplikace%2C%0A%20%20%20%20%2F%2F%20Tla%C4%8D%C3%ADtka%20kter%C3%A9%20budou%20na%20okn%C4%9B%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20Typ%20tla%C4%8D%C3%ADtka%20a%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20stisku%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20tla%C4%8D%C3%ADtko%20spust%C3%AD%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BAe%20se%20m%C3%A1%20okno%20zav%C5%99%C3%ADt%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20zav%C5%99e%20nebo%20minimalizuje%20okno%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20zav%C5%99eno.%22)%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20minimalizov%C3%A1no%22)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%2F%2F%20Podporovan%C3%A9%20tla%C4%8D%C3%ADtka%3A%20close%2C%20mini%0A%20%20%20%20%7D%2C%0A%0A%20%20%20%20%2F%2F%20Obsah%20aplikace.%20Zde%20vkl%C3%A1d%C3%A1te%20HTML%20strukturu%20dan%C3%A9%20aplikace.%0A%20%20%20%20content%3A%20%22%3Ch1%3EMoje%20nov%C3%A1%20aplikace!%3C%2Fh1%3E%22%0A%7D)%0A%0A%0A%2F%2F%20Krok%203.%20Vytvo%C5%99en%C3%AD%20scriptu%20pro%20minimalizaci%0A%2F%2F%20Pokud%20nechcete%20m%C3%ADt%20u%20sv%C3%A9ho%20okna%20jste%20si%20nastavil%20%C5%BEe%20nem%C3%A1%20m%C3%ADt%20minimalizaci%2C%20tento%20krok%20p%C5%99esko%C4%8Dte%0Avar%20appIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20o%20jakou%20aplikaci%20se%20jedn%C3%A1.%0A%20%20%20%20app%3A%20aplikace%2C%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20jak%C3%A9%20okno%20m%C3%A1%20aplikace.%0A%20%20%20%20window%3A%20okno%2C%0A%7D)%0A%0A%2F%2F%20A%20je%20to.%20Nyn%C3%AD%20si%20m%C5%AF%C5%BEete%20upravovat%20svoji%20aplikaci%20dle%20libosti.%0A%2F%2F%20Do%20aplikace%20m%C5%AF%C5%BEete%20za%20b%C4%9Bhu%20tak%C3%A9%20p%C5%99id%C3%A1vat%20elementy%20pomoc%C3%AD%20funkce%20appendchild.%20N%C4%9Bjak%20takto%3A%0A%0A%2F%2F%20Vytvo%C5%99%C3%AD%20element%20h1%0Avar%20dalsiH1%20%3D%20document.createElement(%22h1%22)%0A%2F%2F%20Vlo%C5%BE%C3%AD%20text%20do%20h1%0AdalsiH1.textContent%20%3D%20%22Dal%C5%A1%C3%AD%20h1%22%0A%2F%2F%20Vlo%C5%BE%C3%AD%20h1%20do%20okna.%0Aokno.appendChild(dalsiH1)%0A%0A%2F%2F%20Pokud%20by%20jste%20pot%C5%99ebovali%20pomoct%2C%20napi%C5%A1te%20n%C3%A1m%20na%20podpora%40klindos-main.ml">Stáhnout
-          soubor</a><br>
-        <span>Hotová aplikace 1: </span><a download="finalapp1.js"
-          href="data:text/plain;charset=utf-8,appdetectorapp%3D%20apps.createApp(%0A%20%20%20%20%22AppDetector%22%2C%0A%20%20%20%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%7D%2C%0A%20%20%20%20true%0A)%0Aappdetectorwindow%3D%20apps.createWindow(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20resizeable%3A%20%7B%0A%20%20%20%20%20%20%20%20height%3A%20500%2C%0A%20%20%20%20%20%20%20%20width%3A%20500%0A%20%20%20%20%7D%2C%0A%20%20%20%20content%3A%20'%3Cinput%20placeholder%3D%22AppName%22%3E%3C%2Finput%3E%3Cbutton%20onclick%3D%22appdetectorsubmit(this.parentElement)%22%3ESubmit%3C%2Fbutton%3E%3Cbr%3E%3Cbutton%20onclick%3D%22appnotminidetect()%22%3EDetekovat%20aplikace%20bez%20minimalizace%3C%2Fbutton%3E'%0A%7D)%0Afunction%20appnotminidetect()%20%7B%0A%20%20%20%20var%20list%20%3D%20%5B%5D%0A%20%20%20%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20windows.list.ikonadown.length%3B%20i%2B%2B)%20%7B%0A%20%20%20%20%20%20%20%20if%20(windows.list.ikonadown%5Bi%5D%3D%3Dfalse)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20list.push(windows.list.names%5Bi%5D)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20alert(%22Aplikace%20bez%20minimalizace%3A%5Cn%5Cn%22%2Blist.join(%22%2C%22))%0A%7D%0Afunction%20appdetectorsubmit(element)%20%7B%0A%20%20%20%20var%20value%20%3D%20element.querySelector(%22input%22).value%0A%20%20%20%20var%20position%20%3D%20windows.list.names.indexOf(value)%0A%20%20%20%20var%20classe%20%3D%20windows.list.classes%5Bposition%5D%0A%20%20%20%20var%20sd%20%3D%20windows.list.ikonadown%5Bposition%5D%0A%20%20%20%20alert(%22AppDetector%20output%3A%20%5CnName%3A%20%22%2Bvalue%2B%22%5CnClass%3A%20%22%2Bclasse%2B%22%5CnDownIcon%3A%20%22%2Bsd)%0A%7D%0AdownIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20window%3A%20appdetectorwindow%0A%7D)">Stáhnout
-          soubor</a>
-      </div>
-      <div class="verze sixdottwo" style="display: none; margin-left: 15px;"><br>
-        <p>Ve verzi 6.2 je potřeba využít compiler instalačního balíčku, který vydíte po levé straně. Budete potřebovat
-          2 věci.<br>1. Ikonu aplikace<br>2. .js soubor (nebo-li script) Pozor! Ten se liší od verze 6.1</p>
-        <p>Ikona aplikace musí být ve formátu .png.</p>
-        <p>Zde jsou vysvětlení jak by měl script vypadat:</p><br>
-        <span>Ukázka 1: </span><a download="example1.js"
-          href="data:text/plain;charset=utf-8;base64,Ly8gVG90byBqZSBwxZnDrWtsYWQgamFrIHNpIG3Fr8W+ZXRlIHZ5dHZvxZlpdCB2bGFzdG7DrSBKYXZhU2NyaXB0b3ZvdSBhcGxpa2FjaSBkbyBLTElORCBPUy4NCg0KLy8gS3JvayAxLiBWeXR2b8WZZW7DrSBhcGxpa2FjZToNCnZhciBhcGxpa2FjZSA9IG5ldyBBcHAoew0KICAgIC8vIE7DoXpldiBhcGxpa2FjZSAobXVzw60gYsO9dCBzdGVqbsOpIGpha8OpIGJ1ZGV0ZSB6YWTDoXZhdCBkbyBjb21waWxlcnUpDQogICAgbmFtZTogIkRvYnLDoSBhcGxpa2FjZSIsDQogICAgLy8gRnVua2NlIHBybyB0byBjbyBzZSBtw6EgdWTEm2xhdCBwxZlpIHJvemtsaWtudXTDrSBwcm9ncmFtdQ0KICAgIG9uU3RhcnQ6IChkYW5lb2tubykgPT4gew0KICAgICAgICAvLyBaZGUgc2Ugdmtsw6Fkw6Ega8OzZCBwcm8gdG8ga2R5xb4gc2UgYXBsaWthY2Ugc3B1c3TDrQ0KICAgICAgICAvLyBOZW11c8OtdGUgemRlIHphZMOhdmF0IMW+ZSBzZSBtw6Egb2tubyBvdGV2xZnDrXQNCiAgICAgICAgLy8gWmRlIHNlIHZrbMOhZGFqw60gcG91emUgc3BlY2nDoWxuw60gZnVua2NlLCBrdGVyw6kgc2UgbWFqw60gdnl2b2xhdCBwb3TDqSBjbyB1xb5pdmF0ZWwgYXBsaWthY2kgc3B1c3TDrQ0KICAgICAgICB2YXIgenByYXZhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgicCIpDQogICAgICAgIG1pbnV0ZXMgPSBuZXcgRGF0ZSgpLmdldE1pbnV0ZXMoKQ0KICAgICAgICBpZihtaW51dGVzIDwgMTApew0KICAgICAgICAgICAgbWludXRlcyA9ICIwIiArIG1pbnV0ZXM7DQogICAgICAgIH0NCiAgICAgICAgLy8gTmFzdGF2w60gdGV4dCBzIGFrdHXDoWxuw61tIMSNZXNlbSBkbyBlbGVtZW50dQ0KICAgICAgICB6cHJhdmEudGV4dENvbnRlbnQgPSAiQXBsaWthY2UgYnlsYSBzcHXFoXTEm25hIHY6ICIrbmV3IERhdGUoKS5nZXRIb3VycygpKyI6IittaW51dGVzDQogICAgICAgIC8vIFZsb8W+w60gdmxvxb7DrSBlbGVtZW50IGRvIGRhbsOpaG8gb2tuYQ0KICAgICAgICBkYW5lb2tuby5hcHBlbmRDaGlsZCh6cHJhdmEpDQogICAgfSwNCiAgICAvLyBaZGUgdmxvxb7DrXRlIGplc3RsaSBtw6EgYsO9dCBhcGxpa2FjZSBza3J5dMO9IHZlIHN0YXJ0IG1lbnUNCiAgICAvLyB0cnVlID0gYW5vDQogICAgLy8gZmFsc2UgPSBuZQ0KICAgIGhpZGRlbjogdHJ1ZQ0KfSkNCg0KLy8gS3JvayAyLiBWeXR2b8WZZW7DrSBva25hDQphcGxpa2FjZS5jcmVhdGVXaW5kb3coew0KICAgIC8vIFRsYcSNw610a2Ega3RlcsOpIGJ1ZG91IG5hIG9rbsSbDQogICAgYnV0dG9uczogew0KICAgICAgICAvLyBUeXAgdGxhxI3DrXRrYSBhIGNvIHNlIG3DoSB1ZMSbbGF0IHDFmWkgc3Rpc2t1DQogICAgICAgIGNsb3NlOiAoKSA9PiB7DQogICAgICAgICAgICAvLyBaZGUgc2Ugdmtsw6Fkw6Ega8OzZCBwcm8gdG8ga2R5xb4gc2UgdGxhxI3DrXRrbyBzcHVzdMOtDQogICAgICAgICAgICAvLyBOZW11c8OtdGUgemRlIHphZMOhdmF0IMW6ZSBzZSBtw6Egb2tubyB6YXbFmcOtdA0KICAgICAgICAgICAgLy8gWmRlIHNlIHZrbMOhZGFqw60gcG91emUgc3BlY2nDoWxuw60gZnVua2NlLCBrdGVyw6kgc2UgbWFqw60gdnl2b2xhdCBwb3TDqSBjbyB1xb5pdmF0ZWwgemF2xZllIG5lYm8gbWluaW1hbGl6dWplIG9rbm8NCiAgICAgICAgICAgIGNvbnNvbGUubG9nKCJPa25vIGJ5bG8gemF2xZllbm8uIikNCiAgICAgICAgfSwNCiAgICAgICAgbWluaTogKCkgPT4gew0KICAgICAgICAgICAgY29uc29sZS5sb2coIk9rbm8gYnlsbyBtaW5pbWFsaXpvdsOhbm8iKQ0KICAgICAgICB9DQogICAgICAgIC8vIFBvZHBvcm92YW7DqSB0bGHEjcOtdGthOiBjbG9zZSwgbWluaQ0KICAgIH0sDQogICAgLy8gT2JzYWggYXBsaWthY2UuIFpkZSB2a2zDoWTDoXRlIEhUTUwgc3RydWt0dXJ1IGRhbsOpIGFwbGlrYWNlLg0KICAgIGNvbnRlbnQ6ICI8aDE+TW9qZSBub3bDoSBhcGxpa2FjZSE8L2gxPiINCn0pDQoNCi8vIEtyb2sgMy4gVnl0dm/FmWVuw60gc2NyaXB0dSBwcm8gbWluaW1hbGl6YWNpDQovLyBQb2t1ZCBuZWNoY2V0ZSBtw610IHUgc3bDqWhvIG9rbmEganN0ZSBzaSBuYXN0YXZpbCDFvmUgbmVtw6EgbcOtdCBtaW5pbWFsaXphY2ksIHRlbnRvIGtyb2sgcMWZZXNrb8SNdGUNCi8vIFRlbnRvIHDFmcOta2F6IHZ5dHZvxZnDrSBpa29ua3UgbWluaW1hbGl6YWNlIHYgdGFza2JhcnUNCnZhciBhcHBJY29uID0gYXBsaWthY2UuY3JlYXRlTWluaUljb24oKQ0KDQoNCg0KLy8gQSBqZSB0by4gTnluw60gc2kgbcWvxb5ldGUgdXByYXZvdmF0IHN2b2ppIGFwbGlrYWNpIGRsZSBsaWJvc3RpLg0KLy8gRG8gYXBsaWthY2UgbcWvxb5ldGUgemEgYsSbaHUgdGFrw6kgcMWZaWTDoXZhdCBlbGVtZW50eSBwb21vY8OtIGZ1bmtjZSBhcHBlbmRjaGlsZC4gTsSbamFrIHRha3RvOg0KDQovLyBWeXR2b8WZw60gZWxlbWVudCBoMQ0KdmFyIGRhbHNpSDEgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJoMSIpDQovLyBWbG/FvsOtIHRleHQgZG8gaDENCmRhbHNpSDEudGV4dENvbnRlbnQgPSAiRGFsxaHDrSBoMSINCi8vIFZsb8W+w60gaDEgZG8gb2tuYS4NCm9rbm8uYXBwZW5kQ2hpbGQoZGFsc2lIMSkNCg0KLy8gUG9rdWQgYnkganN0ZSBwb3TFmWVib3ZhbGkgcG9tb2N0LCBuYXBpxaF0ZSBuw6FtIG5hIHBvZHBvcmFAa2xpbmRvcy1tYWluLm1s">Stáhnout
-          soubor</a><br>
-        <span>Hotová aplikace 1: </span><a download="finalapp1.js"
-          href="data:text/plain;charset=utf-8;base64,YXBwZGV0ZWN0b3JhcHAgPSBuZXcgQXBwKHsNCiAgICBuYW1lOiAiQXBwRGV0ZWN0b3IiLA0KICAgIG9uU3RhcnQ6ICgpID0+IHsNCg0KICAgIH0sDQogICAgaGlkZGVuOiBmYWxzZSwNCn0pDQphcHBkZXRlY3RvcmFwcC5jcmVhdGVXaW5kb3coew0KICAgIGJ1dHRvbnM6IHsNCiAgICAgICAgY2xvc2U6ICgpID0+IHsNCg0KICAgICAgICB9LA0KICAgICAgICBtaW5pOiAoKSA9PiB7DQoNCiAgICAgICAgfQ0KICAgIH0sDQogICAgY29udGVudDogJzxpbnB1dCBwbGFjZWhvbGRlcj0iQXBwTmFtZSI+PC9pbnB1dD48YnV0dG9uIG9uY2xpY2s9ImFwcGRldGVjdG9yc3VibWl0KHRoaXMucGFyZW50RWxlbWVudCkiPlN1Ym1pdDwvYnV0dG9uPjxicj48YnV0dG9uIG9uY2xpY2s9ImFwcG5vdG1pbmlkZXRlY3QoKSI+RGV0ZWtvdmF0IGFwbGlrYWNlIGJleiBtaW5pbWFsaXphY2U8L2J1dHRvbj4nDQp9KQ0KYXBwZGV0ZWN0b3JhcHAuY3JlYXRlTWluaUljb24oKTsNCg0KZnVuY3Rpb24gYXBwbm90bWluaWRldGVjdCgpIHsNCiAgICB2YXIgbGlzdCA9IFtdDQogICAgZm9yICh2YXIgaSA9IDA7IGkgPCB3aW5kb3dzLmxpc3QuaWtvbmFkb3duLmxlbmd0aDsgaSsrKSB7DQogICAgICAgIGlmICh3aW5kb3dzLmxpc3QuaWtvbmFkb3duW2ldPT1mYWxzZSkgew0KICAgICAgICAgICAgbGlzdC5wdXNoKHdpbmRvd3MubGlzdC5uYW1lc1tpXSkNCiAgICAgICAgfQ0KICAgIH0NCiAgICBhbGVydCgiQXBsaWthY2UgYmV6IG1pbmltYWxpemFjZTpubiIrbGlzdC5qb2luKCIsIikpDQp9DQpmdW5jdGlvbiBhcHBkZXRlY3RvcnN1Ym1pdChlbGVtZW50KSB7DQogICAgdmFyIHZhbHVlID0gZWxlbWVudC5xdWVyeVNlbGVjdG9yKCJpbnB1dCIpLnZhbHVlDQogICAgdmFyIHBvc2l0aW9uID0gd2luZG93cy5saXN0Lm5hbWVzLmluZGV4T2YodmFsdWUpDQogICAgdmFyIGNsYXNzZSA9IHdpbmRvd3MubGlzdC5jbGFzc2VzW3Bvc2l0aW9uXQ0KICAgIHZhciBzZCA9IHdpbmRvd3MubGlzdC5pa29uYWRvd25bcG9zaXRpb25dDQogICAgYWxlcnQoIkFwcERldGVjdG9yIG91dHB1dDogbk5hbWU6ICIrdmFsdWUrIm5DbGFzczogIitjbGFzc2UrIm5Eb3duSWNvbjogIitzZCkNCn0=">Stáhnout
-          soubor</a>
-      </div>
-      <div class="verze sixdotthree" style="display: none; margin-left: 15px;"><br>
-        <p>Ve verzi 6.3 je potřeba využít compiler instalačního balíčku, který vydíte po levé straně. Budete potřebovat
-          2 věci.<br>1. Ikonu aplikace<br>2. .js soubor (nebo-li script) Stejný jako ve verzi 6.2</p>
-        <p>Ikona aplikace musí být ve formátu .png.</p>
-        <p>Zde jsou vysvětlení jak by měl script vypadat:</p><br>
-        <span>Ukázka 1: </span><a download="example1.js"
-          href="data:text/plain;charset=utf-8;base64,Ly8gVG90byBqZSBwxZnDrWtsYWQgamFrIHNpIG3Fr8W+ZXRlIHZ5dHZvxZlpdCB2bGFzdG7DrSBKYXZhU2NyaXB0b3ZvdSBhcGxpa2FjaSBkbyBLTElORCBPUy4NCg0KLy8gS3JvayAxLiBWeXR2b8WZZW7DrSBhcGxpa2FjZToNCnZhciBhcGxpa2FjZSA9IG5ldyBBcHAoew0KICAgIC8vIE7DoXpldiBhcGxpa2FjZSAobXVzw60gYsO9dCBzdGVqbsOpIGpha8OpIGJ1ZGV0ZSB6YWTDoXZhdCBkbyBjb21waWxlcnUpDQogICAgbmFtZTogIkRvYnLDoSBhcGxpa2FjZSIsDQogICAgLy8gRnVua2NlIHBybyB0byBjbyBzZSBtw6EgdWTEm2xhdCBwxZlpIHJvemtsaWtudXTDrSBwcm9ncmFtdQ0KICAgIG9uU3RhcnQ6IChkYW5lb2tubykgPT4gew0KICAgICAgICAvLyBaZGUgc2Ugdmtsw6Fkw6Ega8OzZCBwcm8gdG8ga2R5xb4gc2UgYXBsaWthY2Ugc3B1c3TDrQ0KICAgICAgICAvLyBOZW11c8OtdGUgemRlIHphZMOhdmF0IMW+ZSBzZSBtw6Egb2tubyBvdGV2xZnDrXQNCiAgICAgICAgLy8gWmRlIHNlIHZrbMOhZGFqw60gcG91emUgc3BlY2nDoWxuw60gZnVua2NlLCBrdGVyw6kgc2UgbWFqw60gdnl2b2xhdCBwb3TDqSBjbyB1xb5pdmF0ZWwgYXBsaWthY2kgc3B1c3TDrQ0KICAgICAgICB2YXIgenByYXZhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgicCIpDQogICAgICAgIG1pbnV0ZXMgPSBuZXcgRGF0ZSgpLmdldE1pbnV0ZXMoKQ0KICAgICAgICBpZihtaW51dGVzIDwgMTApew0KICAgICAgICAgICAgbWludXRlcyA9ICIwIiArIG1pbnV0ZXM7DQogICAgICAgIH0NCiAgICAgICAgLy8gTmFzdGF2w60gdGV4dCBzIGFrdHXDoWxuw61tIMSNZXNlbSBkbyBlbGVtZW50dQ0KICAgICAgICB6cHJhdmEudGV4dENvbnRlbnQgPSAiQXBsaWthY2UgYnlsYSBzcHXFoXTEm25hIHY6ICIrbmV3IERhdGUoKS5nZXRIb3VycygpKyI6IittaW51dGVzDQogICAgICAgIC8vIFZsb8W+w60gdmxvxb7DrSBlbGVtZW50IGRvIGRhbsOpaG8gb2tuYQ0KICAgICAgICBkYW5lb2tuby5hcHBlbmRDaGlsZCh6cHJhdmEpDQogICAgfSwNCiAgICAvLyBaZGUgdmxvxb7DrXRlIGplc3RsaSBtw6EgYsO9dCBhcGxpa2FjZSBza3J5dMO9IHZlIHN0YXJ0IG1lbnUNCiAgICAvLyB0cnVlID0gYW5vDQogICAgLy8gZmFsc2UgPSBuZQ0KICAgIGhpZGRlbjogdHJ1ZQ0KfSkNCg0KLy8gS3JvayAyLiBWeXR2b8WZZW7DrSBva25hDQphcGxpa2FjZS5jcmVhdGVXaW5kb3coew0KICAgIC8vIFRsYcSNw610a2Ega3RlcsOpIGJ1ZG91IG5hIG9rbsSbDQogICAgYnV0dG9uczogew0KICAgICAgICAvLyBUeXAgdGxhxI3DrXRrYSBhIGNvIHNlIG3DoSB1ZMSbbGF0IHDFmWkgc3Rpc2t1DQogICAgICAgIGNsb3NlOiAoKSA9PiB7DQogICAgICAgICAgICAvLyBaZGUgc2Ugdmtsw6Fkw6Ega8OzZCBwcm8gdG8ga2R5xb4gc2UgdGxhxI3DrXRrbyBzcHVzdMOtDQogICAgICAgICAgICAvLyBOZW11c8OtdGUgemRlIHphZMOhdmF0IMW6ZSBzZSBtw6Egb2tubyB6YXbFmcOtdA0KICAgICAgICAgICAgLy8gWmRlIHNlIHZrbMOhZGFqw60gcG91emUgc3BlY2nDoWxuw60gZnVua2NlLCBrdGVyw6kgc2UgbWFqw60gdnl2b2xhdCBwb3TDqSBjbyB1xb5pdmF0ZWwgemF2xZllIG5lYm8gbWluaW1hbGl6dWplIG9rbm8NCiAgICAgICAgICAgIGNvbnNvbGUubG9nKCJPa25vIGJ5bG8gemF2xZllbm8uIikNCiAgICAgICAgfSwNCiAgICAgICAgbWluaTogKCkgPT4gew0KICAgICAgICAgICAgY29uc29sZS5sb2coIk9rbm8gYnlsbyBtaW5pbWFsaXpvdsOhbm8iKQ0KICAgICAgICB9DQogICAgICAgIC8vIFBvZHBvcm92YW7DqSB0bGHEjcOtdGthOiBjbG9zZSwgbWluaQ0KICAgIH0sDQogICAgLy8gT2JzYWggYXBsaWthY2UuIFpkZSB2a2zDoWTDoXRlIEhUTUwgc3RydWt0dXJ1IGRhbsOpIGFwbGlrYWNlLg0KICAgIGNvbnRlbnQ6ICI8aDE+TW9qZSBub3bDoSBhcGxpa2FjZSE8L2gxPiINCn0pDQoNCi8vIEtyb2sgMy4gVnl0dm/FmWVuw60gc2NyaXB0dSBwcm8gbWluaW1hbGl6YWNpDQovLyBQb2t1ZCBuZWNoY2V0ZSBtw610IHUgc3bDqWhvIG9rbmEganN0ZSBzaSBuYXN0YXZpbCDFvmUgbmVtw6EgbcOtdCBtaW5pbWFsaXphY2ksIHRlbnRvIGtyb2sgcMWZZXNrb8SNdGUNCi8vIFRlbnRvIHDFmcOta2F6IHZ5dHZvxZnDrSBpa29ua3UgbWluaW1hbGl6YWNlIHYgdGFza2JhcnUNCnZhciBhcHBJY29uID0gYXBsaWthY2UuY3JlYXRlTWluaUljb24oKQ0KDQoNCg0KLy8gQSBqZSB0by4gTnluw60gc2kgbcWvxb5ldGUgdXByYXZvdmF0IHN2b2ppIGFwbGlrYWNpIGRsZSBsaWJvc3RpLg0KLy8gRG8gYXBsaWthY2UgbcWvxb5ldGUgemEgYsSbaHUgdGFrw6kgcMWZaWTDoXZhdCBlbGVtZW50eSBwb21vY8OtIGZ1bmtjZSBhcHBlbmRjaGlsZC4gTsSbamFrIHRha3RvOg0KDQovLyBWeXR2b8WZw60gZWxlbWVudCBoMQ0KdmFyIGRhbHNpSDEgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJoMSIpDQovLyBWbG/FvsOtIHRleHQgZG8gaDENCmRhbHNpSDEudGV4dENvbnRlbnQgPSAiRGFsxaHDrSBoMSINCi8vIFZsb8W+w60gaDEgZG8gb2tuYS4NCm9rbm8uYXBwZW5kQ2hpbGQoZGFsc2lIMSkNCg0KLy8gUG9rdWQgYnkganN0ZSBwb3TFmWVib3ZhbGkgcG9tb2N0LCBuYXBpxaF0ZSBuw6FtIG5hIHBvZHBvcmFAa2xpbmRvcy1tYWluLm1s">Stáhnout
-          soubor</a><br>
-        <span>Hotová aplikace 1: </span><a download="finalapp1.js"
-          href="data:text/plain;charset=utf-8;base64,YXBwZGV0ZWN0b3JhcHAgPSBuZXcgQXBwKHsNCiAgICBuYW1lOiAiQXBwRGV0ZWN0b3IiLA0KICAgIG9uU3RhcnQ6ICgpID0+IHsNCg0KICAgIH0sDQogICAgaGlkZGVuOiBmYWxzZSwNCn0pDQphcHBkZXRlY3RvcmFwcC5jcmVhdGVXaW5kb3coew0KICAgIGJ1dHRvbnM6IHsNCiAgICAgICAgY2xvc2U6ICgpID0+IHsNCg0KICAgICAgICB9LA0KICAgICAgICBtaW5pOiAoKSA9PiB7DQoNCiAgICAgICAgfQ0KICAgIH0sDQogICAgY29udGVudDogJzxpbnB1dCBwbGFjZWhvbGRlcj0iQXBwTmFtZSI+PC9pbnB1dD48YnV0dG9uIG9uY2xpY2s9ImFwcGRldGVjdG9yc3VibWl0KHRoaXMucGFyZW50RWxlbWVudCkiPlN1Ym1pdDwvYnV0dG9uPjxicj48YnV0dG9uIG9uY2xpY2s9ImFwcG5vdG1pbmlkZXRlY3QoKSI+RGV0ZWtvdmF0IGFwbGlrYWNlIGJleiBtaW5pbWFsaXphY2U8L2J1dHRvbj4nDQp9KQ0KYXBwZGV0ZWN0b3JhcHAuY3JlYXRlTWluaUljb24oKTsNCg0KZnVuY3Rpb24gYXBwbm90bWluaWRldGVjdCgpIHsNCiAgICB2YXIgbGlzdCA9IFtdDQogICAgZm9yICh2YXIgaSA9IDA7IGkgPCB3aW5kb3dzLmxpc3QuaWtvbmFkb3duLmxlbmd0aDsgaSsrKSB7DQogICAgICAgIGlmICh3aW5kb3dzLmxpc3QuaWtvbmFkb3duW2ldPT1mYWxzZSkgew0KICAgICAgICAgICAgbGlzdC5wdXNoKHdpbmRvd3MubGlzdC5uYW1lc1tpXSkNCiAgICAgICAgfQ0KICAgIH0NCiAgICBhbGVydCgiQXBsaWthY2UgYmV6IG1pbmltYWxpemFjZTpubiIrbGlzdC5qb2luKCIsIikpDQp9DQpmdW5jdGlvbiBhcHBkZXRlY3RvcnN1Ym1pdChlbGVtZW50KSB7DQogICAgdmFyIHZhbHVlID0gZWxlbWVudC5xdWVyeVNlbGVjdG9yKCJpbnB1dCIpLnZhbHVlDQogICAgdmFyIHBvc2l0aW9uID0gd2luZG93cy5saXN0Lm5hbWVzLmluZGV4T2YodmFsdWUpDQogICAgdmFyIGNsYXNzZSA9IHdpbmRvd3MubGlzdC5jbGFzc2VzW3Bvc2l0aW9uXQ0KICAgIHZhciBzZCA9IHdpbmRvd3MubGlzdC5pa29uYWRvd25bcG9zaXRpb25dDQogICAgYWxlcnQoIkFwcERldGVjdG9yIG91dHB1dDogbk5hbWU6ICIrdmFsdWUrIm5DbGFzczogIitjbGFzc2UrIm5Eb3duSWNvbjogIitzZCkNCn0=">Stáhnout
-          soubor</a>
+  <body>
+    <div class="loading">
+      <div class="loader-33"></div>
+      <h1>Načítání</h1>
+      <p>Probíhá načítání pluginů, grafického rozhraní a souborů.</p>
+      <p><strong>Pozor!</strong> Grafické rozhraní není určené pro telefony nebo malé obrazovky.</p>
+    </div>
+    <script>
+      setTimeout(() => {
+        document.querySelector(".loading").style.display = "none";
+      }, 10000)
+    </script>
+    <header>
+      <p>Vytváření aplikací pro KLIND OS</p>
+    </header>
+    <div class="examplesdiv">
+      <h1>Pomoc</h1>
+      <h2>Jak se vytváří aplikace?</h2>
+      <p>
+        Záleží pro jakou verzi script chcete. Nejstarší verze která podporuje
+        instalaci vlastních aplikací je verze 6.
+      </p>
+      <span>Pro jakou verzi KLIND OS chete mít vlastní aplikaci: </span>
+      <select onchange="helpChange(this)">
+        <option disabled selected>Vyberte</option>
+        <option value="six">6</option>
+        <option value="sixdotone">6.1</option>
+        <option value="sixdottwo">6.2</option>
+        <option value="sixdotthree">6.3</option>
+      </select>
+      <div class="helps">
+        <div class="verze" style="margin-left: 15px"><br />Vyberte verzi.</div>
+        <div class="verze six" style="display: none; margin-left: 15px">
+          <br />
+          <p>
+            Zde v tomto soubou je ukázáno jak by měl .js soubor vypadat. Pro
+            verzi 6 stačí pouze nahrát .js soubor a program bude spuštěn. Není
+            potřeba vytvářet žádné instalační balíčky.
+          </p>
+          <br />
+          <span>Ukázka 1: </span
+          ><a
+            download="example1.js"
+            href="data:text/plain;charset=utf-8,%2F%2F%20Toto%20je%20p%C5%99%C3%ADklad%20jak%20si%20m%C5%AF%C5%BEete%20vytvo%C5%99it%20vlastn%C3%AD%20JavaScriptovou%20aplikaci%20do%20KLIND%20OS.%0D%0A%0D%0A%2F%2F%20Krok%201.%20Vytvo%C5%99en%C3%AD%20aplikace%3A%0D%0Avar%20aplikace%20%3D%20apps.createApp(%0D%0A%20%20%20%20%2F%2F%20N%C3%A1zev%20aplikace%0D%0A%20%20%20%20%22Dobr%C3%A1%20aplikace%22%2C%0D%0A%20%20%20%20%2F%2F%20Funkce%20pro%20to%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20rozkliknut%C3%AD%20programu%0D%0A%20%20%20%20(daneokno)%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20aplikace%20spust%C3%AD%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BEe%20se%20m%C3%A1%20okno%20otev%C5%99%C3%ADt%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20aplikaci%20spust%C3%AD%0D%0A%20%20%20%20%20%20%20%20var%20zprava%20%3D%20document.createElement(%22p%22)%0D%0A%20%20%20%20%20%20%20%20minutes%20%3D%20new%20Date().getMinutes()%0D%0A%20%20%20%20%20%20%20%20if(minutes%20%3C%2010)%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20minutes%20%3D%20%220%22%20%2B%20minutes%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Nastav%C3%AD%20text%20s%20aktu%C3%A1ln%C3%ADm%20%C4%8Desem%20do%20elementu%0D%0A%20%20%20%20%20%20%20%20zprava.textContent%20%3D%20%22Aplikace%20byla%20spu%C5%A1t%C4%9Bna%20v%3A%20%22%2Bnew%20Date().getHours()%2B%22%3A%22%2Bminutes%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Vlo%C5%BE%C3%AD%20vlo%C5%BE%C3%AD%20element%20do%20dan%C3%A9ho%20okna%0D%0A%20%20%20%20%20%20%20%20daneokno.appendChild(zprava)%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%20%20%2F%2F%20Zde%20vlo%C5%BEte%20jestli%20m%C3%A1%20b%C3%BDt%20aplikace%20v%20listu%20aplikac%C3%AD%20ve%20startu%0D%0A%20%20%20%20%2F%2F%20true%20%3D%20ano%0D%0A%20%20%20%20%2F%2F%20false%20%3D%20ne%0D%0A%20%20%20%20true%0D%0A)%0D%0A%0D%0A%2F%2F%20Krok%202.%20Vytvo%C5%99en%C3%AD%20okna%0D%0Avar%20okno%20%3D%20apps.createWindow(%7B%0D%0A%20%20%20%20%2F%2F%20Odkazuje%20na%20variable%20aplikace%0D%0A%20%20%20%20app%3A%20aplikace%2C%0D%0A%20%20%20%20%2F%2F%20Tla%C4%8D%C3%ADtka%20kter%C3%A9%20budou%20na%20okn%C4%9B%0D%0A%20%20%20%20buttons%3A%20%7B%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Typ%20tla%C4%8D%C3%ADtka%20a%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20stisku%0D%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20tla%C4%8D%C3%ADtko%20spust%C3%AD%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BAe%20se%20m%C3%A1%20okno%20zav%C5%99%C3%ADt%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20zav%C5%99e%20nebo%20minimalizuje%20okno%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20zav%C5%99eno.%22)%0D%0A%20%20%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20minimalizov%C3%A1no%22)%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Podporovan%C3%A9%20tla%C4%8D%C3%ADtka%3A%20close%2C%20mini%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%20%20%2F%2F%20Jesli%20m%C5%AF%C5%BEe%20okno%20m%C4%9Bnit%20velikost%3A%0D%0A%20%20%20%20%2F%2F%20Jestli%20okno%20m%C5%AF%C5%BEe%20m%C4%9Bnit%20velikost%0D%0A%20%20%20%20%2F%2F%20Mo%C5%BEnosti%3A%0D%0A%0D%0A%20%20%20%20%2F%2F%20true%0D%0A%20%20%20%20%2F%2F%20ano%20m%C5%AF%C5%BEe%0D%0A%0D%0A%20%20%20%20%2F%2F%20nebo%0D%0A%20%20%20%20%2F%2F%20%7B%0D%0A%20%20%20%20%2F%2F%20%20%20width%3A%20%22100%22%2C%20height%3A%20%22100%22%0D%0A%20%20%20%20%2F%2F%20%7D%0D%0A%20%20%20%20%2F%2F%20ne%20nem%C5%AF%C5%BEe%0D%0A%0D%0A%20%20%20%20%2F%2F%20Pokud%20chcete%20aby%20nemohlo%20okno%20m%C4%9Bnit%20velikost%2C%20m%C5%AFs%C3%ADte%20zadat%20pevnou%20%C5%A1%C3%AD%C5%99ku%20a%20v%C3%BD%C5%A1ku%20okna.%0D%0A%20%20%20%20resizeable%3A%20%7B%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20%C5%A0%C3%AD%C5%99ka%20a%20b%C3%BD%C5%A1ka%20je%20v%20pixelech%0D%0A%20%20%20%20%20%20%20%20height%3A%20200%2C%0D%0A%20%20%20%20%20%20%20%20width%3A%20200%2C%0D%0A%20%20%20%20%7D%2C%0D%0A%0D%0A%20%20%20%20%2F%2F%20Ikona%20aplikace%0D%0A%20%20%20%20icon%3A%20%22https%3A%2F%2Ficons8.com%2Ficon%2FH7bD848fFLgE%2Fapp%22%2C%0D%0A%0D%0A%20%20%20%20%2F%2F%20Obsah%20aplikace.%20Zde%20vkl%C3%A1d%C3%A1te%20HTML%20strukturu%20dan%C3%A9%20aplikace.%0D%0A%20%20%20%20content%3A%20%22%3Ch1%3EMoje%20nov%C3%A1%20aplikace!%3C%2Fh1%3E%22%0D%0A%7D)%0D%0A%0D%0A%0D%0A%2F%2F%20Krok%203.%20Vytvo%C5%99en%C3%AD%20scriptu%20pro%20minimalizaci%0D%0A%2F%2F%20Pokud%20nechcete%20m%C3%ADt%20u%20sv%C3%A9ho%20okna%20jste%20si%20nastavil%20%C5%BEe%20nem%C3%A1%20m%C3%ADt%20minimalizaci%2C%20tento%20krok%20p%C5%99esko%C4%8Dte%0D%0Avar%20appIcon%20%3D%20apps.createMini(%7B%0D%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20o%20jakou%20aplikaci%20se%20jedn%C3%A1.%0D%0A%20%20%20%20app%3A%20aplikace%2C%0D%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20jak%C3%A9%20okno%20m%C3%A1%20aplikace.%0D%0A%20%20%20%20window%3A%20okno%2C%0D%0A%7D)%0D%0A%0D%0A%2F%2F%20A%20je%20to.%20Nyn%C3%AD%20si%20m%C5%AF%C5%BEete%20upravovat%20svoji%20aplikaci%20dle%20libosti.%0D%0A%2F%2F%20Do%20aplikace%20m%C5%AF%C5%BEete%20za%20b%C4%9Bhu%20tak%C3%A9%20p%C5%99id%C3%A1vat%20elementy%20pomoc%C3%AD%20funkce%20appendchild.%20N%C4%9Bjak%20takto%3A%0D%0A%0D%0A%2F%2F%20Vytvo%C5%99%C3%AD%20element%20h1%0D%0Avar%20dalsiH1%20%3D%20document.createElement(%22h1%22)%0D%0A%2F%2F%20Vlo%C5%BE%C3%AD%20text%20do%20h1%0D%0AdalsiH1.textContent%20%3D%20%22Dal%C5%A1%C3%AD%20h1%22%0D%0A%2F%2F%20Vlo%C5%BE%C3%AD%20h1%20do%20okna.%0D%0Aokno.appendChild(dalsiH1)%0D%0A%0D%0A%2F%2F%20Pokud%20by%20jste%20pot%C5%99ebovali%20pomoct%2C%20napi%C5%A1te%20n%C3%A1m%20na%20podpora%40klindos-main.ml"
+            >Stáhnout soubor</a
+          ><br />
+          <span>Hotová aplikace 1: </span
+          ><a
+            download="finalapp1.js"
+            href="data:text/plain;charset=utf-8,appdetectorapp%3D%20apps.createApp(%0A%20%20%20%20%22AppDetector%22%2C%0A%20%20%20%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%7D%2C%0A%20%20%20%20true%0A)%0Aappdetectorwindow%3D%20apps.createWindow(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20resizeable%3A%20%7B%0A%20%20%20%20%20%20%20%20height%3A%20500%2C%0A%20%20%20%20%20%20%20%20width%3A%20500%0A%20%20%20%20%7D%2C%0A%20%20%20%20icon%3A%20'https%3A%2F%2Fimg.icons8.com%2Fexternal-anggara-basic-outline-anggara-putra%2F512%2Fexternal-app-ecommerce-interface-anggara-basic-outline-anggara-putra.png'%2C%0A%20%20%20%20content%3A%20'%3Cinput%20placeholder%3D%22AppName%22%3E%3C%2Finput%3E%3Cbutton%20onclick%3D%22appdetectorsubmit(this.parentElement)%22%3ESubmit%3C%2Fbutton%3E%3Cbr%3E%3Cbutton%20onclick%3D%22appnotminidetect()%22%3EDetekovat%20aplikace%20bez%20minimalizace%3C%2Fbutton%3E'%0A%7D)%0Afunction%20appnotminidetect()%20%7B%0A%20%20%20%20var%20list%20%3D%20%5B%5D%0A%20%20%20%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20windows.list.ikonadown.length%3B%20i%2B%2B)%20%7B%0A%20%20%20%20%20%20%20%20if%20(windows.list.ikonadown%5Bi%5D%3D%3Dfalse)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20list.push(windows.list.names%5Bi%5D)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20alert(%22Aplikace%20bez%20minimalizace%3A%5Cn%5Cn%22%2Blist.join(%22%2C%22))%0A%7D%0Afunction%20appdetectorsubmit(element)%20%7B%0A%20%20%20%20var%20value%20%3D%20element.querySelector(%22input%22).value%0A%20%20%20%20var%20position%20%3D%20windows.list.names.indexOf(value)%0A%20%20%20%20var%20classe%20%3D%20windows.list.classes%5Bposition%5D%0A%20%20%20%20var%20sd%20%3D%20windows.list.ikonadown%5Bposition%5D%0A%20%20%20%20alert(%22AppDetector%20output%3A%20%5CnName%3A%20%22%2Bvalue%2B%22%5CnClass%3A%20%22%2Bclasse%2B%22%5CnDownIcon%3A%20%22%2Bsd)%0A%7D%0AdownIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20window%3A%20appdetectorwindow%0A%7D)"
+            >Stáhnout soubor</a
+          >
+        </div>
+        <div class="verze sixdotone" style="display: none; margin-left: 15px">
+          <br />
+          <p>
+            Ve verzi 6.1 je potřeba využít compiler instalačního balíčku, který
+            vidíte po levé straně. Budete potřebovat 2 věci.<br /><strong>1.</strong> Ikonu
+            aplikace<br /><strong>2.</strong> .js soubor (nebo-li script)
+          </p>
+          <p>Ikona aplikace musí být ve formátu .png.</p>
+          <p>Zde jsou vysvětlení jak by měl script vypadat:</p>
+          <br />
+          <span>Ukázka 1: </span
+          ><a
+            download="example1.js"
+            href="data:text/plain;charset=utf-8,%2F%2F%20Toto%20je%20p%C5%99%C3%ADklad%20jak%20si%20m%C5%AF%C5%BEete%20vytvo%C5%99it%20vlastn%C3%AD%20JavaScriptovou%20aplikaci%20do%20KLIND%20OS.%0A%0A%2F%2F%20Krok%201.%20Vytvo%C5%99en%C3%AD%20aplikace%3A%0Avar%20aplikace%20%3D%20apps.createApp(%0A%20%20%20%20%2F%2F%20N%C3%A1zev%20aplikace%20(mus%C3%AD%20b%C3%BDt%20stejn%C3%A9%20jak%C3%A9%20budete%20zad%C3%A1vat%20do%20compileru)%0A%20%20%20%20%22Dobr%C3%A1%20aplikace%22%2C%0A%20%20%20%20%2F%2F%20Funkce%20pro%20to%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20rozkliknut%C3%AD%20programu%0A%20%20%20%20(daneokno)%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20aplikace%20spust%C3%AD%0A%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BEe%20se%20m%C3%A1%20okno%20otev%C5%99%C3%ADt%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20aplikaci%20spust%C3%AD%0A%20%20%20%20%20%20%20%20var%20zprava%20%3D%20document.createElement(%22p%22)%0A%20%20%20%20%20%20%20%20minutes%20%3D%20new%20Date().getMinutes()%0A%20%20%20%20%20%20%20%20if(minutes%20%3C%2010)%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20minutes%20%3D%20%220%22%20%2B%20minutes%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%2F%2F%20Nastav%C3%AD%20text%20s%20aktu%C3%A1ln%C3%ADm%20%C4%8Desem%20do%20elementu%0A%20%20%20%20%20%20%20%20zprava.textContent%20%3D%20%22Aplikace%20byla%20spu%C5%A1t%C4%9Bna%20v%3A%20%22%2Bnew%20Date().getHours()%2B%22%3A%22%2Bminutes%0A%20%20%20%20%20%20%20%20%2F%2F%20Vlo%C5%BE%C3%AD%20vlo%C5%BE%C3%AD%20element%20do%20dan%C3%A9ho%20okna%0A%20%20%20%20%20%20%20%20daneokno.appendChild(zprava)%0A%20%20%20%20%7D%2C%0A%20%20%20%20%2F%2F%20Zde%20vlo%C5%BEte%20jestli%20m%C3%A1%20b%C3%BDt%20aplikace%20v%20listu%20aplikac%C3%AD%20ve%20startu%0A%20%20%20%20%2F%2F%20true%20%3D%20ano%0A%20%20%20%20%2F%2F%20false%20%3D%20ne%0A%20%20%20%20true%0A)%0A%0A%2F%2F%20Krok%202.%20Vytvo%C5%99en%C3%AD%20okna%0Avar%20okno%20%3D%20apps.createWindow(%7B%0A%20%20%20%20%2F%2F%20Odkazuje%20na%20variable%20aplikace%0A%20%20%20%20app%3A%20aplikace%2C%0A%20%20%20%20%2F%2F%20Tla%C4%8D%C3%ADtka%20kter%C3%A9%20budou%20na%20okn%C4%9B%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20Typ%20tla%C4%8D%C3%ADtka%20a%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20stisku%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20tla%C4%8D%C3%ADtko%20spust%C3%AD%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BAe%20se%20m%C3%A1%20okno%20zav%C5%99%C3%ADt%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20zav%C5%99e%20nebo%20minimalizuje%20okno%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20zav%C5%99eno.%22)%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20minimalizov%C3%A1no%22)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%2F%2F%20Podporovan%C3%A9%20tla%C4%8D%C3%ADtka%3A%20close%2C%20mini%0A%20%20%20%20%7D%2C%0A%0A%20%20%20%20%2F%2F%20Obsah%20aplikace.%20Zde%20vkl%C3%A1d%C3%A1te%20HTML%20strukturu%20dan%C3%A9%20aplikace.%0A%20%20%20%20content%3A%20%22%3Ch1%3EMoje%20nov%C3%A1%20aplikace!%3C%2Fh1%3E%22%0A%7D)%0A%0A%0A%2F%2F%20Krok%203.%20Vytvo%C5%99en%C3%AD%20scriptu%20pro%20minimalizaci%0A%2F%2F%20Pokud%20nechcete%20m%C3%ADt%20u%20sv%C3%A9ho%20okna%20jste%20si%20nastavil%20%C5%BEe%20nem%C3%A1%20m%C3%ADt%20minimalizaci%2C%20tento%20krok%20p%C5%99esko%C4%8Dte%0Avar%20appIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20o%20jakou%20aplikaci%20se%20jedn%C3%A1.%0A%20%20%20%20app%3A%20aplikace%2C%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20jak%C3%A9%20okno%20m%C3%A1%20aplikace.%0A%20%20%20%20window%3A%20okno%2C%0A%7D)%0A%0A%2F%2F%20A%20je%20to.%20Nyn%C3%AD%20si%20m%C5%AF%C5%BEete%20upravovat%20svoji%20aplikaci%20dle%20libosti.%0A%2F%2F%20Do%20aplikace%20m%C5%AF%C5%BEete%20za%20b%C4%9Bhu%20tak%C3%A9%20p%C5%99id%C3%A1vat%20elementy%20pomoc%C3%AD%20funkce%20appendchild.%20N%C4%9Bjak%20takto%3A%0A%0A%2F%2F%20Vytvo%C5%99%C3%AD%20element%20h1%0Avar%20dalsiH1%20%3D%20document.createElement(%22h1%22)%0A%2F%2F%20Vlo%C5%BE%C3%AD%20text%20do%20h1%0AdalsiH1.textContent%20%3D%20%22Dal%C5%A1%C3%AD%20h1%22%0A%2F%2F%20Vlo%C5%BE%C3%AD%20h1%20do%20okna.%0Aokno.appendChild(dalsiH1)%0A%0A%2F%2F%20Pokud%20by%20jste%20pot%C5%99ebovali%20pomoct%2C%20napi%C5%A1te%20n%C3%A1m%20na%20podpora%40klindos-main.ml"
+            >Stáhnout soubor</a
+          ><br />
+          <span>Hotová aplikace 1: </span
+          ><a
+            download="finalapp1.js"
+            href="data:text/plain;charset=utf-8,appdetectorapp%3D%20apps.createApp(%0A%20%20%20%20%22AppDetector%22%2C%0A%20%20%20%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%7D%2C%0A%20%20%20%20true%0A)%0Aappdetectorwindow%3D%20apps.createWindow(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20resizeable%3A%20%7B%0A%20%20%20%20%20%20%20%20height%3A%20500%2C%0A%20%20%20%20%20%20%20%20width%3A%20500%0A%20%20%20%20%7D%2C%0A%20%20%20%20content%3A%20'%3Cinput%20placeholder%3D%22AppName%22%3E%3C%2Finput%3E%3Cbutton%20onclick%3D%22appdetectorsubmit(this.parentElement)%22%3ESubmit%3C%2Fbutton%3E%3Cbr%3E%3Cbutton%20onclick%3D%22appnotminidetect()%22%3EDetekovat%20aplikace%20bez%20minimalizace%3C%2Fbutton%3E'%0A%7D)%0Afunction%20appnotminidetect()%20%7B%0A%20%20%20%20var%20list%20%3D%20%5B%5D%0A%20%20%20%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20windows.list.ikonadown.length%3B%20i%2B%2B)%20%7B%0A%20%20%20%20%20%20%20%20if%20(windows.list.ikonadown%5Bi%5D%3D%3Dfalse)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20list.push(windows.list.names%5Bi%5D)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20alert(%22Aplikace%20bez%20minimalizace%3A%5Cn%5Cn%22%2Blist.join(%22%2C%22))%0A%7D%0Afunction%20appdetectorsubmit(element)%20%7B%0A%20%20%20%20var%20value%20%3D%20element.querySelector(%22input%22).value%0A%20%20%20%20var%20position%20%3D%20windows.list.names.indexOf(value)%0A%20%20%20%20var%20classe%20%3D%20windows.list.classes%5Bposition%5D%0A%20%20%20%20var%20sd%20%3D%20windows.list.ikonadown%5Bposition%5D%0A%20%20%20%20alert(%22AppDetector%20output%3A%20%5CnName%3A%20%22%2Bvalue%2B%22%5CnClass%3A%20%22%2Bclasse%2B%22%5CnDownIcon%3A%20%22%2Bsd)%0A%7D%0AdownIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20window%3A%20appdetectorwindow%0A%7D)"
+            >Stáhnout soubor</a
+          >
+        </div>
+        <div class="verze sixdottwo" style="display: none; margin-left: 15px">
+          <br />
+          <p>
+            Ve verzi 6.2 je potřeba využít compiler instalačního balíčku, který
+            vidíte po levé straně. Budete potřebovat 3 věci.<br /><strong>1.</strong> Ikonu
+            aplikace<br /><strong>2.</strong> .js soubor (nebo-li script) Pozor! Ten se liší od
+            verze 6.1<br /><strong>3.</strong> instalační .js soubor (script který se spustí při instalaci programu) (může zůstat prázdný)
+          </p>
+          <p>Ikona aplikace musí být ve formátu .png.</p>
+          <p>Zde jsou vysvětlení jak by měl script vypadat:</p>
+          <br />
+          <span>Ukázka 1: </span
+          ><a
+            download="example1.js"
+            href="data:text/plain;charset=utf-8;base64,Ly8gVG90byBqZSBwxZnDrWtsYWQgamFrIHNpIG3Fr8W+ZXRlIHZ5dHZvxZlpdCB2bGFzdG7DrSBKYXZhU2NyaXB0b3ZvdSBhcGxpa2FjaSBkbyBLTElORCBPUy4NCg0KLy8gS3JvayAxLiBWeXR2b8WZZW7DrSBhcGxpa2FjZToNCnZhciBhcGxpa2FjZSA9IG5ldyBBcHAoew0KICAgIC8vIE7DoXpldiBhcGxpa2FjZSAobXVzw60gYsO9dCBzdGVqbsOpIGpha8OpIGJ1ZGV0ZSB6YWTDoXZhdCBkbyBjb21waWxlcnUpDQogICAgbmFtZTogIkRvYnLDoSBhcGxpa2FjZSIsDQogICAgLy8gRnVua2NlIHBybyB0byBjbyBzZSBtw6EgdWTEm2xhdCBwxZlpIHJvemtsaWtudXTDrSBwcm9ncmFtdQ0KICAgIG9uU3RhcnQ6IChkYW5lb2tubykgPT4gew0KICAgICAgICAvLyBaZGUgc2Ugdmtsw6Fkw6Ega8OzZCBwcm8gdG8ga2R5xb4gc2UgYXBsaWthY2Ugc3B1c3TDrQ0KICAgICAgICAvLyBOZW11c8OtdGUgemRlIHphZMOhdmF0IMW+ZSBzZSBtw6Egb2tubyBvdGV2xZnDrXQNCiAgICAgICAgLy8gWmRlIHNlIHZrbMOhZGFqw60gcG91emUgc3BlY2nDoWxuw60gZnVua2NlLCBrdGVyw6kgc2UgbWFqw60gdnl2b2xhdCBwb3TDqSBjbyB1xb5pdmF0ZWwgYXBsaWthY2kgc3B1c3TDrQ0KICAgICAgICB2YXIgenByYXZhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgicCIpDQogICAgICAgIG1pbnV0ZXMgPSBuZXcgRGF0ZSgpLmdldE1pbnV0ZXMoKQ0KICAgICAgICBpZihtaW51dGVzIDwgMTApew0KICAgICAgICAgICAgbWludXRlcyA9ICIwIiArIG1pbnV0ZXM7DQogICAgICAgIH0NCiAgICAgICAgLy8gTmFzdGF2w60gdGV4dCBzIGFrdHXDoWxuw61tIMSNZXNlbSBkbyBlbGVtZW50dQ0KICAgICAgICB6cHJhdmEudGV4dENvbnRlbnQgPSAiQXBsaWthY2UgYnlsYSBzcHXFoXTEm25hIHY6ICIrbmV3IERhdGUoKS5nZXRIb3VycygpKyI6IittaW51dGVzDQogICAgICAgIC8vIFZsb8W+w60gdmxvxb7DrSBlbGVtZW50IGRvIGRhbsOpaG8gb2tuYQ0KICAgICAgICBkYW5lb2tuby5hcHBlbmRDaGlsZCh6cHJhdmEpDQogICAgfSwNCiAgICAvLyBaZGUgdmxvxb7DrXRlIGplc3RsaSBtw6EgYsO9dCBhcGxpa2FjZSBza3J5dMO9IHZlIHN0YXJ0IG1lbnUNCiAgICAvLyB0cnVlID0gYW5vDQogICAgLy8gZmFsc2UgPSBuZQ0KICAgIGhpZGRlbjogdHJ1ZQ0KfSkNCg0KLy8gS3JvayAyLiBWeXR2b8WZZW7DrSBva25hDQphcGxpa2FjZS5jcmVhdGVXaW5kb3coew0KICAgIC8vIFRsYcSNw610a2Ega3RlcsOpIGJ1ZG91IG5hIG9rbsSbDQogICAgYnV0dG9uczogew0KICAgICAgICAvLyBUeXAgdGxhxI3DrXRrYSBhIGNvIHNlIG3DoSB1ZMSbbGF0IHDFmWkgc3Rpc2t1DQogICAgICAgIGNsb3NlOiAoKSA9PiB7DQogICAgICAgICAgICAvLyBaZGUgc2Ugdmtsw6Fkw6Ega8OzZCBwcm8gdG8ga2R5xb4gc2UgdGxhxI3DrXRrbyBzcHVzdMOtDQogICAgICAgICAgICAvLyBOZW11c8OtdGUgemRlIHphZMOhdmF0IMW6ZSBzZSBtw6Egb2tubyB6YXbFmcOtdA0KICAgICAgICAgICAgLy8gWmRlIHNlIHZrbMOhZGFqw60gcG91emUgc3BlY2nDoWxuw60gZnVua2NlLCBrdGVyw6kgc2UgbWFqw60gdnl2b2xhdCBwb3TDqSBjbyB1xb5pdmF0ZWwgemF2xZllIG5lYm8gbWluaW1hbGl6dWplIG9rbm8NCiAgICAgICAgICAgIGNvbnNvbGUubG9nKCJPa25vIGJ5bG8gemF2xZllbm8uIikNCiAgICAgICAgfSwNCiAgICAgICAgbWluaTogKCkgPT4gew0KICAgICAgICAgICAgY29uc29sZS5sb2coIk9rbm8gYnlsbyBtaW5pbWFsaXpvdsOhbm8iKQ0KICAgICAgICB9DQogICAgICAgIC8vIFBvZHBvcm92YW7DqSB0bGHEjcOtdGthOiBjbG9zZSwgbWluaQ0KICAgIH0sDQogICAgLy8gT2JzYWggYXBsaWthY2UuIFpkZSB2a2zDoWTDoXRlIEhUTUwgc3RydWt0dXJ1IGRhbsOpIGFwbGlrYWNlLg0KICAgIGNvbnRlbnQ6ICI8aDE+TW9qZSBub3bDoSBhcGxpa2FjZSE8L2gxPiINCn0pDQoNCi8vIEtyb2sgMy4gVnl0dm/FmWVuw60gc2NyaXB0dSBwcm8gbWluaW1hbGl6YWNpDQovLyBQb2t1ZCBuZWNoY2V0ZSBtw610IHUgc3bDqWhvIG9rbmEganN0ZSBzaSBuYXN0YXZpbCDFvmUgbmVtw6EgbcOtdCBtaW5pbWFsaXphY2ksIHRlbnRvIGtyb2sgcMWZZXNrb8SNdGUNCi8vIFRlbnRvIHDFmcOta2F6IHZ5dHZvxZnDrSBpa29ua3UgbWluaW1hbGl6YWNlIHYgdGFza2JhcnUNCnZhciBhcHBJY29uID0gYXBsaWthY2UuY3JlYXRlTWluaUljb24oKQ0KDQoNCg0KLy8gQSBqZSB0by4gTnluw60gc2kgbcWvxb5ldGUgdXByYXZvdmF0IHN2b2ppIGFwbGlrYWNpIGRsZSBsaWJvc3RpLg0KLy8gRG8gYXBsaWthY2UgbcWvxb5ldGUgemEgYsSbaHUgdGFrw6kgcMWZaWTDoXZhdCBlbGVtZW50eSBwb21vY8OtIGZ1bmtjZSBhcHBlbmRjaGlsZC4gTsSbamFrIHRha3RvOg0KDQovLyBWeXR2b8WZw60gZWxlbWVudCBoMQ0KdmFyIGRhbHNpSDEgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJoMSIpDQovLyBWbG/FvsOtIHRleHQgZG8gaDENCmRhbHNpSDEudGV4dENvbnRlbnQgPSAiRGFsxaHDrSBoMSINCi8vIFZsb8W+w60gaDEgZG8gb2tuYS4NCm9rbm8uYXBwZW5kQ2hpbGQoZGFsc2lIMSkNCg0KLy8gUG9rdWQgYnkganN0ZSBwb3TFmWVib3ZhbGkgcG9tb2N0LCBuYXBpxaF0ZSBuw6FtIG5hIHBvZHBvcmFAa2xpbmRvcy1tYWluLm1s"
+            >Stáhnout soubor</a
+          ><br />
+          <span>Hotová aplikace 1: </span
+          ><a
+            download="finalapp1.js"
+            href="data:text/plain;charset=utf-8;base64,YXBwZGV0ZWN0b3JhcHAgPSBuZXcgQXBwKHsNCiAgICBuYW1lOiAiQXBwRGV0ZWN0b3IiLA0KICAgIG9uU3RhcnQ6ICgpID0+IHsNCg0KICAgIH0sDQogICAgaGlkZGVuOiBmYWxzZSwNCn0pDQphcHBkZXRlY3RvcmFwcC5jcmVhdGVXaW5kb3coew0KICAgIGJ1dHRvbnM6IHsNCiAgICAgICAgY2xvc2U6ICgpID0+IHsNCg0KICAgICAgICB9LA0KICAgICAgICBtaW5pOiAoKSA9PiB7DQoNCiAgICAgICAgfQ0KICAgIH0sDQogICAgY29udGVudDogJzxpbnB1dCBwbGFjZWhvbGRlcj0iQXBwTmFtZSI+PC9pbnB1dD48YnV0dG9uIG9uY2xpY2s9ImFwcGRldGVjdG9yc3VibWl0KHRoaXMucGFyZW50RWxlbWVudCkiPlN1Ym1pdDwvYnV0dG9uPjxicj48YnV0dG9uIG9uY2xpY2s9ImFwcG5vdG1pbmlkZXRlY3QoKSI+RGV0ZWtvdmF0IGFwbGlrYWNlIGJleiBtaW5pbWFsaXphY2U8L2J1dHRvbj4nDQp9KQ0KYXBwZGV0ZWN0b3JhcHAuY3JlYXRlTWluaUljb24oKTsNCg0KZnVuY3Rpb24gYXBwbm90bWluaWRldGVjdCgpIHsNCiAgICB2YXIgbGlzdCA9IFtdDQogICAgZm9yICh2YXIgaSA9IDA7IGkgPCB3aW5kb3dzLmxpc3QuaWtvbmFkb3duLmxlbmd0aDsgaSsrKSB7DQogICAgICAgIGlmICh3aW5kb3dzLmxpc3QuaWtvbmFkb3duW2ldPT1mYWxzZSkgew0KICAgICAgICAgICAgbGlzdC5wdXNoKHdpbmRvd3MubGlzdC5uYW1lc1tpXSkNCiAgICAgICAgfQ0KICAgIH0NCiAgICBhbGVydCgiQXBsaWthY2UgYmV6IG1pbmltYWxpemFjZTpubiIrbGlzdC5qb2luKCIsIikpDQp9DQpmdW5jdGlvbiBhcHBkZXRlY3RvcnN1Ym1pdChlbGVtZW50KSB7DQogICAgdmFyIHZhbHVlID0gZWxlbWVudC5xdWVyeVNlbGVjdG9yKCJpbnB1dCIpLnZhbHVlDQogICAgdmFyIHBvc2l0aW9uID0gd2luZG93cy5saXN0Lm5hbWVzLmluZGV4T2YodmFsdWUpDQogICAgdmFyIGNsYXNzZSA9IHdpbmRvd3MubGlzdC5jbGFzc2VzW3Bvc2l0aW9uXQ0KICAgIHZhciBzZCA9IHdpbmRvd3MubGlzdC5pa29uYWRvd25bcG9zaXRpb25dDQogICAgYWxlcnQoIkFwcERldGVjdG9yIG91dHB1dDogbk5hbWU6ICIrdmFsdWUrIm5DbGFzczogIitjbGFzc2UrIm5Eb3duSWNvbjogIitzZCkNCn0="
+            >Stáhnout soubor</a
+          >
+        </div>
+        <div class="verze sixdotthree" style="display: none; margin-left: 15px">
+          <br />
+          <p>
+            Ve verzi 6.3 je potřeba využít compiler instalačního balíčku, který
+            vidíte po levé straně. Budete potřebovat 3 věci.<br /><strong>1.</strong> Ikonu
+            aplikace<br /><strong>2.</strong> .js soubor (nebo-li script)<br /><strong>3.</strong> instalační .js soubor (script který se spustí při instalaci programu) (může zůstat prázdný)
+          </p>
+          <p>Ikona aplikace musí být ve formátu .png.</p>
+          <p>Zde jsou vysvětlení jak by měl script vypadat:</p>
+          <br />
+          <span>Ukázka 1: </span
+          ><a
+            download="example1.js"
+            href="data:text/plain;charset=utf-8;base64,Ly8gVG90byBqZSBwxZnDrWtsYWQgamFrIHNpIG3Fr8W+ZXRlIHZ5dHZvxZlpdCB2bGFzdG7DrSBKYXZhU2NyaXB0b3ZvdSBhcGxpa2FjaSBkbyBLTElORCBPUy4NCg0KLy8gS3JvayAxLiBWeXR2b8WZZW7DrSBhcGxpa2FjZToNCnZhciBhcGxpa2FjZSA9IG5ldyBBcHAoew0KICAgIC8vIE7DoXpldiBhcGxpa2FjZSAobXVzw60gYsO9dCBzdGVqbsOpIGpha8OpIGJ1ZGV0ZSB6YWTDoXZhdCBkbyBjb21waWxlcnUpDQogICAgbmFtZTogIkRvYnLDoSBhcGxpa2FjZSIsDQogICAgLy8gRnVua2NlIHBybyB0byBjbyBzZSBtw6EgdWTEm2xhdCBwxZlpIHJvemtsaWtudXTDrSBwcm9ncmFtdQ0KICAgIG9uU3RhcnQ6IChkYW5lb2tubykgPT4gew0KICAgICAgICAvLyBaZGUgc2Ugdmtsw6Fkw6Ega8OzZCBwcm8gdG8ga2R5xb4gc2UgYXBsaWthY2Ugc3B1c3TDrQ0KICAgICAgICAvLyBOZW11c8OtdGUgemRlIHphZMOhdmF0IMW+ZSBzZSBtw6Egb2tubyBvdGV2xZnDrXQNCiAgICAgICAgLy8gWmRlIHNlIHZrbMOhZGFqw60gcG91emUgc3BlY2nDoWxuw60gZnVua2NlLCBrdGVyw6kgc2UgbWFqw60gdnl2b2xhdCBwb3TDqSBjbyB1xb5pdmF0ZWwgYXBsaWthY2kgc3B1c3TDrQ0KICAgICAgICB2YXIgenByYXZhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgicCIpDQogICAgICAgIG1pbnV0ZXMgPSBuZXcgRGF0ZSgpLmdldE1pbnV0ZXMoKQ0KICAgICAgICBpZihtaW51dGVzIDwgMTApew0KICAgICAgICAgICAgbWludXRlcyA9ICIwIiArIG1pbnV0ZXM7DQogICAgICAgIH0NCiAgICAgICAgLy8gTmFzdGF2w60gdGV4dCBzIGFrdHXDoWxuw61tIMSNZXNlbSBkbyBlbGVtZW50dQ0KICAgICAgICB6cHJhdmEudGV4dENvbnRlbnQgPSAiQXBsaWthY2UgYnlsYSBzcHXFoXTEm25hIHY6ICIrbmV3IERhdGUoKS5nZXRIb3VycygpKyI6IittaW51dGVzDQogICAgICAgIC8vIFZsb8W+w60gdmxvxb7DrSBlbGVtZW50IGRvIGRhbsOpaG8gb2tuYQ0KICAgICAgICBkYW5lb2tuby5hcHBlbmRDaGlsZCh6cHJhdmEpDQogICAgfSwNCiAgICAvLyBaZGUgdmxvxb7DrXRlIGplc3RsaSBtw6EgYsO9dCBhcGxpa2FjZSBza3J5dMO9IHZlIHN0YXJ0IG1lbnUNCiAgICAvLyB0cnVlID0gYW5vDQogICAgLy8gZmFsc2UgPSBuZQ0KICAgIGhpZGRlbjogdHJ1ZQ0KfSkNCg0KLy8gS3JvayAyLiBWeXR2b8WZZW7DrSBva25hDQphcGxpa2FjZS5jcmVhdGVXaW5kb3coew0KICAgIC8vIFRsYcSNw610a2Ega3RlcsOpIGJ1ZG91IG5hIG9rbsSbDQogICAgYnV0dG9uczogew0KICAgICAgICAvLyBUeXAgdGxhxI3DrXRrYSBhIGNvIHNlIG3DoSB1ZMSbbGF0IHDFmWkgc3Rpc2t1DQogICAgICAgIGNsb3NlOiAoKSA9PiB7DQogICAgICAgICAgICAvLyBaZGUgc2Ugdmtsw6Fkw6Ega8OzZCBwcm8gdG8ga2R5xb4gc2UgdGxhxI3DrXRrbyBzcHVzdMOtDQogICAgICAgICAgICAvLyBOZW11c8OtdGUgemRlIHphZMOhdmF0IMW6ZSBzZSBtw6Egb2tubyB6YXbFmcOtdA0KICAgICAgICAgICAgLy8gWmRlIHNlIHZrbMOhZGFqw60gcG91emUgc3BlY2nDoWxuw60gZnVua2NlLCBrdGVyw6kgc2UgbWFqw60gdnl2b2xhdCBwb3TDqSBjbyB1xb5pdmF0ZWwgemF2xZllIG5lYm8gbWluaW1hbGl6dWplIG9rbm8NCiAgICAgICAgICAgIGNvbnNvbGUubG9nKCJPa25vIGJ5bG8gemF2xZllbm8uIikNCiAgICAgICAgfSwNCiAgICAgICAgbWluaTogKCkgPT4gew0KICAgICAgICAgICAgY29uc29sZS5sb2coIk9rbm8gYnlsbyBtaW5pbWFsaXpvdsOhbm8iKQ0KICAgICAgICB9DQogICAgICAgIC8vIFBvZHBvcm92YW7DqSB0bGHEjcOtdGthOiBjbG9zZSwgbWluaQ0KICAgIH0sDQogICAgLy8gT2JzYWggYXBsaWthY2UuIFpkZSB2a2zDoWTDoXRlIEhUTUwgc3RydWt0dXJ1IGRhbsOpIGFwbGlrYWNlLg0KICAgIGNvbnRlbnQ6ICI8aDE+TW9qZSBub3bDoSBhcGxpa2FjZSE8L2gxPiINCn0pDQoNCi8vIEtyb2sgMy4gVnl0dm/FmWVuw60gc2NyaXB0dSBwcm8gbWluaW1hbGl6YWNpDQovLyBQb2t1ZCBuZWNoY2V0ZSBtw610IHUgc3bDqWhvIG9rbmEganN0ZSBzaSBuYXN0YXZpbCDFvmUgbmVtw6EgbcOtdCBtaW5pbWFsaXphY2ksIHRlbnRvIGtyb2sgcMWZZXNrb8SNdGUNCi8vIFRlbnRvIHDFmcOta2F6IHZ5dHZvxZnDrSBpa29ua3UgbWluaW1hbGl6YWNlIHYgdGFza2JhcnUNCnZhciBhcHBJY29uID0gYXBsaWthY2UuY3JlYXRlTWluaUljb24oKQ0KDQoNCg0KLy8gQSBqZSB0by4gTnluw60gc2kgbcWvxb5ldGUgdXByYXZvdmF0IHN2b2ppIGFwbGlrYWNpIGRsZSBsaWJvc3RpLg0KLy8gRG8gYXBsaWthY2UgbcWvxb5ldGUgemEgYsSbaHUgdGFrw6kgcMWZaWTDoXZhdCBlbGVtZW50eSBwb21vY8OtIGZ1bmtjZSBhcHBlbmRjaGlsZC4gTsSbamFrIHRha3RvOg0KDQovLyBWeXR2b8WZw60gZWxlbWVudCBoMQ0KdmFyIGRhbHNpSDEgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJoMSIpDQovLyBWbG/FvsOtIHRleHQgZG8gaDENCmRhbHNpSDEudGV4dENvbnRlbnQgPSAiRGFsxaHDrSBoMSINCi8vIFZsb8W+w60gaDEgZG8gb2tuYS4NCm9rbm8uYXBwZW5kQ2hpbGQoZGFsc2lIMSkNCg0KLy8gUG9rdWQgYnkganN0ZSBwb3TFmWVib3ZhbGkgcG9tb2N0LCBuYXBpxaF0ZSBuw6FtIG5hIHBvZHBvcmFAa2xpbmRvcy1tYWluLm1s"
+            >Stáhnout soubor</a
+          ><br />
+          <span>Hotová aplikace 1: </span
+          ><a
+            download="finalapp1.js"
+            href="data:text/plain;charset=utf-8;base64,YXBwZGV0ZWN0b3JhcHAgPSBuZXcgQXBwKHsNCiAgICBuYW1lOiAiQXBwRGV0ZWN0b3IiLA0KICAgIG9uU3RhcnQ6ICgpID0+IHsNCg0KICAgIH0sDQogICAgaGlkZGVuOiBmYWxzZSwNCn0pDQphcHBkZXRlY3RvcmFwcC5jcmVhdGVXaW5kb3coew0KICAgIGJ1dHRvbnM6IHsNCiAgICAgICAgY2xvc2U6ICgpID0+IHsNCg0KICAgICAgICB9LA0KICAgICAgICBtaW5pOiAoKSA9PiB7DQoNCiAgICAgICAgfQ0KICAgIH0sDQogICAgY29udGVudDogJzxpbnB1dCBwbGFjZWhvbGRlcj0iQXBwTmFtZSI+PC9pbnB1dD48YnV0dG9uIG9uY2xpY2s9ImFwcGRldGVjdG9yc3VibWl0KHRoaXMucGFyZW50RWxlbWVudCkiPlN1Ym1pdDwvYnV0dG9uPjxicj48YnV0dG9uIG9uY2xpY2s9ImFwcG5vdG1pbmlkZXRlY3QoKSI+RGV0ZWtvdmF0IGFwbGlrYWNlIGJleiBtaW5pbWFsaXphY2U8L2J1dHRvbj4nDQp9KQ0KYXBwZGV0ZWN0b3JhcHAuY3JlYXRlTWluaUljb24oKTsNCg0KZnVuY3Rpb24gYXBwbm90bWluaWRldGVjdCgpIHsNCiAgICB2YXIgbGlzdCA9IFtdDQogICAgZm9yICh2YXIgaSA9IDA7IGkgPCB3aW5kb3dzLmxpc3QuaWtvbmFkb3duLmxlbmd0aDsgaSsrKSB7DQogICAgICAgIGlmICh3aW5kb3dzLmxpc3QuaWtvbmFkb3duW2ldPT1mYWxzZSkgew0KICAgICAgICAgICAgbGlzdC5wdXNoKHdpbmRvd3MubGlzdC5uYW1lc1tpXSkNCiAgICAgICAgfQ0KICAgIH0NCiAgICBhbGVydCgiQXBsaWthY2UgYmV6IG1pbmltYWxpemFjZTpubiIrbGlzdC5qb2luKCIsIikpDQp9DQpmdW5jdGlvbiBhcHBkZXRlY3RvcnN1Ym1pdChlbGVtZW50KSB7DQogICAgdmFyIHZhbHVlID0gZWxlbWVudC5xdWVyeVNlbGVjdG9yKCJpbnB1dCIpLnZhbHVlDQogICAgdmFyIHBvc2l0aW9uID0gd2luZG93cy5saXN0Lm5hbWVzLmluZGV4T2YodmFsdWUpDQogICAgdmFyIGNsYXNzZSA9IHdpbmRvd3MubGlzdC5jbGFzc2VzW3Bvc2l0aW9uXQ0KICAgIHZhciBzZCA9IHdpbmRvd3MubGlzdC5pa29uYWRvd25bcG9zaXRpb25dDQogICAgYWxlcnQoIkFwcERldGVjdG9yIG91dHB1dDogbk5hbWU6ICIrdmFsdWUrIm5DbGFzczogIitjbGFzc2UrIm5Eb3duSWNvbjogIitzZCkNCn0="
+            >Stáhnout soubor</a
+          >
+        </div>
       </div>
     </div>
-  </div>
-  <div class="maincontent">
-    <h1>Vytvořte si vlastní aplikaci pro KLIND OS</h1>
-    <h2>Compiler</h2>
-    <span>Zadejte verzi pro kterou chcete mít vaši aplikaci: </span>
-    <select onchange="compChange(this)">
-      <option disabled selected>Vyberte</option>
-      <option value="six">6</option>
-      <option value="sixdotone">6.1</option>
-      <option value="sixdottwo">6.2</option>
-      <option value="sixdotthree">6.3</option>
-      <option value="sixdotfour">6.4</option>
-    </select>
-    <div class="allsdjasdjasd">
-      <div class="verze" style="margin-left: 15px;"><br>Vyberte verzi</div>
-      <div class="verze six" style="display: none; margin-left: 15px;"><br>
-        <p>Pro verzi 6 není potřeba nic kompilovat. Stačí si nahrát váš .js script do správce souborů, a potom v
-          nastavení si ho nahrát.</p><br>
-        <h3>Nevíte jak má .js soubor vypadat?</h3>
-        <p>V pravé části obrazovky je pomoc. Vyberte tam verzi 6 a stáhněte si popsanou ukázku jak by měl .js soubor
-          vypadat.</p>
-      </div>
-      <div class="verze sixdotone" style="display: none; margin-left: 15px;"><br>
-        <p>Pro verzi 6.1 je potřeba vytvořit instalační balíček. Díky tomuto compileru bude vše jednoduché. Stačí zadat
-          jméno Vaší aplikace, ikonu a nakonec samotný script</p><br>
-        <h3>Nevíte jak má script vypadat</h3>
-        <p>V pravé části obrazovky je pomoc. Vyberte tam verzi 6.1 a stáhněte si popsanou ukázku jak by měl script
-          vypadat.</p><br>
-        <div class="compilersixdotone" style="width: 600px;height: 600px;border: 1px black solid;">
-          <h1 style="text-align: center;">Compiler</h1>
-          <p>Pomocí tohoto nástoje si můžete vytvořit instalační balíček jednoduše.</p><br>
-
-          <h3>Název aplikace: </h3>
-          <p>(název aplikace musí být stejný jako nazev aplikace který jste dávali do scriptu)</p>
-          <input id="nameappsixdotone" type="text" placeholder="Název aplikace"><br><br>
-
-          <h3>Obrázek:</h3>
-          <p>(obrázek musí být ve formátu png)</p>
-          <input id="iconappsixdotone" type="file" accept="image/png"><br><br>
-
-          <h3>Script:</h3>
-          <p>(scriptu musí být ve formátu js)</p>
-          <input id="scriptappsixdotone" type="file" accept="text/javascript"><br><br>
-          <button onclick="createïnstalbalsixdotone()">Vytvořit instalační balíček</button>
+    <div class="maincontent">
+      <h1>Vytvořte si vlastní aplikaci pro KLIND OS</h1>
+      <h2>Compiler</h2>
+      <span>Zadejte verzi pro kterou chcete mít vaši aplikaci: </span>
+      <select onchange="compChange(this)">
+        <option disabled selected>Vyberte</option>
+        <option value="six">6</option>
+        <option value="sixdotone">6.1</option>
+        <option value="sixdottwo">6.2</option>
+        <option value="sixdotthree">6.3</option>
+        <option value="sixdotfour">6.4</option>
+      </select>
+      <div class="allsdjasdjasd">
+        <div class="verze" style="margin-left: 15px"><br />Vyberte verzi</div>
+        <div class="verze six" style="display: none; margin-left: 15px">
+          <br />
+          <p>
+            Pro verzi 6 není potřeba nic kompilovat. Stačí si nahrát váš .js
+            script do správce souborů, a potom v nastavení si ho nahrát.
+          </p>
+          <br />
+          <h3>Nevíte jak má .js soubor vypadat?</h3>
+          <p>
+            V pravé části obrazovky je pomoc. Vyberte tam verzi 6 a stáhněte si
+            popsanou ukázku jak by měl .js soubor vypadat.
+          </p>
         </div>
-        <script>
-          function createïnstalbalsixdotone() {
-            var zip = new JSZip()
-            zip.file("name.txt", document.querySelector("#nameappsixdotone").value)
-            zip.file("image.png", document.querySelector("#iconappsixdotone").files[0])
-            zip.file("script.js", document.querySelector("#scriptappsixdotone").files[0])
-            console.log(zip)
+        <div class="verze sixdotone" style="display: none; margin-left: 15px">
+          <br />
+          <p>
+            Pro verzi 6.1 je potřeba vytvořit instalační balíček. Díky tomuto
+            compileru bude vše jednoduché. Stačí zadat jméno Vaší aplikace,
+            ikonu a nakonec samotný script
+          </p>
+          <br />
+          <h3>Nevíte jak má script vypadat</h3>
+          <p>
+            V pravé části obrazovky je pomoc. Vyberte tam verzi 6.1 a stáhněte
+            si popsanou ukázku jak by měl script vypadat.
+          </p>
+          <br />
+          <div
+            class="compilersixdotone"
+            style="width: 600px; height: 600px; border: 1px black solid"
+          >
+            <h1 style="text-align: center">Compiler</h1>
+            <p>
+              Pomocí tohoto nástoje si můžete vytvořit instalační balíček
+              jednoduše.
+            </p>
+            <br />
 
-            zip.generateAsync({ type: "blob" }, function updateCallback(metadata) { })
-              .then(function callback(blob) {
-                saveAs(blob, "compiledapp.kapk");
-                alert("Vaše aplikace byla vytvořena!")
-              }, function (e) {
-                console.log(e)
-              });
-          }
-        </script>
-      </div>
-      <div class="verze sixdottwo" style="display: none; margin-left: 15px;"><br>
-        <p>Pro verzi 6.2 je potřeba vytvořit instalační balíček. Díky tomuto compileru bude vše jednoduché. Stačí zadat
-          jméno Vaší aplikace, ikonu a nakonec samotný script</p><br>
-        <h3>Nevíte jak má script vypadat</h3>
-        <p>V pravé části obrazovky je pomoc. Vyberte tam verzi 6.2 a stáhněte si popsanou ukázku jak by měl script
-          vypadat.</p><br>
-        <div class="compilersixdotone" style="width: 600px;height: 600px;border: 1px black solid;">
-          <h1 style="text-align: center;">Compiler</h1>
-          <p>Pomocí tohoto nástoje si můžete vytvořit instalační balíček jednoduše.</p><br>
+            <h3>Název aplikace:</h3>
+            <p>
+              (název aplikace musí být stejný jako nazev aplikace který jste
+              dávali do scriptu)
+            </p>
+            <input
+              id="nameappsixdotone"
+              type="text"
+              placeholder="Název aplikace"
+            /><br /><br />
 
-          <h3>Název aplikace: </h3>
-          <p>(název aplikace musí být stejný jako nazev aplikace který jste dávali do scriptu)</p>
-          <input id="nameappsixdottwo" type="text" placeholder="Název aplikace"><br><br>
+            <h3>Obrázek:</h3>
+            <p>(obrázek musí být ve formátu png)</p>
+            <input
+              id="iconappsixdotone"
+              type="file"
+              accept="image/png"
+            /><br /><br />
 
-          <h3>Obrázek:</h3>
-          <p>(obrázek musí být ve formátu png)</p>
-          <input id="iconappsixdottwo" type="file" accept="image/png"><br><br>
+            <h3>Script:</h3>
+            <p>(scriptu musí být ve formátu js)</p>
+            <input
+              id="scriptappsixdotone"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
+            <button onclick="createïnstalbalsixdotone()">
+              Vytvořit instalační balíček
+            </button>
+          </div>
+          <script>
+            function createïnstalbalsixdotone() {
+              var zip = new JSZip();
+              zip.file(
+                "name.txt",
+                document.querySelector("#nameappsixdotone").value
+              );
+              zip.file(
+                "image.png",
+                document.querySelector("#iconappsixdotone").files[0]
+              );
+              zip.file(
+                "script.js",
+                document.querySelector("#scriptappsixdotone").files[0]
+              );
+              console.log(zip);
 
-          <h3>Instalační script:</h3>
-          <p>Script který se spustí při instalaci. (scriptu musí být ve formátu js)</p>
-          <input id="installscriptappsixdottwo" type="file" accept="text/javascript"><br><br>
-
-          <h3>Program:</h3>
-          <p>(scriptu musí být ve formátu js)</p>
-          <input id="scriptappsixdottwo" type="file" accept="text/javascript"><br><br>
-          <button onclick="createïnstalbalsixdottwo()">Vytvořit instalační balíček</button>
+              zip
+                .generateAsync(
+                  { type: "blob" },
+                  function updateCallback(metadata) {}
+                )
+                .then(
+                  function callback(blob) {
+                    saveAs(blob, "compiledapp.kapk");
+                    alert("Vaše aplikace byla vytvořena!");
+                  },
+                  function (e) {
+                    console.log(e);
+                  }
+                );
+            }
+          </script>
         </div>
-        <script>
-          function createïnstalbalsixdottwo() {
-            var zip = new JSZip()
-            zip.file("name.txt", document.querySelector("#nameappsixdottwo").value)
-            zip.file("image.png", document.querySelector("#iconappsixdottwo").files[0])
-            zip.file("script.js", document.querySelector("#scriptappsixdottwo").files[0])
-            zip.file("install.js", document.querySelector("#installscriptappsixdottwo").files[0])
-            zip.file("version.txt", "6.2")
-            console.log(zip)
+        <div class="verze sixdottwo" style="display: none; margin-left: 15px">
+          <br />
+          <p>
+            Pro verzi 6.2 je potřeba vytvořit instalační balíček. Díky tomuto
+            compileru bude vše jednoduché. Stačí zadat jméno Vaší aplikace,
+            ikonu a nakonec samotný script
+          </p>
+          <br />
+          <h3>Nevíte jak má script vypadat</h3>
+          <p>
+            V pravé části obrazovky je pomoc. Vyberte tam verzi 6.2 a stáhněte
+            si popsanou ukázku jak by měl script vypadat.
+          </p>
+          <br />
+          <div
+            class="compilersixdotone"
+            style="width: 600px; height: 600px; border: 1px black solid"
+          >
+            <h1 style="text-align: center">Compiler</h1>
+            <p>
+              Pomocí tohoto nástoje si můžete vytvořit instalační balíček
+              jednoduše.
+            </p>
+            <br />
 
-            zip.generateAsync({ type: "blob" }, function updateCallback(metadata) { })
-              .then(function callback(blob) {
-                saveAs(blob, "compiledapp.kapk");
-                setTimeout(() => {
-                  alert("Vaše aplikace byla vytvořena!")
-                }, 3000)
-              }, function (e) {
-                console.log(e)
-              });
-          }
-        </script>
-      </div>
-      <div class="verze sixdotthree" style="display: none; margin-left: 15px;"><br>
-        <p>Pro verzi 6.3 je potřeba vytvořit instalační balíček. Díky tomuto compileru bude vše jednoduché. Stačí zadat
-          jméno Vaší aplikace, ikonu a nakonec samotný script</p><br>
-        <h3>Nevíte jak má script vypadat</h3>
-        <p>V pravé části obrazovky je pomoc. Vyberte tam verzi 6.3 a stáhněte si popsanou ukázku jak by měl script
-          vypadat.</p><br>
-        <div class="compilersixdotone" style="width: 600px;height: 600px;border: 1px black solid;">
-          <h1 style="text-align: center;">Compiler</h1>
-          <p>Pomocí tohoto nástoje si můžete vytvořit instalační balíček jednoduše.</p><br>
+            <h3>Název aplikace:</h3>
+            <p>
+              (název aplikace musí být stejný jako nazev aplikace který jste
+              dávali do scriptu)
+            </p>
+            <input
+              id="nameappsixdottwo"
+              type="text"
+              placeholder="Název aplikace"
+            /><br /><br />
 
-          <h3>Název aplikace: </h3>
-          <p>(název aplikace musí být stejný jako nazev aplikace který jste dávali do scriptu)</p>
-          <input id="nameappsixdotthree" type="text" placeholder="Název aplikace"><br><br>
+            <h3>Obrázek:</h3>
+            <p>(obrázek musí být ve formátu png)</p>
+            <input
+              id="iconappsixdottwo"
+              type="file"
+              accept="image/png"
+            /><br /><br />
 
-          <h3>Obrázek:</h3>
-          <p>(obrázek musí být ve formátu png)</p>
-          <input id="iconappsixdotthree" type="file" accept="image/png"><br><br>
+            <h3>Instalační script:</h3>
+            <p>
+              Script který se spustí při instalaci. (scriptu musí být ve formátu
+              js)
+            </p>
+            <input
+              id="installscriptappsixdottwo"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
 
-          <h3>Instalační script:</h3>
-          <p>Script který se spustí při instalaci. (scriptu musí být ve formátu js)</p>
-          <input id="installscriptappsixdotthree" type="file" accept="text/javascript"><br><br>
+            <h3>Program:</h3>
+            <p>(scriptu musí být ve formátu js)</p>
+            <input
+              id="scriptappsixdottwo"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
+            <button onclick="createïnstalbalsixdottwo()">
+              Vytvořit instalační balíček
+            </button>
+          </div>
+          <script>
+            function createïnstalbalsixdottwo() {
+              var zip = new JSZip();
+              zip.file(
+                "name.txt",
+                document.querySelector("#nameappsixdottwo").value
+              );
+              zip.file(
+                "image.png",
+                document.querySelector("#iconappsixdottwo").files[0]
+              );
+              zip.file(
+                "script.js",
+                document.querySelector("#scriptappsixdottwo").files[0]
+              );
+              zip.file(
+                "install.js",
+                document.querySelector("#installscriptappsixdottwo").files[0]
+              );
+              zip.file("version.txt", "6.2");
+              console.log(zip);
 
-          <h3>Program:</h3>
-          <p>(scriptu musí být ve formátu js)</p>
-          <input id="scriptappsixdotthree" type="file" accept="text/javascript"><br><br>
-          <button onclick="createinstalbalsixdotthree()">Vytvořit instalační balíček</button>
+              zip
+                .generateAsync(
+                  { type: "blob" },
+                  function updateCallback(metadata) {}
+                )
+                .then(
+                  function callback(blob) {
+                    saveAs(blob, "compiledapp.kapk");
+                    setTimeout(() => {
+                      alert("Vaše aplikace byla vytvořena!");
+                    }, 3000);
+                  },
+                  function (e) {
+                    console.log(e);
+                  }
+                );
+            }
+          </script>
         </div>
-        <script>
-          function createinstalbalsixdotthree() {
-            var zip = new JSZip()
-            zip.file("name.txt", document.querySelector("#nameappsixdotthree").value)
-            zip.file("image.png", document.querySelector("#iconappsixdotthree").files[0])
-            zip.file("script.js", document.querySelector("#scriptappsixdotthree").files[0])
-            zip.file("install.js", document.querySelector("#installscriptappsixdotthree").files[0])
-            zip.file("version.txt", "6.3")
-            console.log(zip)
+        <div class="verze sixdotthree" style="display: none; margin-left: 15px">
+          <br />
+          <p>
+            Pro verzi 6.3 je potřeba vytvořit instalační balíček. Díky tomuto
+            compileru bude vše jednoduché. Stačí zadat jméno Vaší aplikace,
+            ikonu a nakonec samotný script
+          </p>
+          <br />
+          <h3>Nevíte jak má script vypadat</h3>
+          <p>
+            V pravé části obrazovky je pomoc. Vyberte tam verzi 6.3 a stáhněte
+            si popsanou ukázku jak by měl script vypadat.
+          </p>
+          <br />
+          <div
+            class="compilersixdotone"
+            style="width: 600px; height: 600px; border: 1px black solid"
+          >
+            <h1 style="text-align: center">Compiler</h1>
+            <p>
+              Pomocí tohoto nástoje si můžete vytvořit instalační balíček
+              jednoduše.
+            </p>
+            <br />
 
-            zip.generateAsync({ type: "blob" }, function updateCallback(metadata) { })
-              .then(function callback(blob) {
-                saveAs(blob, "compiledapp.kapk");
-                setTimeout(() => {
-                  alert("Vaše aplikace byla vytvořena!")
-                }, 3000)
-              }, function (e) {
-                console.log(e)
-              });
-          }
-        </script>
-      </div>
-      <div class="verze sixdotfour" style="display: none; margin-left: 15px;"><br>
-        <p>Pro verzi 6.3 je potřeba vytvořit instalační balíček. Díky tomuto compileru bude vše jednoduché. Stačí zadat
-          jméno Vaší aplikace, ikonu a nakonec samotný script</p><br>
-        <h3>Nevíte jak má script vypadat</h3>
-        <p>V pravé části obrazovky je pomoc. Vyberte tam verzi 6.3 a stáhněte si popsanou ukázku jak by měl script
-          vypadat.</p><br>
-        <div class="compilersixdotone" style="width: 600px;height: 600px;border: 1px black solid;">
-          <h1 style="text-align: center;">Compiler</h1>
-          <p>Pomocí tohoto nástoje si můžete vytvořit instalační balíček jednoduše.</p><br>
+            <h3>Název aplikace:</h3>
+            <p>
+              (název aplikace musí být stejný jako nazev aplikace který jste
+              dávali do scriptu)
+            </p>
+            <input
+              id="nameappsixdotthree"
+              type="text"
+              placeholder="Název aplikace"
+            /><br /><br />
 
-          <h3>Název aplikace: </h3>
-          <p>(název aplikace musí být stejný jako nazev aplikace který jste dávali do scriptu)</p>
-          <input id="nameappsixdotfour" type="text" placeholder="Název aplikace"><br><br>
+            <h3>Obrázek:</h3>
+            <p>(obrázek musí být ve formátu png)</p>
+            <input
+              id="iconappsixdotthree"
+              type="file"
+              accept="image/png"
+            /><br /><br />
 
-          <h3>Obrázek:</h3>
-          <p>(obrázek musí být ve formátu png)</p>
-          <input id="iconappsixdotfour" type="file" accept="image/png"><br><br>
+            <h3>Instalační script:</h3>
+            <p>
+              Script který se spustí při instalaci. (scriptu musí být ve formátu
+              js)
+            </p>
+            <input
+              id="installscriptappsixdotthree"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
 
-          <h3>Instalační script:</h3>
-          <p>Script který se spustí při instalaci. (scriptu musí být ve formátu js)</p>
-          <input id="installscriptappsixdotfour" type="file" accept="text/javascript"><br><br>
+            <h3>Program:</h3>
+            <p>(scriptu musí být ve formátu js)</p>
+            <input
+              id="scriptappsixdotthree"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
+            <button onclick="createinstalbalsixdotthree()">
+              Vytvořit instalační balíček
+            </button>
+          </div>
+          <script>
+            function createinstalbalsixdotthree() {
+              var zip = new JSZip();
+              zip.file(
+                "name.txt",
+                document.querySelector("#nameappsixdotthree").value
+              );
+              zip.file(
+                "image.png",
+                document.querySelector("#iconappsixdotthree").files[0]
+              );
+              zip.file(
+                "script.js",
+                document.querySelector("#scriptappsixdotthree").files[0]
+              );
+              zip.file(
+                "install.js",
+                document.querySelector("#installscriptappsixdotthree").files[0]
+              );
+              zip.file("version.txt", "6.3");
+              console.log(zip);
 
-          <h3>Program:</h3>
-          <p>(scriptu musí být ve formátu js)</p>
-          <input id="scriptappsixdotfour" type="file" accept="text/javascript"><br><br>
-          <button onclick="createinstalbalsixdotfour()">Vytvořit instalační balíček</button>
+              zip
+                .generateAsync(
+                  { type: "blob" },
+                  function updateCallback(metadata) {}
+                )
+                .then(
+                  function callback(blob) {
+                    saveAs(blob, "compiledapp.kapk");
+                    setTimeout(() => {
+                      alert("Vaše aplikace byla vytvořena!");
+                    }, 3000);
+                  },
+                  function (e) {
+                    console.log(e);
+                  }
+                );
+            }
+          </script>
         </div>
-        <script>
-          function createinstalbalsixdotfour() {
-            var zip = new JSZip()
-            zip.file("name.txt", document.querySelector("#nameappsixdotfour").value)
-            zip.file("image.png", document.querySelector("#iconappsixdotfour").files[0])
-            zip.file("script.js", document.querySelector("#scriptappsixdotfour").files[0])
-            zip.file("install.js", document.querySelector("#installscriptappsixdotfour").files[0])
-            zip.file("version.txt", "6.4")
-            console.log(zip)
+        <div class="verze sixdotfour" style="display: none; margin-left: 15px">
+          <br />
+          <p>
+            Pro verzi 6.3 je potřeba vytvořit instalační balíček. Díky tomuto
+            compileru bude vše jednoduché. Stačí zadat jméno Vaší aplikace,
+            ikonu a nakonec samotný script
+          </p>
+          <br />
+          <h3>Nevíte jak má script vypadat</h3>
+          <p>
+            V pravé části obrazovky je pomoc. Vyberte tam verzi 6.3 a stáhněte
+            si popsanou ukázku jak by měl script vypadat.
+          </p>
+          <br />
+          <div
+            class="compilersixdotone"
+            style="width: 600px; height: 600px; border: 1px black solid"
+          >
+            <h1 style="text-align: center">Compiler</h1>
+            <p>
+              Pomocí tohoto nástoje si můžete vytvořit instalační balíček
+              jednoduše.
+            </p>
+            <br />
 
-            zip.generateAsync({ type: "blob" }, function updateCallback(metadata) { })
-              .then(function callback(blob) {
-                saveAs(blob, "compiledapp.kapk");
-                setTimeout(() => {
-                  alert("Vaše aplikace byla vytvořena!")
-                }, 3000)
-              }, function (e) {
-                console.log(e)
-              });
-          }
-        </script>
+            <h3>Název aplikace:</h3>
+            <p>
+              (název aplikace musí být stejný jako nazev aplikace který jste
+              dávali do scriptu)
+            </p>
+            <input
+              id="nameappsixdotfour"
+              type="text"
+              placeholder="Název aplikace"
+            /><br /><br />
+
+            <h3>Obrázek:</h3>
+            <p>(obrázek musí být ve formátu png)</p>
+            <input
+              id="iconappsixdotfour"
+              type="file"
+              accept="image/png"
+            /><br /><br />
+
+            <h3>Instalační script:</h3>
+            <p>
+              Script který se spustí při instalaci. (scriptu musí být ve formátu
+              js)
+            </p>
+            <input
+              id="installscriptappsixdotfour"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
+
+            <h3>Program:</h3>
+            <p>(scriptu musí být ve formátu js)</p>
+            <input
+              id="scriptappsixdotfour"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
+            <button onclick="createinstalbalsixdotfour()">
+              Vytvořit instalační balíček
+            </button>
+          </div>
+          <script>
+            function createinstalbalsixdotfour() {
+              var zip = new JSZip();
+              zip.file(
+                "name.txt",
+                document.querySelector("#nameappsixdotfour").value
+              );
+              zip.file(
+                "image.png",
+                document.querySelector("#iconappsixdotfour").files[0]
+              );
+              zip.file(
+                "script.js",
+                document.querySelector("#scriptappsixdotfour").files[0]
+              );
+              zip.file(
+                "install.js",
+                document.querySelector("#installscriptappsixdotfour").files[0]
+              );
+              zip.file("version.txt", "6.4");
+              console.log(zip);
+
+              zip
+                .generateAsync(
+                  { type: "blob" },
+                  function updateCallback(metadata) {}
+                )
+                .then(
+                  function callback(blob) {
+                    saveAs(blob, "compiledapp.kapk");
+                    setTimeout(() => {
+                      alert("Vaše aplikace byla vytvořena!");
+                    }, 3000);
+                  },
+                  function (e) {
+                    console.log(e);
+                  }
+                );
+            }
+          </script>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <h1 style="margin-top: 10px">Developer tools</h1>
+      <p>Program na jednodužší vytváření aplikací pro KLIND OS.</p>
+      <h2>Výhody</h2>
+      <h3>1. Instalace aplikací bez kompilace.</h3>
+      <p>
+        Už nemusíte aplikaci kompilovat kdykoliv svoji aplikaci upravíte.
+        Jednoduše vložte nový script a KLIND OS si program automaticky nahraje.
+      </p>
+      <h2>Stáhnout balíček</h2>
+      <a href="/app-creator/downloads/developertools/6.3.kapk" download
+        >6.3.kapk</a
+      >
+      <a href="/app-creator/downloads/developertools/6.4.kapk" download
+        >6.4.kapk</a
+      >
+    <br>
+    </div>
+    <div class="down">
+      <h1>Příklady</h1>
+      <div class="downscroll">
+        <div class="elmnt">
+          <h1>Verze 6</h1>
+          <p>Ukázka 1:</p>
+          <a
+            download="v6-example1.js"
+            href="data:text/plain;charset=utf-8,%2F%2F%20Toto%20je%20p%C5%99%C3%ADklad%20jak%20si%20m%C5%AF%C5%BEete%20vytvo%C5%99it%20vlastn%C3%AD%20JavaScriptovou%20aplikaci%20do%20KLIND%20OS.%0D%0A%0D%0A%2F%2F%20Krok%201.%20Vytvo%C5%99en%C3%AD%20aplikace%3A%0D%0Avar%20aplikace%20%3D%20apps.createApp(%0D%0A%20%20%20%20%2F%2F%20N%C3%A1zev%20aplikace%0D%0A%20%20%20%20%22Dobr%C3%A1%20aplikace%22%2C%0D%0A%20%20%20%20%2F%2F%20Funkce%20pro%20to%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20rozkliknut%C3%AD%20programu%0D%0A%20%20%20%20(daneokno)%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20aplikace%20spust%C3%AD%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BEe%20se%20m%C3%A1%20okno%20otev%C5%99%C3%ADt%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20aplikaci%20spust%C3%AD%0D%0A%20%20%20%20%20%20%20%20var%20zprava%20%3D%20document.createElement(%22p%22)%0D%0A%20%20%20%20%20%20%20%20minutes%20%3D%20new%20Date().getMinutes()%0D%0A%20%20%20%20%20%20%20%20if(minutes%20%3C%2010)%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20minutes%20%3D%20%220%22%20%2B%20minutes%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Nastav%C3%AD%20text%20s%20aktu%C3%A1ln%C3%ADm%20%C4%8Desem%20do%20elementu%0D%0A%20%20%20%20%20%20%20%20zprava.textContent%20%3D%20%22Aplikace%20byla%20spu%C5%A1t%C4%9Bna%20v%3A%20%22%2Bnew%20Date().getHours()%2B%22%3A%22%2Bminutes%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Vlo%C5%BE%C3%AD%20vlo%C5%BE%C3%AD%20element%20do%20dan%C3%A9ho%20okna%0D%0A%20%20%20%20%20%20%20%20daneokno.appendChild(zprava)%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%20%20%2F%2F%20Zde%20vlo%C5%BEte%20jestli%20m%C3%A1%20b%C3%BDt%20aplikace%20v%20listu%20aplikac%C3%AD%20ve%20startu%0D%0A%20%20%20%20%2F%2F%20true%20%3D%20ano%0D%0A%20%20%20%20%2F%2F%20false%20%3D%20ne%0D%0A%20%20%20%20true%0D%0A)%0D%0A%0D%0A%2F%2F%20Krok%202.%20Vytvo%C5%99en%C3%AD%20okna%0D%0Avar%20okno%20%3D%20apps.createWindow(%7B%0D%0A%20%20%20%20%2F%2F%20Odkazuje%20na%20variable%20aplikace%0D%0A%20%20%20%20app%3A%20aplikace%2C%0D%0A%20%20%20%20%2F%2F%20Tla%C4%8D%C3%ADtka%20kter%C3%A9%20budou%20na%20okn%C4%9B%0D%0A%20%20%20%20buttons%3A%20%7B%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Typ%20tla%C4%8D%C3%ADtka%20a%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20stisku%0D%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20tla%C4%8D%C3%ADtko%20spust%C3%AD%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BAe%20se%20m%C3%A1%20okno%20zav%C5%99%C3%ADt%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20zav%C5%99e%20nebo%20minimalizuje%20okno%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20zav%C5%99eno.%22)%0D%0A%20%20%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20minimalizov%C3%A1no%22)%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Podporovan%C3%A9%20tla%C4%8D%C3%ADtka%3A%20close%2C%20mini%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%20%20%2F%2F%20Jesli%20m%C5%AF%C5%BEe%20okno%20m%C4%9Bnit%20velikost%3A%0D%0A%20%20%20%20%2F%2F%20Jestli%20okno%20m%C5%AF%C5%BEe%20m%C4%9Bnit%20velikost%0D%0A%20%20%20%20%2F%2F%20Mo%C5%BEnosti%3A%0D%0A%0D%0A%20%20%20%20%2F%2F%20true%0D%0A%20%20%20%20%2F%2F%20ano%20m%C5%AF%C5%BEe%0D%0A%0D%0A%20%20%20%20%2F%2F%20nebo%0D%0A%20%20%20%20%2F%2F%20%7B%0D%0A%20%20%20%20%2F%2F%20%20%20width%3A%20%22100%22%2C%20height%3A%20%22100%22%0D%0A%20%20%20%20%2F%2F%20%7D%0D%0A%20%20%20%20%2F%2F%20ne%20nem%C5%AF%C5%BEe%0D%0A%0D%0A%20%20%20%20%2F%2F%20Pokud%20chcete%20aby%20nemohlo%20okno%20m%C4%9Bnit%20velikost%2C%20m%C5%AFs%C3%ADte%20zadat%20pevnou%20%C5%A1%C3%AD%C5%99ku%20a%20v%C3%BD%C5%A1ku%20okna.%0D%0A%20%20%20%20resizeable%3A%20%7B%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20%C5%A0%C3%AD%C5%99ka%20a%20b%C3%BD%C5%A1ka%20je%20v%20pixelech%0D%0A%20%20%20%20%20%20%20%20height%3A%20200%2C%0D%0A%20%20%20%20%20%20%20%20width%3A%20200%2C%0D%0A%20%20%20%20%7D%2C%0D%0A%0D%0A%20%20%20%20%2F%2F%20Ikona%20aplikace%0D%0A%20%20%20%20icon%3A%20%22https%3A%2F%2Ficons8.com%2Ficon%2FH7bD848fFLgE%2Fapp%22%2C%0D%0A%0D%0A%20%20%20%20%2F%2F%20Obsah%20aplikace.%20Zde%20vkl%C3%A1d%C3%A1te%20HTML%20strukturu%20dan%C3%A9%20aplikace.%0D%0A%20%20%20%20content%3A%20%22%3Ch1%3EMoje%20nov%C3%A1%20aplikace!%3C%2Fh1%3E%22%0D%0A%7D)%0D%0A%0D%0A%0D%0A%2F%2F%20Krok%203.%20Vytvo%C5%99en%C3%AD%20scriptu%20pro%20minimalizaci%0D%0A%2F%2F%20Pokud%20nechcete%20m%C3%ADt%20u%20sv%C3%A9ho%20okna%20jste%20si%20nastavil%20%C5%BEe%20nem%C3%A1%20m%C3%ADt%20minimalizaci%2C%20tento%20krok%20p%C5%99esko%C4%8Dte%0D%0Avar%20appIcon%20%3D%20apps.createMini(%7B%0D%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20o%20jakou%20aplikaci%20se%20jedn%C3%A1.%0D%0A%20%20%20%20app%3A%20aplikace%2C%0D%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20jak%C3%A9%20okno%20m%C3%A1%20aplikace.%0D%0A%20%20%20%20window%3A%20okno%2C%0D%0A%7D)%0D%0A%0D%0A%2F%2F%20A%20je%20to.%20Nyn%C3%AD%20si%20m%C5%AF%C5%BEete%20upravovat%20svoji%20aplikaci%20dle%20libosti.%0D%0A%2F%2F%20Do%20aplikace%20m%C5%AF%C5%BEete%20za%20b%C4%9Bhu%20tak%C3%A9%20p%C5%99id%C3%A1vat%20elementy%20pomoc%C3%AD%20funkce%20appendchild.%20N%C4%9Bjak%20takto%3A%0D%0A%0D%0A%2F%2F%20Vytvo%C5%99%C3%AD%20element%20h1%0D%0Avar%20dalsiH1%20%3D%20document.createElement(%22h1%22)%0D%0A%2F%2F%20Vlo%C5%BE%C3%AD%20text%20do%20h1%0D%0AdalsiH1.textContent%20%3D%20%22Dal%C5%A1%C3%AD%20h1%22%0D%0A%2F%2F%20Vlo%C5%BE%C3%AD%20h1%20do%20okna.%0D%0Aokno.appendChild(dalsiH1)%0D%0A%0D%0A%2F%2F%20Pokud%20by%20jste%20pot%C5%99ebovali%20pomoct%2C%20napi%C5%A1te%20n%C3%A1m%20na%20podpora%40klindos-main.ml"
+            >Stáhnout soubor</a
+          ><br />
+          <p>Hotový program 1:</p>
+          <a
+            download="v6-final1.js"
+            href="data:text/plain;charset=utf-8,appdetectorapp%3D%20apps.createApp(%0A%20%20%20%20%22AppDetector%22%2C%0A%20%20%20%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%7D%2C%0A%20%20%20%20true%0A)%0Aappdetectorwindow%3D%20apps.createWindow(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20resizeable%3A%20%7B%0A%20%20%20%20%20%20%20%20height%3A%20500%2C%0A%20%20%20%20%20%20%20%20width%3A%20500%0A%20%20%20%20%7D%2C%0A%20%20%20%20icon%3A%20'https%3A%2F%2Fimg.icons8.com%2Fexternal-anggara-basic-outline-anggara-putra%2F512%2Fexternal-app-ecommerce-interface-anggara-basic-outline-anggara-putra.png'%2C%0A%20%20%20%20content%3A%20'%3Cinput%20placeholder%3D%22AppName%22%3E%3C%2Finput%3E%3Cbutton%20onclick%3D%22appdetectorsubmit(this.parentElement)%22%3ESubmit%3C%2Fbutton%3E%3Cbr%3E%3Cbutton%20onclick%3D%22appnotminidetect()%22%3EDetekovat%20aplikace%20bez%20minimalizace%3C%2Fbutton%3E'%0A%7D)%0Afunction%20appnotminidetect()%20%7B%0A%20%20%20%20var%20list%20%3D%20%5B%5D%0A%20%20%20%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20windows.list.ikonadown.length%3B%20i%2B%2B)%20%7B%0A%20%20%20%20%20%20%20%20if%20(windows.list.ikonadown%5Bi%5D%3D%3Dfalse)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20list.push(windows.list.names%5Bi%5D)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20alert(%22Aplikace%20bez%20minimalizace%3A%5Cn%5Cn%22%2Blist.join(%22%2C%22))%0A%7D%0Afunction%20appdetectorsubmit(element)%20%7B%0A%20%20%20%20var%20value%20%3D%20element.querySelector(%22input%22).value%0A%20%20%20%20var%20position%20%3D%20windows.list.names.indexOf(value)%0A%20%20%20%20var%20classe%20%3D%20windows.list.classes%5Bposition%5D%0A%20%20%20%20var%20sd%20%3D%20windows.list.ikonadown%5Bposition%5D%0A%20%20%20%20alert(%22AppDetector%20output%3A%20%5CnName%3A%20%22%2Bvalue%2B%22%5CnClass%3A%20%22%2Bclasse%2B%22%5CnDownIcon%3A%20%22%2Bsd)%0A%7D%0AdownIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20window%3A%20appdetectorwindow%0A%7D)"
+            >Stáhnout soubor</a
+          ><br />
+        </div>
+        <div class="elmnt">
+          <h1>Verze 6.1</h1>
+          <br />
+          <p>Ukázka 1:</p>
+          <a
+            download="v6.1-example1.js"
+            href="data:text/plain;charset=utf-8,%2F%2F%20Toto%20je%20p%C5%99%C3%ADklad%20jak%20si%20m%C5%AF%C5%BEete%20vytvo%C5%99it%20vlastn%C3%AD%20JavaScriptovou%20aplikaci%20do%20KLIND%20OS.%0A%0A%2F%2F%20Krok%201.%20Vytvo%C5%99en%C3%AD%20aplikace%3A%0Avar%20aplikace%20%3D%20apps.createApp(%0A%20%20%20%20%2F%2F%20N%C3%A1zev%20aplikace%20(mus%C3%AD%20b%C3%BDt%20stejn%C3%A9%20jak%C3%A9%20budete%20zad%C3%A1vat%20do%20compileru)%0A%20%20%20%20%22Dobr%C3%A1%20aplikace%22%2C%0A%20%20%20%20%2F%2F%20Funkce%20pro%20to%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20rozkliknut%C3%AD%20programu%0A%20%20%20%20(daneokno)%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20aplikace%20spust%C3%AD%0A%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BEe%20se%20m%C3%A1%20okno%20otev%C5%99%C3%ADt%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20aplikaci%20spust%C3%AD%0A%20%20%20%20%20%20%20%20var%20zprava%20%3D%20document.createElement(%22p%22)%0A%20%20%20%20%20%20%20%20minutes%20%3D%20new%20Date().getMinutes()%0A%20%20%20%20%20%20%20%20if(minutes%20%3C%2010)%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20minutes%20%3D%20%220%22%20%2B%20minutes%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%2F%2F%20Nastav%C3%AD%20text%20s%20aktu%C3%A1ln%C3%ADm%20%C4%8Desem%20do%20elementu%0A%20%20%20%20%20%20%20%20zprava.textContent%20%3D%20%22Aplikace%20byla%20spu%C5%A1t%C4%9Bna%20v%3A%20%22%2Bnew%20Date().getHours()%2B%22%3A%22%2Bminutes%0A%20%20%20%20%20%20%20%20%2F%2F%20Vlo%C5%BE%C3%AD%20vlo%C5%BE%C3%AD%20element%20do%20dan%C3%A9ho%20okna%0A%20%20%20%20%20%20%20%20daneokno.appendChild(zprava)%0A%20%20%20%20%7D%2C%0A%20%20%20%20%2F%2F%20Zde%20vlo%C5%BEte%20jestli%20m%C3%A1%20b%C3%BDt%20aplikace%20v%20listu%20aplikac%C3%AD%20ve%20startu%0A%20%20%20%20%2F%2F%20true%20%3D%20ano%0A%20%20%20%20%2F%2F%20false%20%3D%20ne%0A%20%20%20%20true%0A)%0A%0A%2F%2F%20Krok%202.%20Vytvo%C5%99en%C3%AD%20okna%0Avar%20okno%20%3D%20apps.createWindow(%7B%0A%20%20%20%20%2F%2F%20Odkazuje%20na%20variable%20aplikace%0A%20%20%20%20app%3A%20aplikace%2C%0A%20%20%20%20%2F%2F%20Tla%C4%8D%C3%ADtka%20kter%C3%A9%20budou%20na%20okn%C4%9B%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20Typ%20tla%C4%8D%C3%ADtka%20a%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20stisku%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20tla%C4%8D%C3%ADtko%20spust%C3%AD%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BAe%20se%20m%C3%A1%20okno%20zav%C5%99%C3%ADt%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20zav%C5%99e%20nebo%20minimalizuje%20okno%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20zav%C5%99eno.%22)%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20minimalizov%C3%A1no%22)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%2F%2F%20Podporovan%C3%A9%20tla%C4%8D%C3%ADtka%3A%20close%2C%20mini%0A%20%20%20%20%7D%2C%0A%0A%20%20%20%20%2F%2F%20Obsah%20aplikace.%20Zde%20vkl%C3%A1d%C3%A1te%20HTML%20strukturu%20dan%C3%A9%20aplikace.%0A%20%20%20%20content%3A%20%22%3Ch1%3EMoje%20nov%C3%A1%20aplikace!%3C%2Fh1%3E%22%0A%7D)%0A%0A%0A%2F%2F%20Krok%203.%20Vytvo%C5%99en%C3%AD%20scriptu%20pro%20minimalizaci%0A%2F%2F%20Pokud%20nechcete%20m%C3%ADt%20u%20sv%C3%A9ho%20okna%20jste%20si%20nastavil%20%C5%BEe%20nem%C3%A1%20m%C3%ADt%20minimalizaci%2C%20tento%20krok%20p%C5%99esko%C4%8Dte%0Avar%20appIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20o%20jakou%20aplikaci%20se%20jedn%C3%A1.%0A%20%20%20%20app%3A%20aplikace%2C%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20jak%C3%A9%20okno%20m%C3%A1%20aplikace.%0A%20%20%20%20window%3A%20okno%2C%0A%7D)%0A%0A%2F%2F%20A%20je%20to.%20Nyn%C3%AD%20si%20m%C5%AF%C5%BEete%20upravovat%20svoji%20aplikaci%20dle%20libosti.%0A%2F%2F%20Do%20aplikace%20m%C5%AF%C5%BEete%20za%20b%C4%9Bhu%20tak%C3%A9%20p%C5%99id%C3%A1vat%20elementy%20pomoc%C3%AD%20funkce%20appendchild.%20N%C4%9Bjak%20takto%3A%0A%0A%2F%2F%20Vytvo%C5%99%C3%AD%20element%20h1%0Avar%20dalsiH1%20%3D%20document.createElement(%22h1%22)%0A%2F%2F%20Vlo%C5%BE%C3%AD%20text%20do%20h1%0AdalsiH1.textContent%20%3D%20%22Dal%C5%A1%C3%AD%20h1%22%0A%2F%2F%20Vlo%C5%BE%C3%AD%20h1%20do%20okna.%0Aokno.appendChild(dalsiH1)%0A%0A%2F%2F%20Pokud%20by%20jste%20pot%C5%99ebovali%20pomoct%2C%20napi%C5%A1te%20n%C3%A1m%20na%20podpora%40klindos-main.ml"
+            >Stáhnout soubor</a
+          ><br />
+          <br />
+          <p>Hotový program 1 (script):</p>
+          <a
+            download="v6.1-final1.js"
+            href="data:text/plain;charset=utf-8,appdetectorapp%3D%20apps.createApp(%0A%20%20%20%20%22AppDetector%22%2C%0A%20%20%20%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%7D%2C%0A%20%20%20%20true%0A)%0Aappdetectorwindow%3D%20apps.createWindow(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20resizeable%3A%20%7B%0A%20%20%20%20%20%20%20%20height%3A%20500%2C%0A%20%20%20%20%20%20%20%20width%3A%20500%0A%20%20%20%20%7D%2C%0A%20%20%20%20content%3A%20'%3Cinput%20placeholder%3D%22AppName%22%3E%3C%2Finput%3E%3Cbutton%20onclick%3D%22appdetectorsubmit(this.parentElement)%22%3ESubmit%3C%2Fbutton%3E%3Cbr%3E%3Cbutton%20onclick%3D%22appnotminidetect()%22%3EDetekovat%20aplikace%20bez%20minimalizace%3C%2Fbutton%3E'%0A%7D)%0Afunction%20appnotminidetect()%20%7B%0A%20%20%20%20var%20list%20%3D%20%5B%5D%0A%20%20%20%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20windows.list.ikonadown.length%3B%20i%2B%2B)%20%7B%0A%20%20%20%20%20%20%20%20if%20(windows.list.ikonadown%5Bi%5D%3D%3Dfalse)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20list.push(windows.list.names%5Bi%5D)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20alert(%22Aplikace%20bez%20minimalizace%3A%5Cn%5Cn%22%2Blist.join(%22%2C%22))%0A%7D%0Afunction%20appdetectorsubmit(element)%20%7B%0A%20%20%20%20var%20value%20%3D%20element.querySelector(%22input%22).value%0A%20%20%20%20var%20position%20%3D%20windows.list.names.indexOf(value)%0A%20%20%20%20var%20classe%20%3D%20windows.list.classes%5Bposition%5D%0A%20%20%20%20var%20sd%20%3D%20windows.list.ikonadown%5Bposition%5D%0A%20%20%20%20alert(%22AppDetector%20output%3A%20%5CnName%3A%20%22%2Bvalue%2B%22%5CnClass%3A%20%22%2Bclasse%2B%22%5CnDownIcon%3A%20%22%2Bsd)%0A%7D%0AdownIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20window%3A%20appdetectorwindow%0A%7D)"
+            >Stáhnout soubor</a
+          >
+          <br /><br />
+          <p>Hotový program 1<br />vykompilovaný<br />(externí stahování):</p>
+          <a
+            target="_blank"
+            download="v6.1-final1-compiled.kapk"
+            href="http://klindos.jzitnik.is-a.dev/examples/6.1/prog1.kapk"
+            >Stáhnout soubor</a
+          ><br /><br />
+          <p>Hotový program 2:</p>
+          <a
+            download="script.js"
+            href="data:text/plain;charset=utf-8,var%20aplikace%20%3D%20apps.createApp(%0A%20%20%20%20%22Custom%20login%20sound%22%2C%0A%20%20%20%20(okno)%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20if%20(localStorage.getItem(%22loginsound%22)%20!%3D%3D%20null)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20okno.querySelector(%22input%22).value%20%3D%20localStorage.getItem(%22loginsound%22)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20true%0A)%0A%0Avar%20okno%20%3D%20apps.createWindow(%7B%0A%20%20%20%20app%3A%20aplikace%2C%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20content%3A%20%22%3Cinput%3E%3Cbutton%20onclick%3D'submitsound(this.parentElement.querySelector(%5C%22input%5C%22).value)'%3EOdeslat%3C%2Fbutton%3E%22%0A%7D)%0A%0Avar%20appIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20app%3A%20aplikace%2C%0A%20%20%20%20window%3A%20okno%0A%7D)%0A%0Afunction%20submitsound(element)%20%7B%0A%20%20%20%20localStorage.setItem(%22loginsound%22%2C%20element)%0A%20%20%20%20control.functions.reboot(%22Custom%20login%20sound%22)%0A%7D%0A%0Acontrol.dowhenlogin.add(%0A%20%20%20%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20if%20(localStorage.getItem(%22loginsound%22)%20!%3D%3D%20null)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20sound%20%3D%20control.playSound(localStorage.getItem(%22loginsound%22))%0A%20%20%20%20%20%20%20%20%20%20%20%20setTimeout(()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20sound.play()%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%201000)%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A)"
+            >Stáhnout script</a
+          ><br />
+          <a target="_blank" href="https://www.youtube.com/watch?v=6l__n_Hpkis"
+            >Tutoriál</a
+          ><br /><br />
+        </div>
+        <div class="elmnt">
+          <h1>Verze 6.2</h1>
+          <br />
+          <p>Ukázka 1:</p>
+          <a
+            download="v6.1-example1.js"
+            href="data:text/plain;charset=utf-8;base64,Ly8gVG90byBqZSBwxZnDrWtsYWQgamFrIHNpIG3Fr8W+ZXRlIHZ5dHZvxZlpdCB2bGFzdG7DrSBKYXZhU2NyaXB0b3ZvdSBhcGxpa2FjaSBkbyBLTElORCBPUy4NCg0KLy8gS3JvayAxLiBWeXR2b8WZZW7DrSBhcGxpa2FjZToNCnZhciBhcGxpa2FjZSA9IG5ldyBBcHAoew0KICAgIC8vIE7DoXpldiBhcGxpa2FjZSAobXVzw60gYsO9dCBzdGVqbsOpIGpha8OpIGJ1ZGV0ZSB6YWTDoXZhdCBkbyBjb21waWxlcnUpDQogICAgbmFtZTogIkRvYnLDoSBhcGxpa2FjZSIsDQogICAgLy8gRnVua2NlIHBybyB0byBjbyBzZSBtw6EgdWTEm2xhdCBwxZlpIHJvemtsaWtudXTDrSBwcm9ncmFtdQ0KICAgIG9uU3RhcnQ6IChkYW5lb2tubykgPT4gew0KICAgICAgICAvLyBaZGUgc2Ugdmtsw6Fkw6Ega8OzZCBwcm8gdG8ga2R5xb4gc2UgYXBsaWthY2Ugc3B1c3TDrQ0KICAgICAgICAvLyBOZW11c8OtdGUgemRlIHphZMOhdmF0IMW+ZSBzZSBtw6Egb2tubyBvdGV2xZnDrXQNCiAgICAgICAgLy8gWmRlIHNlIHZrbMOhZGFqw60gcG91emUgc3BlY2nDoWxuw60gZnVua2NlLCBrdGVyw6kgc2UgbWFqw60gdnl2b2xhdCBwb3TDqSBjbyB1xb5pdmF0ZWwgYXBsaWthY2kgc3B1c3TDrQ0KICAgICAgICB2YXIgenByYXZhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgicCIpDQogICAgICAgIG1pbnV0ZXMgPSBuZXcgRGF0ZSgpLmdldE1pbnV0ZXMoKQ0KICAgICAgICBpZihtaW51dGVzIDwgMTApew0KICAgICAgICAgICAgbWludXRlcyA9ICIwIiArIG1pbnV0ZXM7DQogICAgICAgIH0NCiAgICAgICAgLy8gTmFzdGF2w60gdGV4dCBzIGFrdHXDoWxuw61tIMSNZXNlbSBkbyBlbGVtZW50dQ0KICAgICAgICB6cHJhdmEudGV4dENvbnRlbnQgPSAiQXBsaWthY2UgYnlsYSBzcHXFoXTEm25hIHY6ICIrbmV3IERhdGUoKS5nZXRIb3VycygpKyI6IittaW51dGVzDQogICAgICAgIC8vIFZsb8W+w60gdmxvxb7DrSBlbGVtZW50IGRvIGRhbsOpaG8gb2tuYQ0KICAgICAgICBkYW5lb2tuby5hcHBlbmRDaGlsZCh6cHJhdmEpDQogICAgfSwNCiAgICAvLyBaZGUgdmxvxb7DrXRlIGplc3RsaSBtw6EgYsO9dCBhcGxpa2FjZSBza3J5dMO9IHZlIHN0YXJ0IG1lbnUNCiAgICAvLyB0cnVlID0gYW5vDQogICAgLy8gZmFsc2UgPSBuZQ0KICAgIGhpZGRlbjogdHJ1ZQ0KfSkNCg0KLy8gS3JvayAyLiBWeXR2b8WZZW7DrSBva25hDQphcGxpa2FjZS5jcmVhdGVXaW5kb3coew0KICAgIC8vIFRsYcSNw610a2Ega3RlcsOpIGJ1ZG91IG5hIG9rbsSbDQogICAgYnV0dG9uczogew0KICAgICAgICAvLyBUeXAgdGxhxI3DrXRrYSBhIGNvIHNlIG3DoSB1ZMSbbGF0IHDFmWkgc3Rpc2t1DQogICAgICAgIGNsb3NlOiAoKSA9PiB7DQogICAgICAgICAgICAvLyBaZGUgc2Ugdmtsw6Fkw6Ega8OzZCBwcm8gdG8ga2R5xb4gc2UgdGxhxI3DrXRrbyBzcHVzdMOtDQogICAgICAgICAgICAvLyBOZW11c8OtdGUgemRlIHphZMOhdmF0IMW6ZSBzZSBtw6Egb2tubyB6YXbFmcOtdA0KICAgICAgICAgICAgLy8gWmRlIHNlIHZrbMOhZGFqw60gcG91emUgc3BlY2nDoWxuw60gZnVua2NlLCBrdGVyw6kgc2UgbWFqw60gdnl2b2xhdCBwb3TDqSBjbyB1xb5pdmF0ZWwgemF2xZllIG5lYm8gbWluaW1hbGl6dWplIG9rbm8NCiAgICAgICAgICAgIGNvbnNvbGUubG9nKCJPa25vIGJ5bG8gemF2xZllbm8uIikNCiAgICAgICAgfSwNCiAgICAgICAgbWluaTogKCkgPT4gew0KICAgICAgICAgICAgY29uc29sZS5sb2coIk9rbm8gYnlsbyBtaW5pbWFsaXpvdsOhbm8iKQ0KICAgICAgICB9DQogICAgICAgIC8vIFBvZHBvcm92YW7DqSB0bGHEjcOtdGthOiBjbG9zZSwgbWluaQ0KICAgIH0sDQogICAgLy8gT2JzYWggYXBsaWthY2UuIFpkZSB2a2zDoWTDoXRlIEhUTUwgc3RydWt0dXJ1IGRhbsOpIGFwbGlrYWNlLg0KICAgIGNvbnRlbnQ6ICI8aDE+TW9qZSBub3bDoSBhcGxpa2FjZSE8L2gxPiINCn0pDQoNCi8vIEtyb2sgMy4gVnl0dm/FmWVuw60gc2NyaXB0dSBwcm8gbWluaW1hbGl6YWNpDQovLyBQb2t1ZCBuZWNoY2V0ZSBtw610IHUgc3bDqWhvIG9rbmEganN0ZSBzaSBuYXN0YXZpbCDFvmUgbmVtw6EgbcOtdCBtaW5pbWFsaXphY2ksIHRlbnRvIGtyb2sgcMWZZXNrb8SNdGUNCi8vIFRlbnRvIHDFmcOta2F6IHZ5dHZvxZnDrSBpa29ua3UgbWluaW1hbGl6YWNlIHYgdGFza2JhcnUNCnZhciBhcHBJY29uID0gYXBsaWthY2UuY3JlYXRlTWluaUljb24oKQ0KDQoNCg0KLy8gQSBqZSB0by4gTnluw60gc2kgbcWvxb5ldGUgdXByYXZvdmF0IHN2b2ppIGFwbGlrYWNpIGRsZSBsaWJvc3RpLg0KLy8gRG8gYXBsaWthY2UgbcWvxb5ldGUgemEgYsSbaHUgdGFrw6kgcMWZaWTDoXZhdCBlbGVtZW50eSBwb21vY8OtIGZ1bmtjZSBhcHBlbmRjaGlsZC4gTsSbamFrIHRha3RvOg0KDQovLyBWeXR2b8WZw60gZWxlbWVudCBoMQ0KdmFyIGRhbHNpSDEgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJoMSIpDQovLyBWbG/FvsOtIHRleHQgZG8gaDENCmRhbHNpSDEudGV4dENvbnRlbnQgPSAiRGFsxaHDrSBoMSINCi8vIFZsb8W+w60gaDEgZG8gb2tuYS4NCm9rbm8uYXBwZW5kQ2hpbGQoZGFsc2lIMSkNCg0KLy8gUG9rdWQgYnkganN0ZSBwb3TFmWVib3ZhbGkgcG9tb2N0LCBuYXBpxaF0ZSBuw6FtIG5hIHBvZHBvcmFAa2xpbmRvcy1tYWluLm1s"
+            >Stáhnout soubor</a
+          ><br />
+          <br />
+          <p>Hotový program 1 (script):</p>
+          <a
+            download="v6.1-final1.js"
+            href="data:text/plain;charset=utf-8;base64,YXBwZGV0ZWN0b3JhcHAgPSBuZXcgQXBwKHsNCiAgICBuYW1lOiAiQXBwRGV0ZWN0b3IiLA0KICAgIG9uU3RhcnQ6ICgpID0+IHsNCg0KICAgIH0sDQogICAgaGlkZGVuOiBmYWxzZSwNCn0pDQphcHBkZXRlY3RvcmFwcC5jcmVhdGVXaW5kb3coew0KICAgIGJ1dHRvbnM6IHsNCiAgICAgICAgY2xvc2U6ICgpID0+IHsNCg0KICAgICAgICB9LA0KICAgICAgICBtaW5pOiAoKSA9PiB7DQoNCiAgICAgICAgfQ0KICAgIH0sDQogICAgY29udGVudDogJzxpbnB1dCBwbGFjZWhvbGRlcj0iQXBwTmFtZSI+PC9pbnB1dD48YnV0dG9uIG9uY2xpY2s9ImFwcGRldGVjdG9yc3VibWl0KHRoaXMucGFyZW50RWxlbWVudCkiPlN1Ym1pdDwvYnV0dG9uPjxicj48YnV0dG9uIG9uY2xpY2s9ImFwcG5vdG1pbmlkZXRlY3QoKSI+RGV0ZWtvdmF0IGFwbGlrYWNlIGJleiBtaW5pbWFsaXphY2U8L2J1dHRvbj4nDQp9KQ0KYXBwZGV0ZWN0b3JhcHAuY3JlYXRlTWluaUljb24oKTsNCg0KZnVuY3Rpb24gYXBwbm90bWluaWRldGVjdCgpIHsNCiAgICB2YXIgbGlzdCA9IFtdDQogICAgZm9yICh2YXIgaSA9IDA7IGkgPCB3aW5kb3dzLmxpc3QuaWtvbmFkb3duLmxlbmd0aDsgaSsrKSB7DQogICAgICAgIGlmICh3aW5kb3dzLmxpc3QuaWtvbmFkb3duW2ldPT1mYWxzZSkgew0KICAgICAgICAgICAgbGlzdC5wdXNoKHdpbmRvd3MubGlzdC5uYW1lc1tpXSkNCiAgICAgICAgfQ0KICAgIH0NCiAgICBhbGVydCgiQXBsaWthY2UgYmV6IG1pbmltYWxpemFjZTpubiIrbGlzdC5qb2luKCIsIikpDQp9DQpmdW5jdGlvbiBhcHBkZXRlY3RvcnN1Ym1pdChlbGVtZW50KSB7DQogICAgdmFyIHZhbHVlID0gZWxlbWVudC5xdWVyeVNlbGVjdG9yKCJpbnB1dCIpLnZhbHVlDQogICAgdmFyIHBvc2l0aW9uID0gd2luZG93cy5saXN0Lm5hbWVzLmluZGV4T2YodmFsdWUpDQogICAgdmFyIGNsYXNzZSA9IHdpbmRvd3MubGlzdC5jbGFzc2VzW3Bvc2l0aW9uXQ0KICAgIHZhciBzZCA9IHdpbmRvd3MubGlzdC5pa29uYWRvd25bcG9zaXRpb25dDQogICAgYWxlcnQoIkFwcERldGVjdG9yIG91dHB1dDogbk5hbWU6ICIrdmFsdWUrIm5DbGFzczogIitjbGFzc2UrIm5Eb3duSWNvbjogIitzZCkNCn0="
+            >Stáhnout soubor</a
+          >
+          <br /><br />
+          <p>Hotový program 1<br />vykompilovaný<br />(externí stahování):</p>
+          <a
+            target="_blank"
+            download="v6.1-final1-compiled.kapk"
+            href="http://klindos.jzitnik.is-a.dev/examples/6.2/prog1.kapk"
+            >Stáhnout soubor</a
+          ><br /><br />
+        </div>
       </div>
     </div>
-    <h1 style="margin-top: 10px;">Developer tools</h1>
-    <p>Program na jednodužší vytváření aplikací pro KLIND OS.</p>
-    <h2>Výhody</h2>
-    <h3>1. Instalace aplikací bez kompilace.</h3>
-    <p>Už nemusíte aplikaci kompilovat kdykoliv svoji aplikaci upravíte. Jednoduše vložte nový script a KLIND OS si program automaticky nahraje.</p>
-    <h2>Stáhnout balíček</h2>
-    <a href="/app-creator/downloads/developertools/6.3.kapk" download>6.3.kapk</a>
-    <a href="/app-creator/downloads/developertools/6.4.kapk" download>6.4.kapk</a>
-  </div>
-  <div class="down">
-    <h1>Všechny příklady</h1>
-    <div class="downscroll">
-      <div class="elmnt">
-        <h1>Verze 6</h1>
-        <p>Ukázka 1: </p><a download="v6-example1.js"
-          href="data:text/plain;charset=utf-8,%2F%2F%20Toto%20je%20p%C5%99%C3%ADklad%20jak%20si%20m%C5%AF%C5%BEete%20vytvo%C5%99it%20vlastn%C3%AD%20JavaScriptovou%20aplikaci%20do%20KLIND%20OS.%0D%0A%0D%0A%2F%2F%20Krok%201.%20Vytvo%C5%99en%C3%AD%20aplikace%3A%0D%0Avar%20aplikace%20%3D%20apps.createApp(%0D%0A%20%20%20%20%2F%2F%20N%C3%A1zev%20aplikace%0D%0A%20%20%20%20%22Dobr%C3%A1%20aplikace%22%2C%0D%0A%20%20%20%20%2F%2F%20Funkce%20pro%20to%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20rozkliknut%C3%AD%20programu%0D%0A%20%20%20%20(daneokno)%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20aplikace%20spust%C3%AD%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BEe%20se%20m%C3%A1%20okno%20otev%C5%99%C3%ADt%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20aplikaci%20spust%C3%AD%0D%0A%20%20%20%20%20%20%20%20var%20zprava%20%3D%20document.createElement(%22p%22)%0D%0A%20%20%20%20%20%20%20%20minutes%20%3D%20new%20Date().getMinutes()%0D%0A%20%20%20%20%20%20%20%20if(minutes%20%3C%2010)%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20minutes%20%3D%20%220%22%20%2B%20minutes%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Nastav%C3%AD%20text%20s%20aktu%C3%A1ln%C3%ADm%20%C4%8Desem%20do%20elementu%0D%0A%20%20%20%20%20%20%20%20zprava.textContent%20%3D%20%22Aplikace%20byla%20spu%C5%A1t%C4%9Bna%20v%3A%20%22%2Bnew%20Date().getHours()%2B%22%3A%22%2Bminutes%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Vlo%C5%BE%C3%AD%20vlo%C5%BE%C3%AD%20element%20do%20dan%C3%A9ho%20okna%0D%0A%20%20%20%20%20%20%20%20daneokno.appendChild(zprava)%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%20%20%2F%2F%20Zde%20vlo%C5%BEte%20jestli%20m%C3%A1%20b%C3%BDt%20aplikace%20v%20listu%20aplikac%C3%AD%20ve%20startu%0D%0A%20%20%20%20%2F%2F%20true%20%3D%20ano%0D%0A%20%20%20%20%2F%2F%20false%20%3D%20ne%0D%0A%20%20%20%20true%0D%0A)%0D%0A%0D%0A%2F%2F%20Krok%202.%20Vytvo%C5%99en%C3%AD%20okna%0D%0Avar%20okno%20%3D%20apps.createWindow(%7B%0D%0A%20%20%20%20%2F%2F%20Odkazuje%20na%20variable%20aplikace%0D%0A%20%20%20%20app%3A%20aplikace%2C%0D%0A%20%20%20%20%2F%2F%20Tla%C4%8D%C3%ADtka%20kter%C3%A9%20budou%20na%20okn%C4%9B%0D%0A%20%20%20%20buttons%3A%20%7B%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Typ%20tla%C4%8D%C3%ADtka%20a%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20stisku%0D%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20tla%C4%8D%C3%ADtko%20spust%C3%AD%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BAe%20se%20m%C3%A1%20okno%20zav%C5%99%C3%ADt%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20zav%C5%99e%20nebo%20minimalizuje%20okno%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20zav%C5%99eno.%22)%0D%0A%20%20%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20minimalizov%C3%A1no%22)%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20Podporovan%C3%A9%20tla%C4%8D%C3%ADtka%3A%20close%2C%20mini%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%20%20%2F%2F%20Jesli%20m%C5%AF%C5%BEe%20okno%20m%C4%9Bnit%20velikost%3A%0D%0A%20%20%20%20%2F%2F%20Jestli%20okno%20m%C5%AF%C5%BEe%20m%C4%9Bnit%20velikost%0D%0A%20%20%20%20%2F%2F%20Mo%C5%BEnosti%3A%0D%0A%0D%0A%20%20%20%20%2F%2F%20true%0D%0A%20%20%20%20%2F%2F%20ano%20m%C5%AF%C5%BEe%0D%0A%0D%0A%20%20%20%20%2F%2F%20nebo%0D%0A%20%20%20%20%2F%2F%20%7B%0D%0A%20%20%20%20%2F%2F%20%20%20width%3A%20%22100%22%2C%20height%3A%20%22100%22%0D%0A%20%20%20%20%2F%2F%20%7D%0D%0A%20%20%20%20%2F%2F%20ne%20nem%C5%AF%C5%BEe%0D%0A%0D%0A%20%20%20%20%2F%2F%20Pokud%20chcete%20aby%20nemohlo%20okno%20m%C4%9Bnit%20velikost%2C%20m%C5%AFs%C3%ADte%20zadat%20pevnou%20%C5%A1%C3%AD%C5%99ku%20a%20v%C3%BD%C5%A1ku%20okna.%0D%0A%20%20%20%20resizeable%3A%20%7B%0D%0A%20%20%20%20%20%20%20%20%2F%2F%20%C5%A0%C3%AD%C5%99ka%20a%20b%C3%BD%C5%A1ka%20je%20v%20pixelech%0D%0A%20%20%20%20%20%20%20%20height%3A%20200%2C%0D%0A%20%20%20%20%20%20%20%20width%3A%20200%2C%0D%0A%20%20%20%20%7D%2C%0D%0A%0D%0A%20%20%20%20%2F%2F%20Ikona%20aplikace%0D%0A%20%20%20%20icon%3A%20%22https%3A%2F%2Ficons8.com%2Ficon%2FH7bD848fFLgE%2Fapp%22%2C%0D%0A%0D%0A%20%20%20%20%2F%2F%20Obsah%20aplikace.%20Zde%20vkl%C3%A1d%C3%A1te%20HTML%20strukturu%20dan%C3%A9%20aplikace.%0D%0A%20%20%20%20content%3A%20%22%3Ch1%3EMoje%20nov%C3%A1%20aplikace!%3C%2Fh1%3E%22%0D%0A%7D)%0D%0A%0D%0A%0D%0A%2F%2F%20Krok%203.%20Vytvo%C5%99en%C3%AD%20scriptu%20pro%20minimalizaci%0D%0A%2F%2F%20Pokud%20nechcete%20m%C3%ADt%20u%20sv%C3%A9ho%20okna%20jste%20si%20nastavil%20%C5%BEe%20nem%C3%A1%20m%C3%ADt%20minimalizaci%2C%20tento%20krok%20p%C5%99esko%C4%8Dte%0D%0Avar%20appIcon%20%3D%20apps.createMini(%7B%0D%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20o%20jakou%20aplikaci%20se%20jedn%C3%A1.%0D%0A%20%20%20%20app%3A%20aplikace%2C%0D%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20jak%C3%A9%20okno%20m%C3%A1%20aplikace.%0D%0A%20%20%20%20window%3A%20okno%2C%0D%0A%7D)%0D%0A%0D%0A%2F%2F%20A%20je%20to.%20Nyn%C3%AD%20si%20m%C5%AF%C5%BEete%20upravovat%20svoji%20aplikaci%20dle%20libosti.%0D%0A%2F%2F%20Do%20aplikace%20m%C5%AF%C5%BEete%20za%20b%C4%9Bhu%20tak%C3%A9%20p%C5%99id%C3%A1vat%20elementy%20pomoc%C3%AD%20funkce%20appendchild.%20N%C4%9Bjak%20takto%3A%0D%0A%0D%0A%2F%2F%20Vytvo%C5%99%C3%AD%20element%20h1%0D%0Avar%20dalsiH1%20%3D%20document.createElement(%22h1%22)%0D%0A%2F%2F%20Vlo%C5%BE%C3%AD%20text%20do%20h1%0D%0AdalsiH1.textContent%20%3D%20%22Dal%C5%A1%C3%AD%20h1%22%0D%0A%2F%2F%20Vlo%C5%BE%C3%AD%20h1%20do%20okna.%0D%0Aokno.appendChild(dalsiH1)%0D%0A%0D%0A%2F%2F%20Pokud%20by%20jste%20pot%C5%99ebovali%20pomoct%2C%20napi%C5%A1te%20n%C3%A1m%20na%20podpora%40klindos-main.ml">Stáhnout
-          soubor</a><br>
-        <p>Hotový program 1: </p><a download="v6-final1.js"
-          href="data:text/plain;charset=utf-8,appdetectorapp%3D%20apps.createApp(%0A%20%20%20%20%22AppDetector%22%2C%0A%20%20%20%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%7D%2C%0A%20%20%20%20true%0A)%0Aappdetectorwindow%3D%20apps.createWindow(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20resizeable%3A%20%7B%0A%20%20%20%20%20%20%20%20height%3A%20500%2C%0A%20%20%20%20%20%20%20%20width%3A%20500%0A%20%20%20%20%7D%2C%0A%20%20%20%20icon%3A%20'https%3A%2F%2Fimg.icons8.com%2Fexternal-anggara-basic-outline-anggara-putra%2F512%2Fexternal-app-ecommerce-interface-anggara-basic-outline-anggara-putra.png'%2C%0A%20%20%20%20content%3A%20'%3Cinput%20placeholder%3D%22AppName%22%3E%3C%2Finput%3E%3Cbutton%20onclick%3D%22appdetectorsubmit(this.parentElement)%22%3ESubmit%3C%2Fbutton%3E%3Cbr%3E%3Cbutton%20onclick%3D%22appnotminidetect()%22%3EDetekovat%20aplikace%20bez%20minimalizace%3C%2Fbutton%3E'%0A%7D)%0Afunction%20appnotminidetect()%20%7B%0A%20%20%20%20var%20list%20%3D%20%5B%5D%0A%20%20%20%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20windows.list.ikonadown.length%3B%20i%2B%2B)%20%7B%0A%20%20%20%20%20%20%20%20if%20(windows.list.ikonadown%5Bi%5D%3D%3Dfalse)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20list.push(windows.list.names%5Bi%5D)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20alert(%22Aplikace%20bez%20minimalizace%3A%5Cn%5Cn%22%2Blist.join(%22%2C%22))%0A%7D%0Afunction%20appdetectorsubmit(element)%20%7B%0A%20%20%20%20var%20value%20%3D%20element.querySelector(%22input%22).value%0A%20%20%20%20var%20position%20%3D%20windows.list.names.indexOf(value)%0A%20%20%20%20var%20classe%20%3D%20windows.list.classes%5Bposition%5D%0A%20%20%20%20var%20sd%20%3D%20windows.list.ikonadown%5Bposition%5D%0A%20%20%20%20alert(%22AppDetector%20output%3A%20%5CnName%3A%20%22%2Bvalue%2B%22%5CnClass%3A%20%22%2Bclasse%2B%22%5CnDownIcon%3A%20%22%2Bsd)%0A%7D%0AdownIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20window%3A%20appdetectorwindow%0A%7D)">Stáhnout
-          soubor</a><br>
-      </div>
-      <div class="elmnt">
-        <h1>Verze 6.1</h1><br>
-        <p>Ukázka 1: </p><a download="v6.1-example1.js"
-          href="data:text/plain;charset=utf-8,%2F%2F%20Toto%20je%20p%C5%99%C3%ADklad%20jak%20si%20m%C5%AF%C5%BEete%20vytvo%C5%99it%20vlastn%C3%AD%20JavaScriptovou%20aplikaci%20do%20KLIND%20OS.%0A%0A%2F%2F%20Krok%201.%20Vytvo%C5%99en%C3%AD%20aplikace%3A%0Avar%20aplikace%20%3D%20apps.createApp(%0A%20%20%20%20%2F%2F%20N%C3%A1zev%20aplikace%20(mus%C3%AD%20b%C3%BDt%20stejn%C3%A9%20jak%C3%A9%20budete%20zad%C3%A1vat%20do%20compileru)%0A%20%20%20%20%22Dobr%C3%A1%20aplikace%22%2C%0A%20%20%20%20%2F%2F%20Funkce%20pro%20to%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20rozkliknut%C3%AD%20programu%0A%20%20%20%20(daneokno)%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20aplikace%20spust%C3%AD%0A%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BEe%20se%20m%C3%A1%20okno%20otev%C5%99%C3%ADt%0A%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20aplikaci%20spust%C3%AD%0A%20%20%20%20%20%20%20%20var%20zprava%20%3D%20document.createElement(%22p%22)%0A%20%20%20%20%20%20%20%20minutes%20%3D%20new%20Date().getMinutes()%0A%20%20%20%20%20%20%20%20if(minutes%20%3C%2010)%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20minutes%20%3D%20%220%22%20%2B%20minutes%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%2F%2F%20Nastav%C3%AD%20text%20s%20aktu%C3%A1ln%C3%ADm%20%C4%8Desem%20do%20elementu%0A%20%20%20%20%20%20%20%20zprava.textContent%20%3D%20%22Aplikace%20byla%20spu%C5%A1t%C4%9Bna%20v%3A%20%22%2Bnew%20Date().getHours()%2B%22%3A%22%2Bminutes%0A%20%20%20%20%20%20%20%20%2F%2F%20Vlo%C5%BE%C3%AD%20vlo%C5%BE%C3%AD%20element%20do%20dan%C3%A9ho%20okna%0A%20%20%20%20%20%20%20%20daneokno.appendChild(zprava)%0A%20%20%20%20%7D%2C%0A%20%20%20%20%2F%2F%20Zde%20vlo%C5%BEte%20jestli%20m%C3%A1%20b%C3%BDt%20aplikace%20v%20listu%20aplikac%C3%AD%20ve%20startu%0A%20%20%20%20%2F%2F%20true%20%3D%20ano%0A%20%20%20%20%2F%2F%20false%20%3D%20ne%0A%20%20%20%20true%0A)%0A%0A%2F%2F%20Krok%202.%20Vytvo%C5%99en%C3%AD%20okna%0Avar%20okno%20%3D%20apps.createWindow(%7B%0A%20%20%20%20%2F%2F%20Odkazuje%20na%20variable%20aplikace%0A%20%20%20%20app%3A%20aplikace%2C%0A%20%20%20%20%2F%2F%20Tla%C4%8D%C3%ADtka%20kter%C3%A9%20budou%20na%20okn%C4%9B%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20Typ%20tla%C4%8D%C3%ADtka%20a%20co%20se%20m%C3%A1%20ud%C4%9Blat%20p%C5%99i%20stisku%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1d%C3%A1%20k%C3%B3d%20pro%20to%20kdy%C5%BE%20se%20tla%C4%8D%C3%ADtko%20spust%C3%AD%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Nemus%C3%ADte%20zde%20zad%C3%A1vat%20%C5%BAe%20se%20m%C3%A1%20okno%20zav%C5%99%C3%ADt%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Zde%20se%20vkl%C3%A1daj%C3%AD%20pouze%20speci%C3%A1ln%C3%AD%20funkce%2C%20kter%C3%A9%20se%20maj%C3%AD%20vyvolat%20pot%C3%A9%20co%20u%C5%BEivatel%20zav%C5%99e%20nebo%20minimalizuje%20okno%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20zav%C5%99eno.%22)%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20console.log(%22Okno%20bylo%20minimalizov%C3%A1no%22)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%2F%2F%20Podporovan%C3%A9%20tla%C4%8D%C3%ADtka%3A%20close%2C%20mini%0A%20%20%20%20%7D%2C%0A%0A%20%20%20%20%2F%2F%20Obsah%20aplikace.%20Zde%20vkl%C3%A1d%C3%A1te%20HTML%20strukturu%20dan%C3%A9%20aplikace.%0A%20%20%20%20content%3A%20%22%3Ch1%3EMoje%20nov%C3%A1%20aplikace!%3C%2Fh1%3E%22%0A%7D)%0A%0A%0A%2F%2F%20Krok%203.%20Vytvo%C5%99en%C3%AD%20scriptu%20pro%20minimalizaci%0A%2F%2F%20Pokud%20nechcete%20m%C3%ADt%20u%20sv%C3%A9ho%20okna%20jste%20si%20nastavil%20%C5%BEe%20nem%C3%A1%20m%C3%ADt%20minimalizaci%2C%20tento%20krok%20p%C5%99esko%C4%8Dte%0Avar%20appIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20o%20jakou%20aplikaci%20se%20jedn%C3%A1.%0A%20%20%20%20app%3A%20aplikace%2C%0A%20%20%20%20%2F%2F%20Nastav%C3%ADme%20jak%C3%A9%20okno%20m%C3%A1%20aplikace.%0A%20%20%20%20window%3A%20okno%2C%0A%7D)%0A%0A%2F%2F%20A%20je%20to.%20Nyn%C3%AD%20si%20m%C5%AF%C5%BEete%20upravovat%20svoji%20aplikaci%20dle%20libosti.%0A%2F%2F%20Do%20aplikace%20m%C5%AF%C5%BEete%20za%20b%C4%9Bhu%20tak%C3%A9%20p%C5%99id%C3%A1vat%20elementy%20pomoc%C3%AD%20funkce%20appendchild.%20N%C4%9Bjak%20takto%3A%0A%0A%2F%2F%20Vytvo%C5%99%C3%AD%20element%20h1%0Avar%20dalsiH1%20%3D%20document.createElement(%22h1%22)%0A%2F%2F%20Vlo%C5%BE%C3%AD%20text%20do%20h1%0AdalsiH1.textContent%20%3D%20%22Dal%C5%A1%C3%AD%20h1%22%0A%2F%2F%20Vlo%C5%BE%C3%AD%20h1%20do%20okna.%0Aokno.appendChild(dalsiH1)%0A%0A%2F%2F%20Pokud%20by%20jste%20pot%C5%99ebovali%20pomoct%2C%20napi%C5%A1te%20n%C3%A1m%20na%20podpora%40klindos-main.ml">Stáhnout
-          soubor</a><br>
-        <br>
-        <p>Hotový program 1 (script): </p><a download="v6.1-final1.js"
-          href="data:text/plain;charset=utf-8,appdetectorapp%3D%20apps.createApp(%0A%20%20%20%20%22AppDetector%22%2C%0A%20%20%20%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%7D%2C%0A%20%20%20%20true%0A)%0Aappdetectorwindow%3D%20apps.createWindow(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20resizeable%3A%20%7B%0A%20%20%20%20%20%20%20%20height%3A%20500%2C%0A%20%20%20%20%20%20%20%20width%3A%20500%0A%20%20%20%20%7D%2C%0A%20%20%20%20content%3A%20'%3Cinput%20placeholder%3D%22AppName%22%3E%3C%2Finput%3E%3Cbutton%20onclick%3D%22appdetectorsubmit(this.parentElement)%22%3ESubmit%3C%2Fbutton%3E%3Cbr%3E%3Cbutton%20onclick%3D%22appnotminidetect()%22%3EDetekovat%20aplikace%20bez%20minimalizace%3C%2Fbutton%3E'%0A%7D)%0Afunction%20appnotminidetect()%20%7B%0A%20%20%20%20var%20list%20%3D%20%5B%5D%0A%20%20%20%20for%20(var%20i%20%3D%200%3B%20i%20%3C%20windows.list.ikonadown.length%3B%20i%2B%2B)%20%7B%0A%20%20%20%20%20%20%20%20if%20(windows.list.ikonadown%5Bi%5D%3D%3Dfalse)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20list.push(windows.list.names%5Bi%5D)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20alert(%22Aplikace%20bez%20minimalizace%3A%5Cn%5Cn%22%2Blist.join(%22%2C%22))%0A%7D%0Afunction%20appdetectorsubmit(element)%20%7B%0A%20%20%20%20var%20value%20%3D%20element.querySelector(%22input%22).value%0A%20%20%20%20var%20position%20%3D%20windows.list.names.indexOf(value)%0A%20%20%20%20var%20classe%20%3D%20windows.list.classes%5Bposition%5D%0A%20%20%20%20var%20sd%20%3D%20windows.list.ikonadown%5Bposition%5D%0A%20%20%20%20alert(%22AppDetector%20output%3A%20%5CnName%3A%20%22%2Bvalue%2B%22%5CnClass%3A%20%22%2Bclasse%2B%22%5CnDownIcon%3A%20%22%2Bsd)%0A%7D%0AdownIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20app%3A%20appdetectorapp%2C%0A%20%20%20%20window%3A%20appdetectorwindow%0A%7D)">Stáhnout
-          soubor</a>
-        <br><br>
-        <p>Hotový program 1<br>vykompilovaný<br>(externí stahování): </p><a target="_blank"
-          download="v6.1-final1-compiled.kapk" href="http://klindos.jzitnik.is-a.dev/examples/6.1/prog1.kapk">Stáhnout
-          soubor</a><br><br>
-        <p>Hotový program 2:</p>
-        <a download="script.js"
-          href="data:text/plain;charset=utf-8,var%20aplikace%20%3D%20apps.createApp(%0A%20%20%20%20%22Custom%20login%20sound%22%2C%0A%20%20%20%20(okno)%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20if%20(localStorage.getItem(%22loginsound%22)%20!%3D%3D%20null)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20okno.querySelector(%22input%22).value%20%3D%20localStorage.getItem(%22loginsound%22)%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20true%0A)%0A%0Avar%20okno%20%3D%20apps.createWindow(%7B%0A%20%20%20%20app%3A%20aplikace%2C%0A%20%20%20%20buttons%3A%20%7B%0A%20%20%20%20%20%20%20%20close%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20mini%3A%20()%20%3D%3E%20%7B%0A%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20content%3A%20%22%3Cinput%3E%3Cbutton%20onclick%3D'submitsound(this.parentElement.querySelector(%5C%22input%5C%22).value)'%3EOdeslat%3C%2Fbutton%3E%22%0A%7D)%0A%0Avar%20appIcon%20%3D%20apps.createMini(%7B%0A%20%20%20%20app%3A%20aplikace%2C%0A%20%20%20%20window%3A%20okno%0A%7D)%0A%0Afunction%20submitsound(element)%20%7B%0A%20%20%20%20localStorage.setItem(%22loginsound%22%2C%20element)%0A%20%20%20%20control.functions.reboot(%22Custom%20login%20sound%22)%0A%7D%0A%0Acontrol.dowhenlogin.add(%0A%20%20%20%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20if%20(localStorage.getItem(%22loginsound%22)%20!%3D%3D%20null)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20sound%20%3D%20control.playSound(localStorage.getItem(%22loginsound%22))%0A%20%20%20%20%20%20%20%20%20%20%20%20setTimeout(()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20sound.play()%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%201000)%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A)">Stáhnout
-          script</a><br>
-        <a target="_blank" href="https://www.youtube.com/watch?v=6l__n_Hpkis">Tutoriál</a><br><br>
-      </div>
-      <div class="elmnt">
-        <h1>Verze 6.2</h1><br>
-        <p>Ukázka 1: </p><a download="v6.1-example1.js"
-          href="data:text/plain;charset=utf-8;base64,Ly8gVG90byBqZSBwxZnDrWtsYWQgamFrIHNpIG3Fr8W+ZXRlIHZ5dHZvxZlpdCB2bGFzdG7DrSBKYXZhU2NyaXB0b3ZvdSBhcGxpa2FjaSBkbyBLTElORCBPUy4NCg0KLy8gS3JvayAxLiBWeXR2b8WZZW7DrSBhcGxpa2FjZToNCnZhciBhcGxpa2FjZSA9IG5ldyBBcHAoew0KICAgIC8vIE7DoXpldiBhcGxpa2FjZSAobXVzw60gYsO9dCBzdGVqbsOpIGpha8OpIGJ1ZGV0ZSB6YWTDoXZhdCBkbyBjb21waWxlcnUpDQogICAgbmFtZTogIkRvYnLDoSBhcGxpa2FjZSIsDQogICAgLy8gRnVua2NlIHBybyB0byBjbyBzZSBtw6EgdWTEm2xhdCBwxZlpIHJvemtsaWtudXTDrSBwcm9ncmFtdQ0KICAgIG9uU3RhcnQ6IChkYW5lb2tubykgPT4gew0KICAgICAgICAvLyBaZGUgc2Ugdmtsw6Fkw6Ega8OzZCBwcm8gdG8ga2R5xb4gc2UgYXBsaWthY2Ugc3B1c3TDrQ0KICAgICAgICAvLyBOZW11c8OtdGUgemRlIHphZMOhdmF0IMW+ZSBzZSBtw6Egb2tubyBvdGV2xZnDrXQNCiAgICAgICAgLy8gWmRlIHNlIHZrbMOhZGFqw60gcG91emUgc3BlY2nDoWxuw60gZnVua2NlLCBrdGVyw6kgc2UgbWFqw60gdnl2b2xhdCBwb3TDqSBjbyB1xb5pdmF0ZWwgYXBsaWthY2kgc3B1c3TDrQ0KICAgICAgICB2YXIgenByYXZhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgicCIpDQogICAgICAgIG1pbnV0ZXMgPSBuZXcgRGF0ZSgpLmdldE1pbnV0ZXMoKQ0KICAgICAgICBpZihtaW51dGVzIDwgMTApew0KICAgICAgICAgICAgbWludXRlcyA9ICIwIiArIG1pbnV0ZXM7DQogICAgICAgIH0NCiAgICAgICAgLy8gTmFzdGF2w60gdGV4dCBzIGFrdHXDoWxuw61tIMSNZXNlbSBkbyBlbGVtZW50dQ0KICAgICAgICB6cHJhdmEudGV4dENvbnRlbnQgPSAiQXBsaWthY2UgYnlsYSBzcHXFoXTEm25hIHY6ICIrbmV3IERhdGUoKS5nZXRIb3VycygpKyI6IittaW51dGVzDQogICAgICAgIC8vIFZsb8W+w60gdmxvxb7DrSBlbGVtZW50IGRvIGRhbsOpaG8gb2tuYQ0KICAgICAgICBkYW5lb2tuby5hcHBlbmRDaGlsZCh6cHJhdmEpDQogICAgfSwNCiAgICAvLyBaZGUgdmxvxb7DrXRlIGplc3RsaSBtw6EgYsO9dCBhcGxpa2FjZSBza3J5dMO9IHZlIHN0YXJ0IG1lbnUNCiAgICAvLyB0cnVlID0gYW5vDQogICAgLy8gZmFsc2UgPSBuZQ0KICAgIGhpZGRlbjogdHJ1ZQ0KfSkNCg0KLy8gS3JvayAyLiBWeXR2b8WZZW7DrSBva25hDQphcGxpa2FjZS5jcmVhdGVXaW5kb3coew0KICAgIC8vIFRsYcSNw610a2Ega3RlcsOpIGJ1ZG91IG5hIG9rbsSbDQogICAgYnV0dG9uczogew0KICAgICAgICAvLyBUeXAgdGxhxI3DrXRrYSBhIGNvIHNlIG3DoSB1ZMSbbGF0IHDFmWkgc3Rpc2t1DQogICAgICAgIGNsb3NlOiAoKSA9PiB7DQogICAgICAgICAgICAvLyBaZGUgc2Ugdmtsw6Fkw6Ega8OzZCBwcm8gdG8ga2R5xb4gc2UgdGxhxI3DrXRrbyBzcHVzdMOtDQogICAgICAgICAgICAvLyBOZW11c8OtdGUgemRlIHphZMOhdmF0IMW6ZSBzZSBtw6Egb2tubyB6YXbFmcOtdA0KICAgICAgICAgICAgLy8gWmRlIHNlIHZrbMOhZGFqw60gcG91emUgc3BlY2nDoWxuw60gZnVua2NlLCBrdGVyw6kgc2UgbWFqw60gdnl2b2xhdCBwb3TDqSBjbyB1xb5pdmF0ZWwgemF2xZllIG5lYm8gbWluaW1hbGl6dWplIG9rbm8NCiAgICAgICAgICAgIGNvbnNvbGUubG9nKCJPa25vIGJ5bG8gemF2xZllbm8uIikNCiAgICAgICAgfSwNCiAgICAgICAgbWluaTogKCkgPT4gew0KICAgICAgICAgICAgY29uc29sZS5sb2coIk9rbm8gYnlsbyBtaW5pbWFsaXpvdsOhbm8iKQ0KICAgICAgICB9DQogICAgICAgIC8vIFBvZHBvcm92YW7DqSB0bGHEjcOtdGthOiBjbG9zZSwgbWluaQ0KICAgIH0sDQogICAgLy8gT2JzYWggYXBsaWthY2UuIFpkZSB2a2zDoWTDoXRlIEhUTUwgc3RydWt0dXJ1IGRhbsOpIGFwbGlrYWNlLg0KICAgIGNvbnRlbnQ6ICI8aDE+TW9qZSBub3bDoSBhcGxpa2FjZSE8L2gxPiINCn0pDQoNCi8vIEtyb2sgMy4gVnl0dm/FmWVuw60gc2NyaXB0dSBwcm8gbWluaW1hbGl6YWNpDQovLyBQb2t1ZCBuZWNoY2V0ZSBtw610IHUgc3bDqWhvIG9rbmEganN0ZSBzaSBuYXN0YXZpbCDFvmUgbmVtw6EgbcOtdCBtaW5pbWFsaXphY2ksIHRlbnRvIGtyb2sgcMWZZXNrb8SNdGUNCi8vIFRlbnRvIHDFmcOta2F6IHZ5dHZvxZnDrSBpa29ua3UgbWluaW1hbGl6YWNlIHYgdGFza2JhcnUNCnZhciBhcHBJY29uID0gYXBsaWthY2UuY3JlYXRlTWluaUljb24oKQ0KDQoNCg0KLy8gQSBqZSB0by4gTnluw60gc2kgbcWvxb5ldGUgdXByYXZvdmF0IHN2b2ppIGFwbGlrYWNpIGRsZSBsaWJvc3RpLg0KLy8gRG8gYXBsaWthY2UgbcWvxb5ldGUgemEgYsSbaHUgdGFrw6kgcMWZaWTDoXZhdCBlbGVtZW50eSBwb21vY8OtIGZ1bmtjZSBhcHBlbmRjaGlsZC4gTsSbamFrIHRha3RvOg0KDQovLyBWeXR2b8WZw60gZWxlbWVudCBoMQ0KdmFyIGRhbHNpSDEgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJoMSIpDQovLyBWbG/FvsOtIHRleHQgZG8gaDENCmRhbHNpSDEudGV4dENvbnRlbnQgPSAiRGFsxaHDrSBoMSINCi8vIFZsb8W+w60gaDEgZG8gb2tuYS4NCm9rbm8uYXBwZW5kQ2hpbGQoZGFsc2lIMSkNCg0KLy8gUG9rdWQgYnkganN0ZSBwb3TFmWVib3ZhbGkgcG9tb2N0LCBuYXBpxaF0ZSBuw6FtIG5hIHBvZHBvcmFAa2xpbmRvcy1tYWluLm1s">Stáhnout
-          soubor</a><br>
-        <br>
-        <p>Hotový program 1 (script): </p><a download="v6.1-final1.js"
-          href="data:text/plain;charset=utf-8;base64,YXBwZGV0ZWN0b3JhcHAgPSBuZXcgQXBwKHsNCiAgICBuYW1lOiAiQXBwRGV0ZWN0b3IiLA0KICAgIG9uU3RhcnQ6ICgpID0+IHsNCg0KICAgIH0sDQogICAgaGlkZGVuOiBmYWxzZSwNCn0pDQphcHBkZXRlY3RvcmFwcC5jcmVhdGVXaW5kb3coew0KICAgIGJ1dHRvbnM6IHsNCiAgICAgICAgY2xvc2U6ICgpID0+IHsNCg0KICAgICAgICB9LA0KICAgICAgICBtaW5pOiAoKSA9PiB7DQoNCiAgICAgICAgfQ0KICAgIH0sDQogICAgY29udGVudDogJzxpbnB1dCBwbGFjZWhvbGRlcj0iQXBwTmFtZSI+PC9pbnB1dD48YnV0dG9uIG9uY2xpY2s9ImFwcGRldGVjdG9yc3VibWl0KHRoaXMucGFyZW50RWxlbWVudCkiPlN1Ym1pdDwvYnV0dG9uPjxicj48YnV0dG9uIG9uY2xpY2s9ImFwcG5vdG1pbmlkZXRlY3QoKSI+RGV0ZWtvdmF0IGFwbGlrYWNlIGJleiBtaW5pbWFsaXphY2U8L2J1dHRvbj4nDQp9KQ0KYXBwZGV0ZWN0b3JhcHAuY3JlYXRlTWluaUljb24oKTsNCg0KZnVuY3Rpb24gYXBwbm90bWluaWRldGVjdCgpIHsNCiAgICB2YXIgbGlzdCA9IFtdDQogICAgZm9yICh2YXIgaSA9IDA7IGkgPCB3aW5kb3dzLmxpc3QuaWtvbmFkb3duLmxlbmd0aDsgaSsrKSB7DQogICAgICAgIGlmICh3aW5kb3dzLmxpc3QuaWtvbmFkb3duW2ldPT1mYWxzZSkgew0KICAgICAgICAgICAgbGlzdC5wdXNoKHdpbmRvd3MubGlzdC5uYW1lc1tpXSkNCiAgICAgICAgfQ0KICAgIH0NCiAgICBhbGVydCgiQXBsaWthY2UgYmV6IG1pbmltYWxpemFjZTpubiIrbGlzdC5qb2luKCIsIikpDQp9DQpmdW5jdGlvbiBhcHBkZXRlY3RvcnN1Ym1pdChlbGVtZW50KSB7DQogICAgdmFyIHZhbHVlID0gZWxlbWVudC5xdWVyeVNlbGVjdG9yKCJpbnB1dCIpLnZhbHVlDQogICAgdmFyIHBvc2l0aW9uID0gd2luZG93cy5saXN0Lm5hbWVzLmluZGV4T2YodmFsdWUpDQogICAgdmFyIGNsYXNzZSA9IHdpbmRvd3MubGlzdC5jbGFzc2VzW3Bvc2l0aW9uXQ0KICAgIHZhciBzZCA9IHdpbmRvd3MubGlzdC5pa29uYWRvd25bcG9zaXRpb25dDQogICAgYWxlcnQoIkFwcERldGVjdG9yIG91dHB1dDogbk5hbWU6ICIrdmFsdWUrIm5DbGFzczogIitjbGFzc2UrIm5Eb3duSWNvbjogIitzZCkNCn0=">Stáhnout
-          soubor</a>
-        <br><br>
-        <p>Hotový program 1<br>vykompilovaný<br>(externí stahování): </p><a target="_blank"
-          download="v6.1-final1-compiled.kapk" href="http://klindos.jzitnik.is-a.dev/examples/6.2/prog1.kapk">Stáhnout
-          soubor</a><br><br>
-      </div>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
