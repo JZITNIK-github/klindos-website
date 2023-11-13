@@ -10,9 +10,9 @@ function Body() {
       .then(response => {
           var response = JSON.parse(response)
           response.reverse();
-          var full = response.map((element: (string | number | boolean | reactelement<any, string | jsxelementconstructor<any>> | reactfragment | reactportal | null | undefined)[]) => {
+          var full = response.map((element: (string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined)[]) => {
               return (
-                  <Link to={element[0]?.toString()} style={{ "color": "black" }}>
+                  <Link to={element[0]?.toString() || "about:blank"} style={{ "color": "black" }}>
                       <div className="post">
                           <h1>{element[1]}</h1>
                           <p>{element[2]?.toString().replace(/<[^>]+>/g, ' ').split(" ", 100).join(" ") + "..."}</p>
