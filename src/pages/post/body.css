@@ -1,0 +1,40 @@
+.bodyp {
+    width: 100%;
+    margin-top: 70px;
+}
+.post {
+    padding: 50px;
+    width: 100%;
+    cursor: pointer;
+    background-color: white;
+    transition: ease 0.2s background-color;
+}
+.post:hover {
+    background-color: rgb(165, 165, 165);
+}
+.post h1 {
+    font-size: 40px;
+}
+.post p {
+    margin-top: 20px;
+    width: 80%;
+    font-size: 20px;
+}
+.pst {
+    padding: 100px;
+    font-family: 'Jost', sans-serif;
+}
+.pst .tit {
+    font-size: 35px;
+}
+.pst .conts {
+    margin-top: 30px;
+    font-size: 20px;
+}
+.pst .conts a {
+    color: blue;
+}
+.prispevky {
+    padding: 30px;
+    font-size: 25px;
+}

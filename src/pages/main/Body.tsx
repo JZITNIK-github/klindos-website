@@ -22,7 +22,7 @@ function Body() {
                 </p>
             </section>
             <section className="nejakachyba">
-                <h1>Nějaká chyb?</h1>
+                <h1>Nějaká chyba?</h1>
                 <p>
                     Chyby opravujeme rychle! Nahlašte chybu na <a href="/report">klindos.jzitnik.is-a.dev/report</a>.
                 </p>
