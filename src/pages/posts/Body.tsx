@@ -30,7 +30,7 @@ function Body() {
     return (
         <div className="bodyp">
             <div className="prispevky">
-                <h1>Blog</h1>
+                <Link to="/posts"><h1>Blog</h1></Link>
             </div>
             <div className="content">
                 {content}

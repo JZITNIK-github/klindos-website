@@ -1,7 +1,7 @@
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, useState, useEffect } from "react";
 import "./body.css"
 import url from "../../config/backend"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 function Body() {
     var [content, setContent] = useState(<h1>Načítání...</h1>)
     var { id } = useParams();
@@ -37,7 +37,7 @@ function Body() {
     return (
         <div className="bodyp">
             <div className="prispevky">
-                <h1>Blog</h1>
+                <Link to="/posts"><h1>Blog</h1></Link>
             </div>
             <div className="content">
                 {content}
