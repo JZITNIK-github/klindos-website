@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 function Body() {
     return (
         <div className="body">
-            <div className="error">
-              <span>Moje osobní webová stránka nefunguje! Více info zde: </span>
-              <a href="https://jzitnik.betteruptime.com/">https://jzitnik.betteruptime.com/</a> 
-            </div>
             <div className="intro">
                 <div className="background"></div>
                 <div className="content">
