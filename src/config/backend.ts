@@ -1,2 +1,2 @@
-const url = "https://backend-92l0.onrender.com/klindos/blog"
+const url = "https://backend.jzitnik.is-a.dev/klindos/blog"
 export default url;
