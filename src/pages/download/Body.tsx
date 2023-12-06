@@ -1,4 +1,5 @@
 import "./body.css"
+import { Link } from "react-router-dom"
 
 function Body() {
     return (
@@ -17,7 +18,13 @@ function Body() {
                     <a href="https://www.mediafire.com/file/inkq9kos9q2bs2p/KLINDOS.iso/file" className="button">Stáhnout ISO</a>
                 </div>
             </div>
-            
+            <div className="dokumentace">
+                <h1>Dokumentace</h1>
+                <p>Dokumentace Vám pomůže si nainstalovat KLIND OS.</p>
+                <div className="buttons">
+                    <Link to="https://klind-os-docs.onrender.com/"><div className="button">Zobrazit</div></Link>
+                </div>
+            </div>
         </div>
     )
 }

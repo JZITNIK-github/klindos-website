@@ -11,6 +11,7 @@ import PostBody from "./pages/post/Body"
 import NotExist from "./pages/notexist/Body"
 import ScrollToTop from "./ScrollToTop";
 import OpenSource from "./pages/opensource/Body"
+console.log("neogit")
 function App() {
     return (
         <Router>

@@ -4,11 +4,15 @@ import { Link } from "react-router-dom";
 function Body() {
     return (
         <div className="body">
+            <div className="error">
+              <span>Moje osobní webová stránka nefunguje! Více info zde: </span>
+              <a href="https://jzitnik.betteruptime.com/">https://jzitnik.betteruptime.com/</a> 
+            </div>
             <div className="intro">
                 <div className="background"></div>
                 <div className="content">
                     <h1>KLIND OS</h1>
-                    <p>Operační systém napsaný převážně v JavaScriptu</p>
+                    <p>Arch Linux distribuce</p>
                     <div className="buttons">
                         <Link to="/download"><div className="button">Stáhnout</div></Link>
                         <a href="https://klind-os-docs.onrender.com/"><div className="button">Dokumentace</div></a>
@@ -18,13 +22,13 @@ function Body() {
             <section className="onas" id="about">
                 <h1>O KLIND OS</h1>
                 <p>
-                    KLIND OS je Arch Linux distribuce. Grafické rozhraní je napsané v JavaScriptu, HTML a CSS.
+                    KLIND OS je Arch Linux distribuce. Grafické rozhraní je napsané v JavaScriptu, HTML a CSS. KLIND OS myslí na vaše soukromí. KLIND OS nesbírá žádné data o vašem systému.
                 </p>
             </section>
             <section className="nejakachyba">
                 <h1>Nějaká chyba?</h1>
                 <p>
-                    Chyby opravujeme rychle! Nahlašte chybu na <a href="/report">klindos.jzitnik.is-a.dev/report</a>.
+                    Chyby opravuji rychle! Nahlašte chybu na <a href="/report">klindos.jzitnik.is-a.dev/report</a>.
                 </p>
             </section>
             <section className="opensource">
@@ -56,7 +60,7 @@ function Body() {
             <section className="procklindos">
                 <h1>Proč zrovna KLIND OS?</h1>
                 <p>
-                    No, moc výhod oproti Windowsu nebo Linuxu tu nejsou. Ale je to zajímavý koncept vytvořit gui v JavaScriptu. KLIND OS je pomalý. Proč? Electron
+                    No, moc výhod oproti Windowsu nebo Linuxu tu nejsou. Ale je to zajímavý koncept vytvořit GUI v JavaScriptu. KLIND OS je pomalý. Proč? Electron
                 </p>
             </section>
             <section className="funkce">

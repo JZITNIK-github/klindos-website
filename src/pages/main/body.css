@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.error {
+  height: 100px;
+  text-align: center;
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  flex-direction: column;
+  z-index: 30541;
+  position: relative;
+}
+
 .body {
     width: 100%;
     height: auto;
