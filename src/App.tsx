@@ -11,7 +11,10 @@ import PostBody from "./pages/post/Body"
 import NotExist from "./pages/notexist/Body"
 import ScrollToTop from "./ScrollToTop";
 import OpenSource from "./pages/opensource/Body"
-console.log("neogit")
+import ChangeLogMainList from "./pages/changelog/mainList"
+import ChangeLogBranchList from "./pages/changelog/branchList"
+import ChangeLogChange from "./pages/changelog/change"
+
 function App() {
     return (
         <Router>
@@ -24,6 +27,9 @@ function App() {
                 <Route path='/posts' element={<PostsBody/>} />
                 <Route path='/posts/:id' element={<PostBody/>} />
                 <Route path='/opensource' element={<OpenSource/>} />
+                <Route path='/changelog' element={<ChangeLogMainList />} />
+                <Route path='/changelog/:branch' element={<ChangeLogBranchList />} />
+                <Route path='/changelog/:branch/:id' element={<ChangeLogChange />} />
                 <Route path='*' element={<NotExist/>} />
             </Routes>
             <Footer />

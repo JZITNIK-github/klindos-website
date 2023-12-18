@@ -5,7 +5,7 @@ import {Link} from "react-router-dom"
 function Body() {
     var [content, setContent] = useState(<h1>Načítání...</h1>)
     useEffect(() => {
-      fetch(url)
+      fetch(url + "/blog")
       .then(res => res.json())
       .then(response => {
           var response = JSON.parse(response)

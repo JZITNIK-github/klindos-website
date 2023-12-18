@@ -1,4 +1,4 @@
-import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./body.css"
 import url from "../../config/backend"
 import { useParams, Link } from "react-router-dom"
@@ -9,7 +9,7 @@ function Body() {
     useEffect(() => {
       var full: JSX.Element;
       var pup = false;
-      fetch(url)
+      fetch(url + "/blog")
           .then(res => res.json())
           .then(response => {
               response = JSON.parse(response)

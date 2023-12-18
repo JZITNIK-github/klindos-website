@@ -14,10 +14,10 @@ function Header() {
         }
     }
     const menu = MenuItems.map((name) => {
-        return <NavLink className="el" to={name[1]}><span>{name[0]}</span></NavLink>
+        return <NavLink key={name[1]} className="el" to={name[1]}><span>{name[0]}</span></NavLink>
     })
     const menuMobile = MenuItems.map((name) => {
-        return <Link onClick={toggleMenu} to={name[1]}><span>{name[0]}</span></Link>
+        return <Link key={name[1]} onClick={toggleMenu} to={name[1]}><span>{name[0]}</span></Link>
     })
     return (
         <header>
