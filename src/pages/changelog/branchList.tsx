@@ -22,7 +22,7 @@ function Body() {
         if (!jsx || jsx.length == 0) return setContent(<h1>Nebyly nalezeny žádné změny!</h1>)
         const data = jsx.map((change: Change) => {
           return (
-            <Link key={change.id} to={change.id.toString()} style={{ color: "black" }}>;
+            <Link key={change.id} to={change.id.toString()} style={{ color: "black" }}>
               <div className="post">
                 <h1>{change.title}</h1>
                 <p>{change.content?.toString().replace(/<[^>]+>/g, ' ').split(" ", 100).join(" ") + "..."}</p>
