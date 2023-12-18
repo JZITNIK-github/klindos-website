@@ -3,6 +3,7 @@ import "./styles.css";
 import url from "../../config/backend";
 import { Link } from "react-router-dom";
 type Subtitles = {
+  [key: string]: string;
   main: string;
   test: string;
 };
