@@ -8,7 +8,6 @@ function Body() {
       fetch(url + "/blog")
       .then(res => res.json())
       .then(response => {
-          var response = JSON.parse(response)
           response.reverse();
           var full = response.map((element: (string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined)[]) => {
               return (
