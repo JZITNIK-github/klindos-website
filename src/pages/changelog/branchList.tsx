@@ -20,6 +20,7 @@ function Body() {
       .then((res) => {
         const jsx = res[branch || ""];
         if (!jsx || jsx.length == 0) return setContent(<h1>Nebyly nalezeny žádné změny!</h1>)
+        jsx.reverse();
         const data = jsx.map((change: Change) => {
           return (
             <Link key={change.id} to={change.id.toString()} style={{ color: "black" }}>
@@ -32,7 +33,7 @@ function Body() {
         });
         setContent(data)
       })
-      .catch((err) => {
+      .catch((_) => {
         setContent(<>Error</>);
       });
   }, [branch]);
