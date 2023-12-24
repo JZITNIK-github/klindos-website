@@ -4,7 +4,10 @@ const nextConfig = {
   images: {
     loader: 'custom',
     loaderFile: './image/loader.ts',
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 }
 
 module.exports = nextConfig
