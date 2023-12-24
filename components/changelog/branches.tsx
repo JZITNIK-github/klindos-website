@@ -23,7 +23,7 @@ export default function blogposts() {
         function capitalizeFirstLetter(str: string) {
           return str.charAt(0).toUpperCase() + str.slice(1);
         }
-        var full = response.map((element: any[]) => {
+        var full = response.map((element: string) => {
           return (
             <Link
               href={"/changelog/changes/?branch=" + element}

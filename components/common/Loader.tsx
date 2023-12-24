@@ -1,15 +1,5 @@
-import Spinner from "react-bootstrap/Spinner";
-import { ReactNode } from "react";
 
-interface LoaderProps {
-  className?: string;
-  children?: ReactNode;
-}
-
-export default function Loader({
-  className = "",
-  children = null,
-}: LoaderProps) {
+export default function Loader() {
   return (
     <div role="status" className="flex justify-center">
       <svg
