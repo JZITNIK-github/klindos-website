@@ -6,8 +6,8 @@ export default function Features() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 mb-4">Operační systémy nejsou opensource.</h2>
-            <p className="text-xl text-gray-400">Většina operačních systémů v dnešní době nemá věřejný kód. To chci změnit.</p>
+            <h2 className="h2 mb-4" data-aos="fade-up" data-aos-delay="600">Operační systémy nejsou opensource.</h2>
+            <p className="text-xl text-gray-400" data-aos="fade-up" data-aos-delay="600">Většina operačních systémů v dnešní době nemá věřejný kód. To chci změnit.</p>
           </div>
 
           {/* Items */}
