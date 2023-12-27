@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Blog - KLIND OS',
-  description: 'Zde si můžete stáhnout KLIND OS',
+  description: 'Poslední změny v KLIND OS',
 }
 
 import Change from '@/components/changelog/change'

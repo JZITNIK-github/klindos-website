@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Blog - KLIND OS',
-  description: 'Zde si můžete stáhnout KLIND OS',
+  description: 'Blog KLIND OS',
 }
 
 import Hero from '@/components/blog/hero'

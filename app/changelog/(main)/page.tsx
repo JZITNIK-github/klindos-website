@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Changelog - KLIND OS',
-  description: 'Zde si můžete stáhnout KLIND OS',
+  description: 'Poslední změny v KLIND OS',
 }
 
 import Branches from '@/components/changelog/branches'
