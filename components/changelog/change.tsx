@@ -111,6 +111,10 @@ export default function blogposts() {
     Array.from(elements).forEach((element) => {
       element.classList.add(element.tagName.toLowerCase());
     });
+    const a = document.querySelectorAll(".content a");
+    Array.from(a).forEach((element) => {
+      element.setAttribute("target", "_blank")
+    })
   }, [content]);
   return (
     <section>
