@@ -17,17 +17,9 @@ export default function blogposts() {
 
   useEffect(() => {
     const branchName = pathname.get("branch")
-    fetch(backendUrl + "/changelog")
+    fetch(backendUrl + "/changelog/list?from=0&to=100&branch="+branchName)
       .then((res) => res.json())
-      .then((response) => {
-        const data = response[branchName || ""]
-        if (!data) {
-          setTitle("Nenalezeno!")
-          setContent(<></>)
-          return
-        }
-
-        data.reverse();
+      .then((data) => {
         var full = data.map((element: any) => {
           return (
             <Link
@@ -43,15 +35,7 @@ export default function blogposts() {
                   data-aos="fade-up"
                   data-aos-delay="200"
                 >
-                  {
-                    element.content.split(" ").length > 50 ?
-                    element.content
-                    .replace(/<[^>]+>/g, " ")
-                    .split(" ", 50)
-                    .join(" ")
-                    .trim() + "..."
-                    : element.content.replace(/<[^>]+>/g, " ")
-                  }
+                  {element.content}
                 </p>
               </div>
              </Link>
