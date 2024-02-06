@@ -1,2 +1,2 @@
-export const backendUrl = "https://backend.jzitnik.is-a.dev/klindos"
+export const backendUrl = "https://backend.jzitnik.dev/klindos"
 
