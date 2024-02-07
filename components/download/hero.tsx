@@ -28,7 +28,7 @@ export default function Hero() {
                 <a target='_blank' className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0" href="https://www.mediafire.com/file/inkq9kos9q2bs2p/KLINDOS.iso/file">Stáhnout ISO soubor z MediaFire</a>
               </div>
               <div data-aos="fade-up" data-aos-delay="600">
-                <a className="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="https://klind-os-docs.onrender.com/navod/instalace.html" target='_blank'>Dokumentace</a>
+                <a className="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="https://docs.klindos.jzitnik.dev/navod/instalace.html" target='_blank'>Dokumentace</a>
               </div>
             </div>
           </div>
