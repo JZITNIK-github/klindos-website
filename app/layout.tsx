@@ -1,7 +1,10 @@
+"use client";
 import './css/style.css'
 import { Inter, Architects_Daughter } from 'next/font/google'
+import { useRouter } from 'next/router'
 
 import Header from '@/components/ui/header'
+import { useEffect } from 'react'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -22,6 +25,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  useEffect(() => {
+    if (window.location.hostname == "klindos.jzitnik.is-a.dev") {
+      const url = new URL(window.location.href);
+      url.hostname = "klindos.jzitnik.dev";
+      window.location.replace(url.href);
+    }
+  }, [])
+
   return (
     <html lang="en">
       <body className={`${inter.variable} ${architects_daughter.variable} font-inter antialiased bg-gray-900 text-gray-200 tracking-tight`}>
