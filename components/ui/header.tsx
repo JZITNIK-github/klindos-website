@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import MobileMenu from './mobile-menu'
-import Image from 'next/image'
-import logo from "@/public/logo/logo.png"
+import Link from "next/link";
+import MobileMenu from "./mobile-menu";
+import Image from "next/image";
+import logo from "@/public/logo/logo.png";
 
 export default function Header() {
   return (
@@ -10,7 +10,12 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <div className="shrink-0 mr-4">
             <Link href="/" className="block" aria-label="Cruip">
-              <Image alt="KLIND OS logo" src={logo} height={50} width={50}></Image>
+              <Image
+                alt="KLIND OS logo"
+                src={logo}
+                height={50}
+                width={50}
+              ></Image>
             </Link>
           </div>
 
@@ -36,13 +41,25 @@ export default function Header() {
                 <a
                   href="/app-creator"
                   className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
-                  target='_blank'
+                  target="_blank"
                 >
                   Vytváření aplikací
                 </a>
               </li>
               <li>
-                <Link href="/download" className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3">
+                <Link
+                  href="/developers"
+                  className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                >
+                  Developers
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/download"
+                  className="btn-sm text-white bg-purple-600 hover:bg-purple-700 ml-3"
+                >
                   Stáhnout
                 </Link>
               </li>
@@ -50,9 +67,8 @@ export default function Header() {
           </nav>
 
           <MobileMenu />
-
         </div>
       </div>
     </header>
-  )
+  );
 }
