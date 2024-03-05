@@ -180,6 +180,7 @@
         <option value="sixdotfour">6.4</option>
         <option value="sixdotfive">6.5</option>
         <option value="sixdotsix">6.6</option>
+        <option value="sixdotseven">6.7</option>
       </select>
       <div class="allsdjasdjasd">
         <div class="verze" style="margin-left: 15px"><br />Vyberte verzi</div>
@@ -600,208 +601,308 @@
             }
           </script>
         </div>
-      </div>
-      <div class="verze sixdotfive" style="display: none; margin-left: 15px">
-        <br />
-        <p>
-          Pro verzi 6.5 je potřeba vytvořit instalační balíček. Díky tomuto
-          compileru bude vše jednoduché. Stačí zadat jméno Vaší aplikace, ikonu
-          a nakonec samotný script
-        </p>
-        <br />
-        <div
-          class="compilersixdotone"
-          style="width: 600px; height: 600px; border: 1px black solid"
-        >
-          <h1 style="text-align: center">Compiler</h1>
+        <div class="verze sixdotfive" style="display: none; margin-left: 15px">
+          <br />
           <p>
-            Pomocí tohoto nástoje si můžete vytvořit instalační balíček
-            jednoduše.
+            Pro verzi 6.5 je potřeba vytvořit instalační balíček. Díky tomuto
+            compileru bude vše jednoduché. Stačí zadat jméno Vaší aplikace,
+            ikonu a nakonec samotný script
           </p>
           <br />
+          <div
+            class="compilersixdotone"
+            style="width: 600px; height: 600px; border: 1px black solid"
+          >
+            <h1 style="text-align: center">Compiler</h1>
+            <p>
+              Pomocí tohoto nástoje si můžete vytvořit instalační balíček
+              jednoduše.
+            </p>
+            <br />
 
-          <h3>Název aplikace:</h3>
-          <p>
-            (název aplikace musí být stejný jako nazev aplikace který jste
-            dávali do scriptu)
-          </p>
-          <input
-            id="nameappsixdotfive"
-            type="text"
-            placeholder="Název aplikace"
-          /><br /><br />
+            <h3>Název aplikace:</h3>
+            <p>
+              (název aplikace musí být stejný jako nazev aplikace který jste
+              dávali do scriptu)
+            </p>
+            <input
+              id="nameappsixdotfive"
+              type="text"
+              placeholder="Název aplikace"
+            /><br /><br />
 
-          <h3>Obrázek:</h3>
-          <p>(obrázek musí být ve formátu png)</p>
-          <input
-            id="iconappsixdotfive"
-            type="file"
-            accept="image/png"
-          /><br /><br />
+            <h3>Obrázek:</h3>
+            <p>(obrázek musí být ve formátu png)</p>
+            <input
+              id="iconappsixdotfive"
+              type="file"
+              accept="image/png"
+            /><br /><br />
 
-          <h3>Instalační script:</h3>
-          <p>
-            Script který se spustí při instalaci. (scriptu musí být ve formátu
-            js)
-          </p>
-          <input
-            id="installscriptappsixdotfive"
-            type="file"
-            accept="text/javascript"
-          /><br /><br />
+            <h3>Instalační script:</h3>
+            <p>
+              Script který se spustí při instalaci. (scriptu musí být ve formátu
+              js)
+            </p>
+            <input
+              id="installscriptappsixdotfive"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
 
-          <h3>Program:</h3>
-          <p>(scriptu musí být ve formátu js)</p>
-          <input
-            id="scriptappsixdotfive"
-            type="file"
-            accept="text/javascript"
-          /><br /><br />
-          <button onclick="createinstalbalsixdotfive()">
-            Vytvořit instalační balíček
-          </button>
-        </div>
-        <script>
-          function createinstalbalsixdotfive() {
-            var zip = new JSZip();
-            zip.file(
-              "name.txt",
-              document.querySelector("#nameappsixdotfive").value,
-            );
-            zip.file(
-              "image.png",
-              document.querySelector("#iconappsixdotfive").files[0],
-            );
-            zip.file(
-              "script.js",
-              document.querySelector("#scriptappsixdotfive").files[0],
-            );
-            zip.file(
-              "install.js",
-              document.querySelector("#installscriptappsixdotfive").files[0],
-            );
-            zip.file("version.txt", "6.5");
-            console.log(zip);
-
-            zip
-              .generateAsync(
-                { type: "blob" },
-                function updateCallback(metadata) {},
-              )
-              .then(
-                function callback(blob) {
-                  saveAs(blob, "compiledapp.kapk");
-                  setTimeout(() => {
-                    alert("Vaše aplikace byla vytvořena!");
-                  }, 3000);
-                },
-                function (e) {
-                  console.log(e);
-                },
+            <h3>Program:</h3>
+            <p>(scriptu musí být ve formátu js)</p>
+            <input
+              id="scriptappsixdotfive"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
+            <button onclick="createinstalbalsixdotfive()">
+              Vytvořit instalační balíček
+            </button>
+          </div>
+          <script>
+            function createinstalbalsixdotfive() {
+              var zip = new JSZip();
+              zip.file(
+                "name.txt",
+                document.querySelector("#nameappsixdotfive").value,
               );
-          }
-        </script>
-      </div>
-      <div class="verze sixdotsix" style="display: none; margin-left: 15px">
-        <br />
-        <p>
-          Pro verzi 6.6 je potřeba vytvořit instalační balíček. Díky tomuto
-          compileru bude vše jednoduché. Stačí zadat jméno Vaší aplikace, ikonu
-          a nakonec samotný script
-        </p>
-        <br />
-        <div
-          class="compilersixdotone"
-          style="width: 600px; height: 600px; border: 1px black solid"
-        >
-          <h1 style="text-align: center">Compiler</h1>
+              zip.file(
+                "image.png",
+                document.querySelector("#iconappsixdotfive").files[0],
+              );
+              zip.file(
+                "script.js",
+                document.querySelector("#scriptappsixdotfive").files[0],
+              );
+              zip.file(
+                "install.js",
+                document.querySelector("#installscriptappsixdotfive").files[0],
+              );
+              zip.file("version.txt", "6.5");
+              console.log(zip);
+
+              zip
+                .generateAsync(
+                  { type: "blob" },
+                  function updateCallback(metadata) {},
+                )
+                .then(
+                  function callback(blob) {
+                    saveAs(blob, "compiledapp.kapk");
+                    setTimeout(() => {
+                      alert("Vaše aplikace byla vytvořena!");
+                    }, 3000);
+                  },
+                  function (e) {
+                    console.log(e);
+                  },
+                );
+            }
+          </script>
+        </div>
+        <div class="verze sixdotsix" style="display: none; margin-left: 15px">
+          <br />
           <p>
-            Pomocí tohoto nástoje si můžete vytvořit instalační balíček
-            jednoduše.
+            Pro verzi 6.6 je potřeba vytvořit instalační balíček. Díky tomuto
+            compileru bude vše jednoduché. Stačí zadat jméno Vaší aplikace,
+            ikonu a nakonec samotný script
           </p>
           <br />
+          <div
+            class="compilersixdotone"
+            style="width: 600px; height: 600px; border: 1px black solid"
+          >
+            <h1 style="text-align: center">Compiler</h1>
+            <p>
+              Pomocí tohoto nástoje si můžete vytvořit instalační balíček
+              jednoduše.
+            </p>
+            <br />
 
-          <h3>Název aplikace:</h3>
-          <p>
-            (název aplikace musí být stejný jako nazev aplikace který jste
-            dávali do scriptu)
-          </p>
-          <input
-            id="nameappsixdotsix"
-            type="text"
-            placeholder="Název aplikace"
-          /><br /><br />
+            <h3>Název aplikace:</h3>
+            <p>
+              (název aplikace musí být stejný jako nazev aplikace který jste
+              dávali do scriptu)
+            </p>
+            <input
+              id="nameappsixdotsix"
+              type="text"
+              placeholder="Název aplikace"
+            /><br /><br />
 
-          <h3>Obrázek:</h3>
-          <p>(obrázek musí být ve formátu png)</p>
-          <input
-            id="iconappsixdotsix"
-            type="file"
-            accept="image/png"
-          /><br /><br />
+            <h3>Obrázek:</h3>
+            <p>(obrázek musí být ve formátu png)</p>
+            <input
+              id="iconappsixdotsix"
+              type="file"
+              accept="image/png"
+            /><br /><br />
 
-          <h3>Instalační script:</h3>
-          <p>
-            Script který se spustí při instalaci. (scriptu musí být ve formátu
-            js)
-          </p>
-          <input
-            id="installscriptappsixdotsix"
-            type="file"
-            accept="text/javascript"
-          /><br /><br />
+            <h3>Instalační script:</h3>
+            <p>
+              Script který se spustí při instalaci. (scriptu musí být ve formátu
+              js)
+            </p>
+            <input
+              id="installscriptappsixdotsix"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
 
-          <h3>Program:</h3>
-          <p>(scriptu musí být ve formátu js)</p>
-          <input
-            id="scriptappsixdotsix"
-            type="file"
-            accept="text/javascript"
-          /><br /><br />
-          <button onclick="createinstalbalsixdotsix()">
-            Vytvořit instalační balíček
-          </button>
-        </div>
-        <script>
-          function createinstalbalsixdotsix() {
-            var zip = new JSZip();
-            zip.file(
-              "name.txt",
-              document.querySelector("#nameappsixdotsix").value,
-            );
-            zip.file(
-              "image.png",
-              document.querySelector("#iconappsixdotsix").files[0],
-            );
-            zip.file(
-              "script.js",
-              document.querySelector("#scriptappsixdotsix").files[0],
-            );
-            zip.file(
-              "install.js",
-              document.querySelector("#installscriptappsixdotsix").files[0],
-            );
-            zip.file("version.txt", "6.6");
-            console.log(zip);
-
-            zip
-              .generateAsync(
-                { type: "blob" },
-                function updateCallback(metadata) {},
-              )
-              .then(
-                function callback(blob) {
-                  saveAs(blob, "compiledapp.kapk");
-                  setTimeout(() => {
-                    alert("Vaše aplikace byla vytvořena!");
-                  }, 3000);
-                },
-                function (e) {
-                  console.log(e);
-                },
+            <h3>Program:</h3>
+            <p>(scriptu musí být ve formátu js)</p>
+            <input
+              id="scriptappsixdotsix"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
+            <button onclick="createinstalbalsixdotsix()">
+              Vytvořit instalační balíček
+            </button>
+          </div>
+          <script>
+            function createinstalbalsixdotsix() {
+              var zip = new JSZip();
+              zip.file(
+                "name.txt",
+                document.querySelector("#nameappsixdotsix").value,
               );
-          }
-        </script>
+              zip.file(
+                "image.png",
+                document.querySelector("#iconappsixdotsix").files[0],
+              );
+              zip.file(
+                "script.js",
+                document.querySelector("#scriptappsixdotsix").files[0],
+              );
+              zip.file(
+                "install.js",
+                document.querySelector("#installscriptappsixdotsix").files[0],
+              );
+              zip.file("version.txt", "6.6");
+              console.log(zip);
+
+              zip
+                .generateAsync(
+                  { type: "blob" },
+                  function updateCallback(metadata) {},
+                )
+                .then(
+                  function callback(blob) {
+                    saveAs(blob, "compiledapp.kapk");
+                    setTimeout(() => {
+                      alert("Vaše aplikace byla vytvořena!");
+                    }, 3000);
+                  },
+                  function (e) {
+                    console.log(e);
+                  },
+                );
+            }
+          </script>
+        </div>
+        <div class="verze sixdotseven" style="display: none; margin-left: 15px">
+          <br />
+          <p>
+            Pro verzi 6.7 je potřeba vytvořit instalační balíček. Díky tomuto
+            compileru bude vše jednoduché. Stačí zadat jméno Vaší aplikace,
+            ikonu a nakonec samotný script
+          </p>
+          <br />
+          <div
+            class="compilersixdotone"
+            style="width: 600px; height: 600px; border: 1px black solid"
+          >
+            <h1 style="text-align: center">Compiler</h1>
+            <p>
+              Pomocí tohoto nástoje si můžete vytvořit instalační balíček
+              jednoduše.
+            </p>
+            <br />
+
+            <h3>Název aplikace:</h3>
+            <p>
+              (název aplikace musí být stejný jako nazev aplikace který jste
+              dávali do scriptu)
+            </p>
+            <input
+              id="nameappsixdotseven"
+              type="text"
+              placeholder="Název aplikace"
+            /><br /><br />
+
+            <h3>Obrázek:</h3>
+            <p>(obrázek musí být ve formátu png)</p>
+            <input
+              id="iconappsixdotseven"
+              type="file"
+              accept="image/png"
+            /><br /><br />
+
+            <h3>Instalační script:</h3>
+            <p>
+              Script který se spustí při instalaci. (scriptu musí být ve formátu
+              js)
+            </p>
+            <input
+              id="installscriptappsixdotseven"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
+
+            <h3>Program:</h3>
+            <p>(scriptu musí být ve formátu js)</p>
+            <input
+              id="scriptappsixdotseven"
+              type="file"
+              accept="text/javascript"
+            /><br /><br />
+            <button onclick="createinstalbalsixdotseven()">
+              Vytvořit instalační balíček
+            </button>
+          </div>
+          <script>
+            function createinstalbalsixdotseven() {
+              var zip = new JSZip();
+              zip.file(
+                "name.txt",
+                document.querySelector("#nameappsixdotseven").value,
+              );
+              zip.file(
+                "image.png",
+                document.querySelector("#iconappsixdotseven").files[0],
+              );
+              zip.file(
+                "script.js",
+                document.querySelector("#scriptappsixdotseven").files[0],
+              );
+              zip.file(
+                "install.js",
+                document.querySelector("#installscriptappsixdotseven").files[0],
+              );
+              zip.file("version.txt", "6.7");
+
+              zip
+                .generateAsync(
+                  { type: "blob" },
+                  function updateCallback(metadata) {},
+                )
+                .then(
+                  function callback(blob) {
+                    saveAs(blob, "compiledapp.kapk");
+                    setTimeout(() => {
+                      alert("Vaše aplikace byla vytvořena!");
+                    }, 3000);
+                  },
+                  function (e) {
+                    console.log(e);
+                  },
+                );
+            }
+          </script>
+        </div>
       </div>
       <br />
       <hr />
