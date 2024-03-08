@@ -20,7 +20,7 @@ export default function Footer() {
                   <Image alt="KLIND OS logo" src={logo} height={50} width={50}></Image>
                 </Link>
               </div>
-              <div className="text-gray-400">Operační systém napsaný s GUI napsaným v JavaScriptu.</div>
+              <div className="text-gray-400">Operační systém s GUI napsaným v JavaScriptu.</div>
             </div>
 
             {/* 2nd, 3rd and 4th blocks */}

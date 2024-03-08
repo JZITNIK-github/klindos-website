@@ -13,7 +13,7 @@ export default function Zigzag() {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
             <h1 className="h2 mb-4">Funkce KLIND OS</h1>
-            <p className="text-xl text-gray-400">KLIND OS má spoustu funkcí a aplikací pro jednodužší práci.</p>
+            <p className="text-xl text-gray-400">KLIND OS má spoustu funkcí a aplikací pro jednodušší práci.</p>
           </div>
 
           {/* Items */}
