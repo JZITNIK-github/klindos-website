@@ -18,6 +18,7 @@ export default function blogposts() {
           
             <Link
               href={"/blog/post?id=" + element[0]}
+              key={element[0]}
             >
               <div className="max-w-3xl mx-auto pb-12 md:pb-16 cursor-pointer">
                 <h2 className="h2 mb-4" data-aos="fade-up">

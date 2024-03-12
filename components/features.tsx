@@ -7,7 +7,7 @@ export default function Features() {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
             <h2 className="h2 mb-4" data-aos="fade-up" data-aos-delay="600">Operační systémy nejsou opensource.</h2>
-            <p className="text-xl text-gray-400" data-aos="fade-up" data-aos-delay="600">Většina operačních systémů v dnešní době nemá věřejný kód. To chci změnit.</p>
+            <p className="text-xl text-gray-400" data-aos="fade-up" data-aos-delay="600">Hodně operačních systémů v dnešní době nemá věřejný kód. To chci změnit.</p>
           </div>
 
           {/* Items */}
@@ -21,7 +21,7 @@ export default function Features() {
                 <path className="stroke-current text-purple-300" d="M43 42h-9M43 37h-9" strokeLinecap="square" strokeWidth="2" />
               </svg>
               <h4 className="h4 mb-2">OpenSource</h4>
-              <p className="text-lg text-gray-400 text-center">Kód je veřejný pro každéno na mém <a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="https://github.com/KLIND-OS/ISO">Githubu</a>.</p>
+              <p className="text-lg text-gray-400 text-center">Kód je veřejný pro každéno na <a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="https://github.com/KLIND-OS/ISO">Githubu</a>.</p>
             </div>
 
             {/* 2nd item */}
