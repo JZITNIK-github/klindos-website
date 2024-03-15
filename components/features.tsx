@@ -21,7 +21,7 @@ export default function Features() {
                 <path className="stroke-current text-purple-300" d="M43 42h-9M43 37h-9" strokeLinecap="square" strokeWidth="2" />
               </svg>
               <h4 className="h4 mb-2">OpenSource</h4>
-              <p className="text-lg text-gray-400 text-center">Kód je veřejný pro každéno na <a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="https://github.com/KLIND-OS/ISO">Githubu</a>.</p>
+              <p className="text-lg text-gray-400 text-center">Kód je veřejný pro každéno na <a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="https://github.com/KLIND-OS">Githubu</a>.</p>
             </div>
 
             {/* 2nd item */}
