@@ -40,7 +40,7 @@ export default function Footer() {
                     <Link href="/changelog" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Changelog</Link>
                   </li>
                   <li className="mb-1">
-                    <a target='_blank' href="https://docs.jzitnik.dev/" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Dokumentace</a>
+                    <a target='_blank' href="https://docs.klindos.jzitnik.dev/" className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out">Dokumentace</a>
                   </li>
                 </ul>
               </div>
