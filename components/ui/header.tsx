@@ -38,13 +38,12 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="/app-creator"
+                <Link
+                  href="/compiler"
                   className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
-                  target="_blank"
                 >
                   Vytváření aplikací
-                </a>
+                </Link>
               </li>
               <li>
                 <Link

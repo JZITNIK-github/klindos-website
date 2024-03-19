@@ -3,7 +3,7 @@ export const metadata = {
   description: 'Developers KLIND OS',
 }
 
-import Hero from '@/components/developers/hero'
+import Hero from '@/components/compiler/hero'
 
 export default function Home() {
   return (
