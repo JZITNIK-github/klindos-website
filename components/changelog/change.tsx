@@ -62,6 +62,7 @@ export default function blogposts() {
                     className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
                     data-aos="fade-up"
                     data-aos-delay="800"
+                    style={{ width: "fit-content" }}
                   >
                     <a target="_blank" href={commit}>
                       {commit.split("/commit/")[1]}
