@@ -24,7 +24,8 @@ export default function Hero() {
               <a
                 target="_blank"
                 className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0"
-                href="https://jzitnik.dev/cloud/KLIND-OS-Packager.mjs/?token=ht7yjLYim3h5w8eMBryDw9cItmAXh2rYF4RYXtgkar5nxln1171xk77rV1JBXmHPvTE9GYrMVw7Ts7kSoKFMWoaVae"
+                href="/downloads/KLIND-OS-Packager.mjs"
+                download
               >
                 Stáhnout packager
               </a>
