@@ -7,7 +7,7 @@ KLIND OS uses rolling release model, just like Arch Linux. Even though KLIND OS 
 Versions in KLIND OS are used to migrate configuration etc.
 
 <div style="display: flex; justify-content: center;">
-    <a href="">
+    <a href="https://www.mediafire.com/file/inkq9kos9q2bs2p/KLINDOS.iso/file">
         {{< btn >}}
 Download here
         {{</ btn >}}
