@@ -1,0 +1,30 @@
+{{ partial "header.html" . }}
+
+<section class="hero">
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Description | markdownify }}</p>
+
+  <div style="display: flex; justify-content: center; gap: 15px;">
+    <a href="download">
+      <button>{{ i18n "download" }}</button>
+    </a>
+    <a href="docs">
+      <button>{{ i18n "docs" }}</button>
+    </a>
+  </div>
+</section>
+
+<div style="margin-top: 100px;">
+  {{ .Content }}
+</div>
+
+<ul class="home-posts">
+{{ range ( where .Site.RegularPages "Type" "post" | first 5 ) }}
+<li class="home-posts-item">
+    <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .PublishDate.Format "2.1.2006" }}</time>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+</li>
+{{end}}
+</ul>
+
+{{ partial "footer.html" . }}

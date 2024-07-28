@@ -1,0 +1,6 @@
+{{ partial "header.html" . }}
+
+<h1 style="margin-bottom: 0;">{{ .Title }}</h1>
+<p style="margin-top: 0; color: #8f8f8f">{{ .Params.author }}</p>
+
+{{ .Content }} {{ partial "footer.html" . }}

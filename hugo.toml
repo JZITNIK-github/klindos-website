@@ -1,0 +1,79 @@
+baseURL = "https://jzitnik.dev"
+title = 'KLIND OS'
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+[markup]
+  [markup.goldmark.parser]
+    wrapStandAloneImageWithinParagraph = false
+  [markup.highlight]
+    style = 'catppuccin-macchiato'
+
+  [markup.goldmark.renderer]
+    unsafe= true
+
+[menu]
+
+[languages]
+  [languages.cs]
+    contentDir = 'content/cs'
+    languageCode = 'cs'
+    languageDirection = 'ltr'
+    languageName = 'Čeština'
+    weight = 1
+    
+    [[languages.cs.menu.main]]
+      identifier = "download"
+      name = "Stáhnout"
+      url = "/cs/download"
+      weight = 10
+
+    [[languages.cs.menu.main]]
+      identifier = "developers"
+      name = "Developers"
+      url = "/cs/developers"
+      weight = 20
+
+    [[languages.cs.menu.main]]
+      identifier = "packager"
+      name = "Vytváření aplikací"
+      url = "/cs/packager"
+      weight = 30
+
+    [[languages.cs.menu.main]]
+      identifier = "posts"
+      name = "Příspěvky"
+      url = "/cs/posts"
+      weight = 40
+
+
+  [languages.en]
+    contentDir = 'content/en'
+    languageCode = 'en-US'
+    languageDirection = 'ltr'
+    languageName = 'English'
+    weight = 2
+    
+    [[languages.en.menu.main]]
+      identifier = "about"
+      name = "Download"
+      url = "/download"
+      weight = 10
+
+    [[languages.en.menu.main]]
+      identifier = "developers"
+      name = "Developers"
+      url = "/developers"
+      weight = 20
+
+    [[languages.en.menu.main]]
+      identifier = "packager"
+      name = "Creating apps"
+      url = "/packager"
+      weight = 30
+
+    [[languages.en.menu.main]]
+      identifier = "posts"
+      name = "Posts"
+      url = "/posts"
+      weight = 40

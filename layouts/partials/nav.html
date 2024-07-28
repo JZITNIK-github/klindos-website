@@ -1,0 +1,15 @@
+<header class="site-header">
+  <nav class="site-nav">
+    <a class="logo" href="/{{ if eq .Site.Language.Lang "en" }}{{ else }}{{ .Site.Language.Lang }}{{ end }}">
+      {{ .Site.Title }}
+    </a>
+    <ul class="main-menu">
+      {{ range.Site.Menus.main }}
+      <li>
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      </li>
+      {{ end }}
+    </ul>
+    {{ partial "allLanguages.html" . }}
+  </nav>
+</header>

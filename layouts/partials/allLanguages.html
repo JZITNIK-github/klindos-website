@@ -1,0 +1,8 @@
+<ul class="main-menu">
+  {{ range $.Site.Home.AllTranslations }}
+    {{ if ne $.Site.Language.Lang .Lang }}
+      <li><a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
+    {{ end }}
+  {{ end }}
+</ul>
+
