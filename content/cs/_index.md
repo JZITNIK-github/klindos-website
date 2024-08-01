@@ -16,7 +16,7 @@ Linux je pouze "bootloader" pro Electron aplikaci která je KLIND OS.
 
 Proč ne. Ale skutečný důvod je ten, že jsem chtěl vytvořit opravdu komplexní web bez jakéhokoli frameworku.
 
-KLIND OS nepoužívá žádný rámec JavaScriptu kromě JQuery, pokud to počítáte.
+KLIND OS nepoužívá žádný framework JavaScriptu kromě JQuery, pokud to počítáte.
 JQuery se používá pouze proto, že používáme JQuery-UI pro možnost pohybování a změny velikosti okna.
 
 # Je KLIND OS bezpečný?
